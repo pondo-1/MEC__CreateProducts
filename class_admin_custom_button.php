@@ -1,18 +1,24 @@
 <?php
 class admin_custom_button
 {
+  public static $log;
   public function __construct()
   {
+    // Log
+    self::$log = new PEDipa_Logger(MEC__CP_DIR . '/Log/create_products.txt');
     add_action('admin_menu', [$this, 'add_admin_menu']);
 
     // Import map marker categories, which is in /assets/markertax
     // add_action('admin_init', [$this, 'handle_import_button']);
     add_action('admin_init', [$this, 'handle_delete_button']);
     add_action('admin_init', [$this, 'handle_products_6_button']);
+    add_action('admin_init', [$this, 'handle_all_variable_products']);
 
     if (defined('WP_CLI') && WP_CLI) {
       WP_CLI::add_command('convert', array($this, 'convert_text_file_to_json'));
-      WP_CLI::add_command('create_products', array($this, 'create_products_from_json'));
+      // WP_CLI::add_command('create_products', array($this, 'create_products_from_json'));
+
+      WP_CLI::add_command('delete_all_products', array($this, 'delete_all_products_and_attachments'));
       WP_CLI::add_command('create_products_from_remote', array($this, 'create_products_from_remote_json'));
     }
   }
@@ -46,6 +52,19 @@ class admin_custom_button
       <br>
       <form method="post" action="">
         <?php submit_button('Generate only first 6 Products', 'primary', 'generates_6_products'); ?>
+        Better with WP CLI than button
+        <pre>
+        $wp create_products_from_remote --num=6
+        </pre>
+      </form>
+      <br>
+      <br>
+      <form method="post" action="">
+        <?php submit_button('Generate all variable Products with variants', 'primary', 'create_all_variable_products'); ?>
+        Better with WP CLI than button
+        <pre>
+        $wp create_products_from_remote --num=-1
+        </pre>
       </form>
       <br>
       <?php
@@ -57,6 +76,10 @@ class admin_custom_button
       ?>
       <form method="post" action="">
         <?php submit_button('Delete All Products', 'secondary', 'delete_all_products'); ?>
+        Better with WP CLI than button
+        <pre>
+        $wp delete_all_products
+        </pre>
       </form>
       <br>
     </div>
@@ -67,7 +90,7 @@ class admin_custom_button
   {
     if (isset($_POST['delete_all_products'])) {
 
-      $this->delete_all_products_and_attachments();
+      $this->delete_all_products_and_attachments("wp_admin");
       add_action('admin_notices', function () {
         echo '<div class="notice notice-warning is-dismissible"><p>All Products and their metadata have been deleted.</p></div>';
       });
@@ -77,16 +100,83 @@ class admin_custom_button
   public function handle_products_6_button()
   {
     if (isset($_POST['generates_6_products'])) {
-
-      $this->create_products_from_remote_json(null, null);
+      $assoc_args['num'] = 6;
+      $assoc_args['where'] = "wp_admin";
+      $this->create_products_from_remote_json(null, $assoc_args);
       add_action('admin_notices', function () {
         echo '<div class="notice notice-warning is-dismissible"><p> done </p></div>';
       });
     }
   }
 
-  function delete_all_products_and_attachments()
+  public function   handle_all_variable_products()
   {
+    if (isset($_POST['create_all_variable_products'])) {
+      $assoc_args['num'] = -1;
+      $assoc_args['where'] = "wp_admin";
+      $this->create_products_from_remote_json(null, $assoc_args);
+      add_action('admin_notices', function () {
+        echo '<div class="notice notice-warning is-dismissible"><p> done </p></div>';
+      });
+    }
+  }
+
+
+
+  function delete_all_products_and_attachments($where = "wp_CLI")
+  {
+
+    if ($where != "wp_admin") {
+      WP_CLI::log("Delete all");
+    }
+
+    global $wpdb;
+
+    // 1. Delete orphaned metadata from wp_postmeta
+    $orphaned_meta_query = "
+        DELETE pm 
+        FROM {$wpdb->postmeta} pm
+        LEFT JOIN {$wpdb->posts} p ON pm.post_id = p.ID
+        WHERE p.ID IS NULL
+    ";
+    $wpdb->query($orphaned_meta_query);
+
+    // 2. Delete orphaned entries in wp_wc_product_meta_lookup
+    $orphaned_product_meta_query = "
+        DELETE pml
+        FROM {$wpdb->prefix}wc_product_meta_lookup pml
+        LEFT JOIN {$wpdb->posts} p ON pml.product_id = p.ID
+        WHERE p.ID IS NULL
+    ";
+    $wpdb->query($orphaned_product_meta_query);
+
+    // 1. Find and delete orphaned product variations
+    $orphaned_variations_query = "
+        DELETE v
+        FROM {$wpdb->posts} v
+        LEFT JOIN {$wpdb->posts} p ON v.post_parent = p.ID
+        WHERE v.post_type = 'product_variation'
+        AND p.ID IS NULL
+    ";
+    $wpdb->query($orphaned_variations_query);
+
+    // 2. Clean up orphaned metadata from wp_postmeta
+    $orphaned_meta_query = "
+        DELETE pm
+        FROM {$wpdb->postmeta} pm
+        LEFT JOIN {$wpdb->posts} p ON pm.post_id = p.ID
+        WHERE p.ID IS NULL
+    ";
+    $wpdb->query($orphaned_meta_query);
+
+    // 3. Clean up orphaned entries in wp_wc_product_meta_lookup
+    $orphaned_product_meta_query = "
+        DELETE pml
+        FROM {$wpdb->prefix}wc_product_meta_lookup pml
+        LEFT JOIN {$wpdb->posts} p ON pml.product_id = p.ID
+        WHERE p.ID IS NULL
+    ";
+    $wpdb->query($orphaned_product_meta_query);
     // Fetch all products
     $args = array(
       'post_type' => 'product',
@@ -172,34 +262,50 @@ class admin_custom_button
     }
   }
 
-  function create_products($products_data, $num = 0)
+  function create_products($wp_CLI_exist = 1, $products_data, $num = 0, $start = 0)
   {
     if (empty($products_data)) {
       return rest_ensure_response(array('error' => 'No products found.'));
     }
     $counts = 0;
     foreach ($products_data as $product) {
-      if ($product['products_type'] == 'Variable') {
-        $parent_id = $this->create_wc_variable_product($product);
-        $counts++;
-        // Store progress in a transient
-        set_transient('product_generation_progress', "$counts out of $num products generated", 60);
+      $counts++;
+      if ($start > $counts + 1) {
+        continue;
       }
-      if ($counts + 1 > $num) {
-        exit;
+      // check if sku already used
+      $productID = wc_get_product_id_by_sku($product['sku']);
+      if (!$productID) {
+        if ($product['products_type'] == 'Variable') {
+          $parent_id = $this->create_wc_variable_product($product);
+          if ($wp_CLI_exist) {
+            WP_CLI::log("Processed product number: $counts");
+          }
+        }
+        if ($counts + 1 > $num) {
+          exit;
+        }
+      } else {
+        self::$log->putLog("Product ID");
+        self::$log->putLog($productID);
+        self::$log->putLog("sku");
+        self::$log->putLog($product['sku']);
       }
     }
   }
 
-  function create_products_from_remote_json($args, $assoc_args)
+  function create_products_from_remote_json($arg, $assoc_args)
   {
     if (isset($assoc_args['num'])) {
       $number_to_generate =  $assoc_args['num'];
-    } else $number_to_generate =  6;
-
+    } else $number_to_generate =  0;
+    $wp_CLI_exist = null;
+    if (!isset($assoc_args['where'])) {
+      $wp_CLI_exist = 1;
+    }
 
     // Set up external WooCommerce API credentials
-    $external_wc_api_url = 'https://mec.pe-dev.de/wp-json/custom-api/v1/products-json';
+    $external_wc_api_url = 'https://mec.pe-dev.de/wp-json/mec-api/v1/products-json/';
 
     // Use wp_remote_get to fetch data from the external WooCommerce API
     $response = wp_remote_get($external_wc_api_url, array(
@@ -213,43 +319,17 @@ class admin_custom_button
     $products_json = json_decode(wp_remote_retrieve_body($response), true);
     $products_data = $products_json["product_data"];
 
-
-    $this->create_products($products_data, $number_to_generate);
-
-    // Clear the transient after process completes
-    delete_transient('product_generation_progress');
-
+    if ($wp_CLI_exist) {
+      WP_CLI::log($wp_CLI_exist);
+    }
+    $start = 43;
+    $this->create_products($wp_CLI_exist, $products_data, $number_to_generate, $start);
 
     // Return the processed product data as a JSON response
     // return rest_ensure_response($products_json);
   }
 
 
-  function create_products_from_json($args, $assoc_args)
-  {
-    $json_path = $assoc_args['file'];
-    $number_to_generate =  $assoc_args['num'];
-
-    $products = json_decode(file_get_contents($json_path), true);
-    $counts = 0;
-
-    foreach ($products as $product_data) {
-      if ($product_data['products_type'] == 'Variable') {
-        $parent_id = $this->create_wc_variable_product($product_data);
-
-        // foreach ($product_data['attribute'] as $attribute_name => $variants) {
-        //   foreach ($variants as $variant) {
-        //     $this->create_product_variation($parent_id, $attribute_name, $variant);
-        //   }
-        // }
-        $counts++;
-        // WP_CLI::log("Processed product number: $counts");
-      }
-      if ($counts > $number_to_generate) {
-        exit;
-      }
-    }
-  }
 
   function create_wc_variable_product($product_data)
   {
@@ -294,11 +374,22 @@ class admin_custom_button
           sanitize_title($attribute_name) => $variant_product['variant'] // Ensure attribute name is sanitized
         ]);
 
-        // Set other properties like price, SKU, etc.
-        $variation->set_regular_price($variant_product['price']);
-        $variation->set_sku($variant_product['sku']);
-        $variation->set_status('publish');
-        $variation->save();
+        // Check if the SKU already exists
+        $existing_product_id = wc_get_product_id_by_sku($variant_product['sku']);
+        if ($existing_product_id) {
+          // Handle the case where the SKU already exists
+          // You could log an error, throw an exception, or skip creating the variation
+          self::$log->putLog("parent ID");
+          self::$log->putLog($parent_id);
+          self::$log->putLog("sku");
+          self::$log->putLog($variant_product['sku']);
+        } else {
+          // Set other properties like price, SKU, etc.
+          $variation->set_regular_price($variant_product['price']);
+          $variation->set_sku($variant_product['sku']);
+          $variation->set_status('publish');
+          $variation->save();
+        }
       }
     }
   }
