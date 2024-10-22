@@ -10,17 +10,28 @@ Author: Page-effect
         /js
             process-display.js
     /includes
+        /Utils
+            Utils.php
         /Admin
             AdminPage.php
         /API
-            APIHandler.php
+            APIHandler.php 
         /Product
             ProductGenerator.php
         /Log
             Logger.php
     MEC__CreateProducts.php
 
-*/
+
+    Eingabe
+    Vorarbeitung
+    Ausgabe
+
+    user-interface (view), 
+    data (model),
+    application logic (controller)
+    
+    */
 
 
 if (!defined('ABSPATH')) die('No direct access allowed');
@@ -38,15 +49,23 @@ spl_autoload_register(function ($class_name) {
     if (file_exists($file)) {
       require_once $file;
     } else {
-      error_log("Failed to load file??: " . $file);
+      error_log("Failed to load file: " . $file);
     }
   }
 });
 
-// Initialize Logger as a global variable
-global $my_plugin_logger;
-$my_plugin_logger = new \MEC__CreateProducts\Log\Logger('product-import-log.txt');
+// Initialize Logger as a globally accessible object via the Utils class
+use MEC__CreateProducts\Admin\AdminPage;
 
+// Initialize plugin components
+function mec_create_products_plugin_init()
+{
+  //API Verbereitung: Save the Info in Json in Plugin directory. Total, Single, Variable, Variant, Variable with variant, Extra  
+  // Show the berife report in Admin Page 
+  // Initialize Admin Page (Register menu and handle admin actions)
+  new AdminPage();
+}
+add_action('plugins_loaded', 'mec_create_products_plugin_init');
 
 
 // log: Set global log instance for this plugin
@@ -55,6 +74,6 @@ $my_plugin_logger = new \MEC__CreateProducts\Log\Logger('product-import-log.txt'
 
 //Log 
 //log class
-require_once MEC__CP_DIR . '/Log/logger.class.php';
-require_once(MEC__CP_DIR . '/' . 'class_MEC_Products.php');
-$instance_MEC_Products = new MEC_Products();
+// require_once MEC__CP_DIR . '/Log/logger.class.php';
+// require_once(MEC__CP_DIR . '/' . 'class_MEC_Products.php');
+// $instance_MEC_Products = new MEC_Products();

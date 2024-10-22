@@ -1,11 +1,18 @@
 <?php
+
+
+use MEC__CreateProducts\Utils\Utils;
+
 class admin_custom_button
 {
-  public static $log;
+  private $log;
   public function __construct()
   {
     // Log
-    self::$log = new PEDipa_Logger(MEC__CP_DIR . '/Log/create_products.txt');
+    $this->log = Utils::getLogger(); // Access the logger using the utility class
+
+
+    // self::$log = new PEDipa_Logger(MEC__CP_DIR . '/Log/create_products.txt');
     add_action('admin_menu', [$this, 'add_admin_menu']);
 
     // Import map marker categories, which is in /assets/markertax
@@ -286,10 +293,10 @@ class admin_custom_button
           exit;
         }
       } else {
-        self::$log->putLog("Product ID");
-        self::$log->putLog($productID);
-        self::$log->putLog("sku");
-        self::$log->putLog($product['sku']);
+        $this->log->putLog("Product ID");
+        $this->log->putLog($productID);
+        $this->log->putLog("sku");
+        $this->log->putLog($product['sku']);
       }
     }
   }
