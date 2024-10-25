@@ -2,7 +2,6 @@
 
 namespace MEC__CreateProducts\Utils;
 
-use MEC__CreateProducts\Utils\Utils;
 
 class AdminButton
 {
@@ -45,6 +44,13 @@ class AdminButton
   public function returnTableButtonHtml($button_text = '', $button_type = '', $description_html = '')
   {
     $html = null;
+    $html = null;
+    if ($button_text == '') {
+      $button_text = $this->action_name;
+    }
+    if ($button_type == '') {
+      $button_type = 'primary';
+    }
     if ($description_html == '') {
       $description_html = 'This button for the follwoing action: ' . $this->action_name;
     }

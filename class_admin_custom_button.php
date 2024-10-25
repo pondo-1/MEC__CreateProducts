@@ -329,7 +329,7 @@ class admin_custom_button
     if ($wp_CLI_exist) {
       WP_CLI::log($wp_CLI_exist);
     }
-    $start = 43;
+    $start = 0;
     $this->create_products($wp_CLI_exist, $products_data, $number_to_generate, $start);
 
     // Return the processed product data as a JSON response

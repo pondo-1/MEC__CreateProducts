@@ -77,18 +77,30 @@ class AdminPage
 
     // Save Json to as Local file
     $from_pe_dev = new SaveToLocal;
-    $from_pe_dev::setTarget('https://mec.pe-dev.de/wp-json/wp/v2/posts');
+    $from_pe_dev->setTarget('https://mec.pe-dev.de/wp-json/mec-api/v1/products-json/');
     if (isset($_POST['save_to_local'])) {
       $this->log->putLog("Button Clicked: 'save_to_local'");
       call_user_func([$from_pe_dev, 'saveJsonToFile']);
     }
+
+    // Seperate data all -> all, single, variable, variant, variableWvariant?
+
     // Start output buffering
     ob_start();
   ?>
+
     <?php
+
+    // Save to local button. this generate local file products_all.json 
     $from_pe_dev_button = new AdminButton('save_to_local', [$from_pe_dev, 'saveJsonToFile']);
-    echo $from_pe_dev_button->returnTableButtonHtml();
+    $file_exist = $from_pe_dev->getFilePath();
+    $description = 'Last modified: ' . $file_exist . '<br>' . 'Save the json(https://mec.pe-dev.de/wp-json/mec-api/v1/products-json/) to local directory';
+    echo $from_pe_dev_button->returnTableButtonHtml('get Json', '', $description);
+
+    // Seperates data and save it local products. products overview. variable products mit variant. single products, the rest
     ?>
+
+
 <?php
     $html = ob_get_clean();
 

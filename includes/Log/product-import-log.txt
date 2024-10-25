@@ -7,3 +7,19 @@
 2024-10-22 22:55:11 ; Button Clicked: 'save_to_local'
 2024-10-22 23:23:59 ; Button Clicked: 'save_to_local'
 2024-10-22 23:23:59 ; Button Clicked: 'save_to_local'
+2024-10-23 20:06:19 ; Button Clicked: 'save_to_local'
+2024-10-23 20:06:19 ; Button Clicked: 'save_to_local'
+2024-10-23 21:07:30 ; Button Clicked: 'save_to_local'
+2024-10-23 21:07:30 ; Button Clicked: 'save_to_local'
+2024-10-23 21:08:42 ; Button Clicked: 'save_to_local'
+2024-10-23 21:08:42 ; Button Clicked: 'save_to_local'
+2024-10-23 21:12:13 ; Button Clicked: 'save_to_local'
+2024-10-23 21:12:13 ; Button Clicked: 'save_to_local'
+2024-10-23 21:21:03 ; Button Clicked: 'save_to_local'
+2024-10-23 21:21:03 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_all.json
+2024-10-23 21:21:03 ; Button Clicked: 'save_to_local'
+2024-10-23 21:21:03 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_all.json
+2024-10-24 17:02:48 ; Button Clicked: 'save_to_local'
+2024-10-24 17:02:48 ; Error: cURL error 6: Could not resolve host: mec.pe-dev.de
+2024-10-24 17:02:48 ; Button Clicked: 'save_to_local'
+2024-10-24 17:02:48 ; Error: cURL error 6: Could not resolve host: mec.pe-dev.de

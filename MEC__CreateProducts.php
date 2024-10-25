@@ -54,16 +54,14 @@ spl_autoload_register(function ($class_name) {
   }
 });
 
-// Initialize Logger as a globally accessible object via the Utils class
-use MEC__CreateProducts\Admin\AdminPage;
-
 // Initialize plugin components
 function mec_create_products_plugin_init()
 {
-  //API Verbereitung: Save the Info in Json in Plugin directory. Total, Single, Variable, Variant, Variable with variant, Extra  
-  // Show the berife report in Admin Page 
+
   // Initialize Admin Page (Register menu and handle admin actions)
-  new AdminPage();
+  new  MEC__CreateProducts\Admin\AdminPage();
+
+  //API Verbereitung: Save the Info in Json in Plugin directory. Total, Single, Variable, Variant, Variable with variant, Extra  
 }
 add_action('plugins_loaded', 'mec_create_products_plugin_init');
 
