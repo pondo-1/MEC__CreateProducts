@@ -3,6 +3,7 @@
 namespace MEC__CreateProducts\Admin;
 
 use MEC__CreateProducts\API\SaveToLocal;
+use MEC__CreateProducts\API\PrepareJson;
 use MEC__CreateProducts\Utils\Utils;
 use MEC__CreateProducts\Utils\AdminButton;
 
@@ -77,13 +78,18 @@ class AdminPage
 
     // Save Json to as Local file
     $from_pe_dev = new SaveToLocal;
-    $from_pe_dev->setTarget('https://mec.pe-dev.de/wp-json/mec-api/v1/products-json/');
+    $from_pe_dev->setTarget('https://mec.pe-dev.de/wp-json/mec-api/v1/products/');
     if (isset($_POST['save_to_local'])) {
       $this->log->putLog("Button Clicked: 'save_to_local'");
       call_user_func([$from_pe_dev, 'saveJsonToFile']);
     }
 
     // Seperate data all -> all, single, variable, variant, variableWvariant?
+    $LocalJsonProcess = new PrepareJson();
+    if (isset($_POST['separate_products'])) {
+      $this->log->putLog("Button Clicked: 'separate_products'");
+      call_user_func([$LocalJsonProcess, 'separateProducts']);
+    }
 
     // Start output buffering
     ob_start();
@@ -92,16 +98,31 @@ class AdminPage
     <?php
 
     // Save to local button. this generate local file products_all.json 
-    $from_pe_dev_button = new AdminButton('save_to_local', [$from_pe_dev, 'saveJsonToFile']);
+    $from_pe_dev_button = new AdminButton('save_to_local');
     $file_exist = $from_pe_dev->getFilePath();
-    $description = 'Last modified: ' . $file_exist . '<br>' . 'Save the json(https://mec.pe-dev.de/wp-json/mec-api/v1/products-json/) to local directory';
+    $description = 'Last modified: ' . $file_exist . '<br>' . 'Save the json(https://mec.pe-dev.de/wp-json/mec-api/v1/products/) to local directory';
     echo $from_pe_dev_button->returnTableButtonHtml('get Json', '', $description);
 
     // Seperates data and save it local products. products overview. variable products mit variant. single products, the rest
+    $LocalJsonProcess_button = new AdminButton('separate_products');
+    $description = 'if there is a products_all.json, which has all products data, then data will be seperated by its type';
+    echo $LocalJsonProcess_button->returnTableButtonHtml('prepare data', '', $description);
+
+    if ($LocalJsonProcess->fileExist()):
     ?>
-
-
+      <div>
+        if the all the processes from the upper buttons are succesfully finished, the endpoints automatically set
+        <br>
+        <a href="<?php //echo $LocalJsonProcess->EndpointUrl('single'); 
+                  ?>">Single Products(Single is not ready)</a>
+        <a href="<?php echo $LocalJsonProcess->EndpointUrl('variable'); ?>">Variable Products</a>
+        <a href="<?php echo $LocalJsonProcess->EndpointUrl('variant'); ?>">Variant Products</a>
+        <a href="<?php echo $LocalJsonProcess->EndpointUrl('extra'); ?>">Entra Products</a>
+      </div>
 <?php
+    endif;
+
+
     $html = ob_get_clean();
 
     return $html;

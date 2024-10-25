@@ -23,3 +23,95 @@
 2024-10-24 17:02:48 ; Error: cURL error 6: Could not resolve host: mec.pe-dev.de
 2024-10-24 17:02:48 ; Button Clicked: 'save_to_local'
 2024-10-24 17:02:48 ; Error: cURL error 6: Could not resolve host: mec.pe-dev.de
+2024-10-25 13:23:03 ; Button Clicked: 'save_to_local'
+2024-10-25 13:23:03 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_all.json
+2024-10-25 13:23:03 ; Button Clicked: 'save_to_local'
+2024-10-25 13:23:03 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_all.json
+2024-10-25 15:26:26 ; Button Clicked: 'separate_products'
+2024-10-25 15:26:59 ; Button Clicked: 'separate_products'
+2024-10-25 15:27:51 ; Button Clicked: 'separate_products'
+2024-10-25 15:27:51 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
+2024-10-25 15:27:51 ; Button Clicked: 'separate_products'
+2024-10-25 15:27:51 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
+2024-10-25 15:32:27 ; Button Clicked: 'separate_products'
+2024-10-25 15:32:27 ; 14770
+2024-10-25 15:32:27 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
+2024-10-25 15:32:27 ; Button Clicked: 'separate_products'
+2024-10-25 15:32:27 ; 14770
+2024-10-25 15:32:27 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
+2024-10-25 15:34:56 ; Button Clicked: 'separate_products'
+2024-10-25 15:34:56 ; Array
+(
+    [name] => ZYLINDER
+    [freifeld6] => 
+    [freifeld6Array] => Array
+        (
+            [0] => 
+        )
+
+    [info] => Array
+        (
+            [description] => 
+            [image] => 
+        )
+
+)
+
+2024-10-25 15:34:56 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
+2024-10-25 15:34:56 ; Button Clicked: 'separate_products'
+2024-10-25 15:34:56 ; Array
+(
+    [name] => ZYLINDER
+    [freifeld6] => 
+    [freifeld6Array] => Array
+        (
+            [0] => 
+        )
+
+    [info] => Array
+        (
+            [description] => 
+            [image] => 
+        )
+
+)
+
+2024-10-25 15:34:56 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
+2024-10-25 15:38:44 ; Button Clicked: 'separate_products'
+2024-10-25 15:38:44 ; Array
+(
+    [name] => ZYLINDER
+    [freifeld6] => 
+    [freifeld6Array] => Array
+        (
+            [0] => 
+        )
+
+    [info] => Array
+        (
+            [description] => 
+            [image] => 
+        )
+
+)
+
+2024-10-25 15:38:44 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
+2024-10-25 15:38:44 ; Button Clicked: 'separate_products'
+2024-10-25 15:38:44 ; Array
+(
+    [name] => ZYLINDER
+    [freifeld6] => 
+    [freifeld6Array] => Array
+        (
+            [0] => 
+        )
+
+    [info] => Array
+        (
+            [description] => 
+            [image] => 
+        )
+
+)
+
+2024-10-25 15:38:44 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.

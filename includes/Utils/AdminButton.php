@@ -7,12 +7,10 @@ class AdminButton
 {
   private $log;
   private $action_name;
-  private $callback;
 
-  public function __construct($action_name, $callback)
+  public function __construct($action_name)
   {
     $this->action_name = $action_name;
-    $this->callback = $callback;
   }
 
   public function returnButtonHtml($button_text = '', $button_type = '', $description_html = '')
