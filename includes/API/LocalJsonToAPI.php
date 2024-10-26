@@ -6,7 +6,7 @@ use MEC__CreateProducts\Utils\Utils;
 
 //Show products. products overview. variable products mit variant. single products, the rest
 
-class PrepareJson
+class LocalJsonToAPI
 {
   private $mec_api_url = '/wp-json/mec-api/v1/products/';
   private $filePath = __DIR__ . DIRECTORY_SEPARATOR . 'products_all.json';
@@ -34,7 +34,7 @@ class PrepareJson
 
       return "products_single.json, products_variable.json generated ";
     } else {
-      $this->log->putLog('@PrepareJson =>>  Could not find the file: ' . $this->filePath);
+      $this->log->putLog('@PrepareJsonLocal =>>  Could not find the file: ' . $this->filePath);
     }
   }
 
@@ -80,5 +80,12 @@ class PrepareJson
       // filter only single 
     }
   }
+
   public function setEndpoint() {}
+
+  public function EndpointUrl($endpoint)
+  {
+    if ($endpoint != '') return $this->mec_api_url . '/' . $endpoint . '/';
+    else return '';
+  }
 }
