@@ -40,7 +40,7 @@ define('MEC__CP_DIR', dirname(__FILE__)); // ..../public/wp-content/plugins/MEC_
 define('MEC__CP_URL', plugins_url('', __FILE__));
 define('MEC__CP_PLUGIN_SLUG', plugin_basename(__FILE__));
 define('MEC__CP_APIURL', '/wp-json/mec-api/v1/products/');
-define('MEC__CP_API_Data_DIR', __DIR__ . DIRECTORY_SEPARATOR . 'API');  // ../public/wp-content/plugins/MEC__CreateProducts/API
+define('MEC__CP_API_Data_DIR', dirname(__FILE__) . DIRECTORY_SEPARATOR . 'API');  // ../public/wp-content/plugins/MEC__CreateProducts/API
 
 // Autoload classes
 spl_autoload_register(function ($class_name) {

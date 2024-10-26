@@ -139,7 +139,7 @@ class admin_custom_button
 
     global $wpdb;
 
-    // 1. Delete orphaned metadata from wp_postmeta
+    // 1. Löschen von verwaisten Metadaten aus wp_postmeta
     $orphaned_meta_query = "
         DELETE pm 
         FROM {$wpdb->postmeta} pm
@@ -148,7 +148,7 @@ class admin_custom_button
     ";
     $wpdb->query($orphaned_meta_query);
 
-    // 2. Delete orphaned entries in wp_wc_product_meta_lookup
+    // 2. Löschen von verwaisten Einträgen in wp_wc_product_meta_lookup
     $orphaned_product_meta_query = "
         DELETE pml
         FROM {$wpdb->prefix}wc_product_meta_lookup pml
@@ -157,7 +157,7 @@ class admin_custom_button
     ";
     $wpdb->query($orphaned_product_meta_query);
 
-    // 1. Find and delete orphaned product variations
+    // 3. Finden und Löschen verwaister Produktvarianten
     $orphaned_variations_query = "
         DELETE v
         FROM {$wpdb->posts} v
@@ -167,23 +167,41 @@ class admin_custom_button
     ";
     $wpdb->query($orphaned_variations_query);
 
-    // 2. Clean up orphaned metadata from wp_postmeta
-    $orphaned_meta_query = "
-        DELETE pm
+    // Delete all attachment, or Featured Images
+    // 4. Entfernen von Thumbnails und Featured Images für gelöschte Produkte
+    $products_with_images_query = "
+        SELECT pm.meta_value AS attachment_id
         FROM {$wpdb->postmeta} pm
         LEFT JOIN {$wpdb->posts} p ON pm.post_id = p.ID
-        WHERE p.ID IS NULL
+        WHERE pm.meta_key IN ('_thumbnail_id', '_wp_attached_file') 
+        AND p.ID IS NULL
     ";
-    $wpdb->query($orphaned_meta_query);
+    $attachment_ids = $wpdb->get_col($products_with_images_query);
 
-    // 3. Clean up orphaned entries in wp_wc_product_meta_lookup
-    $orphaned_product_meta_query = "
-        DELETE pml
-        FROM {$wpdb->prefix}wc_product_meta_lookup pml
-        LEFT JOIN {$wpdb->posts} p ON pml.product_id = p.ID
-        WHERE p.ID IS NULL
+    foreach ($attachment_ids as $attachment_id) {
+      // Bild und zugehörige Metadaten vollständig löschen
+      wp_delete_attachment($attachment_id, true);
+    }
+
+    // Optional: Bereinigung von Transienten
+    $wpdb->query("DELETE FROM {$wpdb->options} WHERE option_name LIKE ('_transient_wc%')");
+
+    // Delete all Medien
+    // 4. Bereinigung aller verwaisten Medien
+    $orphaned_media_query = "
+        SELECT p.ID 
+        FROM {$wpdb->posts} p
+        LEFT JOIN {$wpdb->postmeta} pm ON p.ID = pm.meta_value
+        WHERE p.post_type = 'attachment' 
+        AND pm.meta_value IS NULL
     ";
-    $wpdb->query($orphaned_product_meta_query);
+    $media_ids = $wpdb->get_col($orphaned_media_query);
+
+
+
+
+
+
     // Fetch all products
     $args = array(
       'post_type' => 'product',
