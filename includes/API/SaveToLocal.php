@@ -62,6 +62,7 @@ class SaveToLocal
   public function getFilePath()
   {
     $filePath = __DIR__ . DIRECTORY_SEPARATOR . $this->filename;
+    $this->log->putLog($filePath);
     // Check if the file exists
     if (file_exists($filePath)) {
       // Get the file modification time as a Unix timestamp

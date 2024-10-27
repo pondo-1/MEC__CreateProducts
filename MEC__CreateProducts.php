@@ -10,16 +10,40 @@ Author: Page-effect
         /js
             process-display.js
     /includes
-        /Utils
-            Utils.php
         /Admin
+              // This is for Admin option page
             AdminPage.php
         /API
-            APIHandler.php 
-        /Product
-            ProductGenerator.php
+              // Get Products data from mec.pe-dev.de(WC instance 1) and save the file  /includes/API/products_all.json
+            SaveToLocal.php
+            
+              // seperate products from products_all.json by products type(single, variable, variant and extra) and save it prodcut_type.json
+              // variable   -> freifeld6 has '-M'
+              // variant    -> freifeld6 has variable product's SKU
+              // single     -> freifeld6 has neither '-M' nor 'variable product's SKU'
+              // extra      -> the products that does not satisfy any condition for products types  
+            PrepareJsonLocal.php
+            
+              //Register Endpoints
+              // /wp-json/mec-api/v1/products/product_all
+              // /wp-json/mec-api/v1/products/product_variable
+              // /wp-json/mec-api/v1/products/product_variant
+              // /wp-json/mec-api/v1/products/product_single
+              // /wp-json/mec-api/v1/products/product_extra
+            LocalJsonToAPI.php
+
         /Log
+              // Logger Class, that used in Utils/Utils.php
             Logger.php
+
+        /Utils
+              //The purpose of the Utils class in this code is to provide a convenient, 
+              //centralized way to access a shared Logger instance 
+              //across different parts of the codebase without needing to create multiple Logger instances.
+            Utils.php
+
+            AdminButton.php
+            
     MEC__CreateProducts.php
 
 
@@ -40,7 +64,7 @@ define('MEC__CP_DIR', dirname(__FILE__)); // ..../public/wp-content/plugins/MEC_
 define('MEC__CP_URL', plugins_url('', __FILE__));
 define('MEC__CP_PLUGIN_SLUG', plugin_basename(__FILE__));
 define('MEC__CP_APIURL', '/wp-json/mec-api/v1/products/');
-define('MEC__CP_API_Data_DIR', dirname(__FILE__) . DIRECTORY_SEPARATOR . 'API');  // ../public/wp-content/plugins/MEC__CreateProducts/API
+define('MEC__CP_API_Data_DIR', dirname(__FILE__) . '/includes/API/');  // ../public/wp-content/plugins/MEC__CreateProducts/API
 
 // Autoload classes
 spl_autoload_register(function ($class_name) {
@@ -56,16 +80,14 @@ spl_autoload_register(function ($class_name) {
   }
 });
 $log = MEC__CreateProducts\Utils\Utils::getLogger();
-$log->putLog('MEC__CP_DIR: ' . MEC__CP_DIR);
-$log->putLog('MEC__CP_API_Data_DIR: ' . MEC__CP_API_Data_DIR);
-
 // Initialize plugin components
-function mec_create_products_plugin_init()
-{
-
-  // Initialize Admin Page (Register menu and handle admin actions)
-  new  MEC__CreateProducts\Admin\AdminPage();
+// function mec_create_products_plugin_init()
+// {
+$log->putLog("plugin load?");
+// Initialize Admin Page (Register menu and handle admin actions)
+new MEC__CreateProducts\Admin\AdminPage();
+new MEC__CreateProducts\API\LocalJsonToAPI();
 
   //API Verbereitung: Save the Info in Json in Plugin directory. Total, Single, Variable, Variant, Variable with variant, Extra  
-}
-add_action('plugins_loaded', 'mec_create_products_plugin_init');
+// }
+// add_action('plugins_loaded', 'mec_create_products_plugin_init');

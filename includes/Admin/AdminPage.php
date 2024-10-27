@@ -4,6 +4,7 @@ namespace MEC__CreateProducts\Admin;
 
 use MEC__CreateProducts\API\SaveToLocal;
 use MEC__CreateProducts\API\PrepareJsonLocal;
+
 use MEC__CreateProducts\Utils\Utils;
 use MEC__CreateProducts\Utils\AdminButton;
 
@@ -105,22 +106,21 @@ class AdminPage
     <div>
       if the all the processes from the upper buttons are succesfully finished, the endpoints automatically set
       <br>
-      <a href="<?php //echo $LocalJsonProcess->EndpointUrl('single'); 
-                ?>">Single Products(Single is not ready)</a>
+      <a href="<?php echo MEC__CP_APIURL . 'all/'; ?>" target="_blank">All Products</a>
       <br>
-      <a href="<?php echo $LocalJsonProcess->EndpointUrl('variable'); ?>" target="_blank">Variable Products</a>
+      <a href="<?php echo MEC__CP_APIURL . 'variable/'; ?>" target="_blank">Variable Products</a>
       <br>
-      <a href="<?php echo $LocalJsonProcess->EndpointUrl('variant'); ?>" target="_blank">Variant Products</a>
+      <a href="<?php echo MEC__CP_APIURL . 'variant/'; ?>" target="_blank">Variant Products</a>
       <br>
-      <a href="<?php echo $LocalJsonProcess->EndpointUrl('extra'); ?>" target="_blank">Entra Products</a>
+      <a href="<?php echo MEC__CP_APIURL . 'single/'; ?>" target="_blank">Single Products</a>
+      <br>
+      <a href="<?php echo MEC__CP_APIURL . 'extra/'; ?>" target="_blank">Entra Products</a>
     </div>
 <?php
-    // endif;
+    // endif;  
 
     $description = ob_get_clean();
     $html .= $LocalJsonProcess_button->returnTableButtonHtml('prepare data', '', $description);
-
-
     return $html;
   }
 

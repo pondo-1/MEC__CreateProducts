@@ -3,89 +3,96 @@
 namespace MEC__CreateProducts\API;
 
 use MEC__CreateProducts\Utils\Utils;
+use WP_Error;
 
-//Show products. products overview. variable products mit variant. single products, the rest
-
+// Klasse zur Bereitstellung von Produktdaten aus JSON-Dateien, die in Local legt, über eine API
 class LocalJsonToAPI
 {
-  private $mec_api_url = '/wp-json/mec-api/v1/products/';
-  private $filePath = __DIR__ . DIRECTORY_SEPARATOR . 'products_all.json';
+  // Logger-Instanz zur Aufzeichnung von Log-Meldungen
   private $log = null;
 
-  public function __construct($filePath = '')
+  // Konstruktor: Initialisiert die Logger-Instanz und startet den Datei-Überprüfungsprozess
+  public function __construct()
   {
-    //set Default
-    if (!$filePath == '') {
-      $this->filePath = $filePath;
-    }
-
-    // Check if the file exists
-    // 1. Single
-    // 2. Variable Product with variant 
-    //    2.1. only  Variable Products 
-    //    2.2 only    variants Prducts
-    // 3. Extra/ Unknown 
     $this->log = Utils::getLogger();
+    $this->prepareTheFile();
   }
 
+
+  // Überprüft, ob 'products_all.json' existiert und teilt die Produkte auf, wenn nötig
   public function prepareTheFile()
   {
-    if (file_exists($this->filePath)) {
+    // Prüft, ob die Datei 'products_all.json' existiert
+    if (file_exists(MEC__CP_API_Data_DIR . 'products_all.json')) {
+      // Definiert die verschiedenen Produkttypen
+      $types = ['all', 'variable', 'variant', 'single', 'extra'];
+      foreach ($types as $index => $product_type) {
+        $i = 0;
+        // Prüft, ob die Datei für den Produkttyp existiert
+        if (file_exists(MEC__CP_API_Data_DIR . 'products_' . $product_type . '.json')) {
+          $i++;
+          // Falls alle spezifischen Dateien fehlen, erstellt sie die separaten Produktdateien
+          if ($i == 5) {
+            $this->log->putLog('files are not ready');
+          }
+          // Fügt Endpunkte für die vorhandenen Produkttypen hinzu
+          $this->log->putLog('product_' . $product_type . '.json is already there and set the endpoint');
+          $this->setAPI__products_($product_type);
+        }
+      }
+    }
+  }
 
-      return "products_single.json, products_variable.json generated ";
+
+
+  // Erstellt einen API-Endpunkt für den angegebenen Produkttyp
+  function setAPI__products_($product_type)
+  {
+    $this->log->putLog('product type: ' . $product_type);
+
+    if (!$product_type) {
+      // Loggt eine Warnung, falls kein gültiger Produkttyp angegeben wurde
+      $this->log->putLog('setAPI__products_ could not find proper product type');
+      return null;
     } else {
-      $this->log->putLog('@PrepareJsonLocal =>>  Could not find the file: ' . $this->filePath);
+      // Registriert eine REST-API-Route für den Produkttyp
+      add_action('rest_api_init', function () use ($product_type) {
+        register_rest_route('mec-api/v1', '/products/' . $product_type, array(
+          'methods' => 'GET',
+          'callback' => [$this, 'getProductsCallback'],
+          'args' => ['product_type' => $product_type], // Übergibt den Produkttyp
+          'permission_callback' => '__return_true', // Offener Zugriff auf die API, ggf. anpassen
+        ));
+      });
     }
   }
 
-  function separateProducts()
+  // Callback-Funktion, die Produktdaten für den angeforderten Produkttyp zurückgibt
+  public function getProductsCallback($request)
   {
-    // Datei laden
-    $rawdata = json_decode(file_get_contents($this->filePath), true);
-    $data = $rawdata['products_data'];
-    $products_variable = [];
-    $products_variant = [];
-    $products_extra = [];
-    $i = 0;
-    foreach ($data as $sku => $product) {
-      $i++;
+    // Ruft die Attribute der Anfrage ab
+    $attributes = $request->get_attributes();
 
-      if ($i == 1) {
-        $this->log->putLog(print_r($product, true));
-      }
+    // Extrahiert den Produkttyp aus den Attributen
+    $product_type = $attributes['args']['product_type'];
+    $this->log->putLog(print_r($attributes, true));
 
-      // Bedingung prüfen und Produkt der entsprechenden Liste hinzufügen
-      if (strpos($sku, '-M') !== false) {
-        $products_variable[$sku] = $product;
-      } elseif (strpos($product['freifeld6'], '-M') !== false) {
-        $products_variant[$sku] = $product;
-      } else {
-        $products_extra[$sku] = $product;
-      }
+    // Definiert den Dateipfad basierend auf dem Produkttyp
+    $file_path = MEC__CP_API_Data_DIR . 'products_' . $product_type . '.json';
+    $this->log->putLog('getProductsCallback product path: ' . $file_path);
+
+    // Prüft, ob die Datei existiert; falls nicht, gibt es einen Fehler zurück
+    if (!file_exists($file_path)) {
+      return new WP_Error('no_products', 'No products found for this type', array('status' => 404, 'file' => $file_path));
     }
 
-    // Daten in separate Dateien speichern
-    file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'products_variable.json', json_encode($products_variable, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-    file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'products_variant.json', json_encode($products_variant, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-    file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'products_extra.json', json_encode($products_extra, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-
-    $this->log->putLog('Produkte wurden erfolgreich in separate Dateien aufgeteilt.');
-  }
-
-  public function fileExist() {}
-  public function  generateAPI($type_of_products = 'single')
-  {
-    $this->setEndpoint($type_of_products);
-    if ($type_of_products == 'single') {
-      // filter only single 
+    // Lädt den Inhalt der Datei und gibt einen Fehler zurück, wenn das Decoding fehlschlägt
+    $data = json_decode(file_get_contents($file_path), true);
+    if ($data === null) {
+      return new WP_Error('invalid_data', 'Failed to decode product data', array('status' => 500));
     }
-  }
 
-  public function setEndpoint() {}
-
-  public function EndpointUrl($endpoint)
-  {
-    if ($endpoint != '') return $this->mec_api_url . '/' . $endpoint . '/';
-    else return '';
+    // Gibt die Daten im JSON-Format als API-Antwort zurück
+    return rest_ensure_response($data);
   }
 }
