@@ -41,9 +41,9 @@ Author: Page-effect
               //centralized way to access a shared Logger instance 
               //across different parts of the codebase without needing to create multiple Logger instances.
             Utils.php
-
+              // This is helper class to register and generate Buttons in Admin Option page
             AdminButton.php
-            
+
     MEC__CreateProducts.php
 
 
@@ -65,6 +65,7 @@ define('MEC__CP_URL', plugins_url('', __FILE__));
 define('MEC__CP_PLUGIN_SLUG', plugin_basename(__FILE__));
 define('MEC__CP_APIURL', '/wp-json/mec-api/v1/products/');
 define('MEC__CP_API_Data_DIR', dirname(__FILE__) . '/includes/API/');  // ../public/wp-content/plugins/MEC__CreateProducts/API
+global $MEC__CP_log;
 
 // Autoload classes
 spl_autoload_register(function ($class_name) {
@@ -79,15 +80,15 @@ spl_autoload_register(function ($class_name) {
     }
   }
 });
-$log = MEC__CreateProducts\Utils\Utils::getLogger();
-// Initialize plugin components
-// function mec_create_products_plugin_init()
-// {
-$log->putLog("plugin load?");
-// Initialize Admin Page (Register menu and handle admin actions)
-new MEC__CreateProducts\Admin\AdminPage();
-new MEC__CreateProducts\API\LocalJsonToAPI();
 
-  //API Verbereitung: Save the Info in Json in Plugin directory. Total, Single, Variable, Variant, Variable with variant, Extra  
-// }
-// add_action('plugins_loaded', 'mec_create_products_plugin_init');
+
+$MEC__CP_log = MEC__CreateProducts\Utils\Utils::getLogger();
+
+// Initialize plugin components
+function mec_create_products_plugin_init()
+{
+  global $MEC__CP_log;
+  new MEC__CreateProducts\Admin\AdminPage();
+  new MEC__CreateProducts\API\LocalJsonToAPI();
+}
+add_action('plugins_loaded', 'mec_create_products_plugin_init');

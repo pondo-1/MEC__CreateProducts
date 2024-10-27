@@ -1,0 +1,113 @@
+2024-10-27 12:16:27 ; plugin load?
+2024-10-27 12:16:27 ; product_all.json is already there and set the endpoint
+2024-10-27 12:16:27 ; product type: all
+2024-10-27 12:16:27 ; product_variable.json is already there and set the endpoint
+2024-10-27 12:16:27 ; product type: variable
+2024-10-27 12:16:27 ; product_variant.json is already there and set the endpoint
+2024-10-27 12:16:27 ; product type: variant
+2024-10-27 12:16:27 ; product_single.json is already there and set the endpoint
+2024-10-27 12:16:27 ; product type: single
+2024-10-27 12:16:27 ; product_extra.json is already there and set the endpoint
+2024-10-27 12:16:27 ; product type: extra
+2024-10-27 12:16:27 ; /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_all.json
+2024-10-27 12:16:27 ; plugin load?
+2024-10-27 12:16:27 ; product_all.json is already there and set the endpoint
+2024-10-27 12:16:27 ; product type: all
+2024-10-27 12:16:27 ; product_variable.json is already there and set the endpoint
+2024-10-27 12:16:27 ; product type: variable
+2024-10-27 12:16:27 ; product_variant.json is already there and set the endpoint
+2024-10-27 12:16:27 ; product type: variant
+2024-10-27 12:16:27 ; product_single.json is already there and set the endpoint
+2024-10-27 12:16:27 ; product type: single
+2024-10-27 12:16:27 ; product_extra.json is already there and set the endpoint
+2024-10-27 12:16:27 ; product type: extra
+2024-10-27 12:16:29 ; plugin load?
+2024-10-27 12:16:29 ; product_all.json is already there and set the endpoint
+2024-10-27 12:16:29 ; product type: all
+2024-10-27 12:16:29 ; product_variable.json is already there and set the endpoint
+2024-10-27 12:16:29 ; product type: variable
+2024-10-27 12:16:29 ; product_variant.json is already there and set the endpoint
+2024-10-27 12:16:29 ; product type: variant
+2024-10-27 12:16:29 ; product_single.json is already there and set the endpoint
+2024-10-27 12:16:29 ; product type: single
+2024-10-27 12:16:29 ; product_extra.json is already there and set the endpoint
+2024-10-27 12:16:29 ; product type: extra
+2024-10-27 12:16:29 ; /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_all.json
+2024-10-27 12:16:29 ; /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_all.json
+2024-10-27 12:16:31 ; plugin load?
+2024-10-27 12:16:31 ; product_all.json is already there and set the endpoint
+2024-10-27 12:16:31 ; product type: all
+2024-10-27 12:16:31 ; product_variable.json is already there and set the endpoint
+2024-10-27 12:16:31 ; product type: variable
+2024-10-27 12:16:31 ; product_variant.json is already there and set the endpoint
+2024-10-27 12:16:31 ; product type: variant
+2024-10-27 12:16:31 ; product_single.json is already there and set the endpoint
+2024-10-27 12:16:31 ; product type: single
+2024-10-27 12:16:31 ; product_extra.json is already there and set the endpoint
+2024-10-27 12:16:31 ; product type: extra
+2024-10-27 12:16:47 ; product_all.json is already there and set the endpoint
+2024-10-27 12:16:47 ; product type: all
+2024-10-27 12:16:47 ; product_variable.json is already there and set the endpoint
+2024-10-27 12:16:47 ; product type: variable
+2024-10-27 12:16:47 ; product_variant.json is already there and set the endpoint
+2024-10-27 12:16:47 ; product type: variant
+2024-10-27 12:16:47 ; product_single.json is already there and set the endpoint
+2024-10-27 12:16:47 ; product type: single
+2024-10-27 12:16:47 ; product_extra.json is already there and set the endpoint
+2024-10-27 12:16:47 ; product type: extra
+2024-10-27 12:16:47 ; Array
+(
+    [methods] => Array
+        (
+            [GET] => 1
+        )
+
+    [accept_json] => 
+    [accept_raw] => 
+    [show_in_index] => 1
+    [args] => Array
+        (
+            [product_type] => variable
+        )
+
+    [callback] => Array
+        (
+            [0] => MEC__CreateProducts\API\LocalJsonToAPI Object
+                (
+                    [log:MEC__CreateProducts\API\LocalJsonToAPI:private] => MEC__CreateProducts\Log\Logger Object
+                        (
+                            [file:MEC__CreateProducts\Log\Logger:private] => /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/Log/log.txt
+                            [timestamp:MEC__CreateProducts\Log\Logger:private] => 2024-10-27 12:16:47 ; 
+                            [line_max:MEC__CreateProducts\Log\Logger:private] => 100000
+                        )
+
+                )
+
+            [1] => getProductsCallback
+        )
+
+    [permission_callback] => __return_true
+)
+
+2024-10-27 12:16:47 ; getProductsCallback product path: /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_variable.json
+2024-10-27 12:17:30 ; product_all.json is already there and set the endpoint
+2024-10-27 12:17:30 ; product type: all
+2024-10-27 12:17:30 ; product_variable.json is already there and set the endpoint
+2024-10-27 12:17:30 ; product type: variable
+2024-10-27 12:17:30 ; product_variant.json is already there and set the endpoint
+2024-10-27 12:17:30 ; product type: variant
+2024-10-27 12:17:30 ; product_single.json is already there and set the endpoint
+2024-10-27 12:17:30 ; product type: single
+2024-10-27 12:17:30 ; product_extra.json is already there and set the endpoint
+2024-10-27 12:17:30 ; product type: extra
+2024-10-27 12:17:30 ; /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_all.json
+2024-10-27 12:17:32 ; product_all.json is already there and set the endpoint
+2024-10-27 12:17:32 ; product type: all
+2024-10-27 12:17:32 ; product_variable.json is already there and set the endpoint
+2024-10-27 12:17:32 ; product type: variable
+2024-10-27 12:17:32 ; product_variant.json is already there and set the endpoint
+2024-10-27 12:17:32 ; product type: variant
+2024-10-27 12:17:32 ; product_single.json is already there and set the endpoint
+2024-10-27 12:17:32 ; product type: single
+2024-10-27 12:17:32 ; product_extra.json is already there and set the endpoint
+2024-10-27 12:17:32 ; product type: extra
