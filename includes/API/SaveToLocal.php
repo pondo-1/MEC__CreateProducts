@@ -6,13 +6,19 @@ use MEC__CreateProducts\Utils\Utils;
 
 class SaveToLocal
 {
-  private $target_url = null;
-  private $filename = 'products_all.json';
+  private $target_url;
+  private $filePath;
   private $log = null;
 
-  public function __construct()
+  public function __construct($url = '', $filePath = '')
   {
     $this->log = Utils::getLogger();
+    if ($url != '') {
+      $this->setTarget($url);
+    }
+    if ($filePath != '') {
+      $this->filePath = $filePath . '_all.json';
+    }
   }
   // Set Target External Json URL
   public function setTarget($url)
@@ -37,7 +43,7 @@ class SaveToLocal
 
     // Handle errors
     if (is_wp_error($response)) {
-      $this->log->putLog('Error: ' . $response->get_error_message());
+      Utils::putLog('Error: ' . $response->get_error_message());
       return 'Error: ' . $response->get_error_message();
     }
 
@@ -45,29 +51,22 @@ class SaveToLocal
 
     // Check if it's valid JSON
     if (!$this->isinValidJson($body)) {
-      $this->log->putLog('Error: Invalid JSON data retrieved.');
+      Utils::putLog('Error: Invalid JSON data retrieved.');
       return 'Error: Invalid JSON data retrieved.';
     }
-
-    // Determine the directory where the current class file is located
-    $dir = __DIR__;
-    $filename = $dir . DIRECTORY_SEPARATOR . $this->filename;
-
     // Save JSON data to a file
-    file_put_contents($filename, $body);
-    $this->log->putLog('Success: JSON saved to ' . $filename);
-    return $filename;
+    file_put_contents($this->filePath, $body);
+    Utils::putLog('Success: JSON saved to ' . $this->filePath);
+    return $this->filePath;
   }
 
   public function getFilePath()
   {
-    $filePath = __DIR__ . DIRECTORY_SEPARATOR . $this->filename;
-    $this->log->putLog($filePath);
     // Check if the file exists
-    if (file_exists($filePath)) {
+    if (file_exists($this->filePath)) {
       // Get the file modification time as a Unix timestamp
       date_default_timezone_set('Europe/Berlin');
-      $fileModificationTime = filemtime($filePath);
+      $fileModificationTime = filemtime($this->filePath);
 
       // Format the timestamp into a readable date and time format
       $formattedTime = date("Y-m-d H:i:s", $fileModificationTime);

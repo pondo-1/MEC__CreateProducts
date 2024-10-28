@@ -197,7 +197,10 @@ class admin_custom_button
     ";
     $media_ids = $wpdb->get_col($orphaned_media_query);
 
-
+    foreach ($media_ids  as $attachment_id) {
+      // Bild und zugehörige Metadaten vollständig löschen
+      wp_delete_attachment($attachment_id, true);
+    }
 
 
 

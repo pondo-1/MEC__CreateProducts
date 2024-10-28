@@ -23,4 +23,11 @@ class Utils
     // Return the logger instance
     return self::$logger;
   }
+
+  // Static method to log messages directly
+  public static function putLog($message)
+  {
+    // Ensure the logger instance exists and log the message
+    self::getLogger()->putLog($message);
+  }
 }

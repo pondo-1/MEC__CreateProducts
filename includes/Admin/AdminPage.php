@@ -4,33 +4,19 @@ namespace MEC__CreateProducts\Admin;
 
 use MEC__CreateProducts\API\SaveToLocal;
 use MEC__CreateProducts\API\PrepareJsonLocal;
-
 use MEC__CreateProducts\Utils\Utils;
 use MEC__CreateProducts\Utils\AdminButton;
+use MEC__CreateProducts\Utils\WCHandler;
+use MEC__CreateProducts\Utils\SQLscript;
 
 class AdminPage
 {
 
-  private $log;
-  private $html;
-
-
   public function __construct()
   {
-    $this->log = Utils::getLogger(); // Access the logger using the utility class
 
-    // Action list
-    // -> Button html 
-    // -> CLI
-    // Erstellen Funktion or class 
-    // Then hier use 
-    // Then prepare to use with button
-    // Prepare use it for CLI? here? or Separate?
-
-    // Hook into admin_init to register actions
-    // add_action('admin_init', [$this, 'registerActions']);
-
-    add_action('admin_init', [$this, 'generateHtml']);
+    add_action('admin_init', [$this, 'prepare_data_actions_html']);
+    add_action('admin_init', [$this, 'create_products_actions_html']);
     add_action('admin_menu', [$this, 'addAdminMenu']);
   }
 
@@ -42,14 +28,14 @@ class AdminPage
       'MEC_dev_test',
       'manage_options',
       'MEC_dev_test',
-      [$this, 'renderTableatAdminPage'],    // Callback to render the page content
+      [$this, 'renderAdminPage'],    // Callback to render the page content
       '',                           // Icon
       65                            // Position
     );
   }
 
 
-  public function renderTableatAdminPage()
+  public function renderAdminPage()
   {
     $return_html = null;
     // Start output buffering
@@ -57,9 +43,27 @@ class AdminPage
 ?>
     <div class="wrap">
       <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
+      <?php echo $this->optionPageSection('Prepare the Data', $this->prepare_data_actions_html()); ?>
+      <?php echo $this->optionPageSection('Create Products', $this->create_products_actions_html()); ?>
+    </div>
+  <?php
+    $return_html .= ob_get_clean();
+
+    echo $return_html;
+  }
+
+  public function optionPageSection($section_title, $callback)
+  {
+
+    $return_html = null;
+    // Start output buffering
+    ob_start();
+  ?>
+    <div class="section" style="border: solid; padding: 20px;">
+      <h2><?php echo $section_title; ?></h2>
       <table class="form-table">
         <tbody>
-          <?php echo $this->generateHtml() ?>
+          <?php echo $callback ?>
         </tbody>
       </table>
     </div>
@@ -70,65 +74,119 @@ class AdminPage
   }
 
 
-
-
   // Method that registers actions
-  public function generateHtml()
+  public function prepare_data_actions_html()
   {
     $html = null;
 
     // Save Json to as Local file
-    $from_pe_dev = new SaveToLocal;
-    $from_pe_dev->setTarget('https://mec.pe-dev.de/wp-json/mec-api/v1/products/');
-    if (isset($_POST['save_to_local'])) {
-      $this->log->putLog("Button Clicked: 'save_to_local'");
-      call_user_func([$from_pe_dev, 'saveJsonToFile']);
-    }
+    $target = 'https://mec.pe-dev.de/wp-json/mec-api/v1/products/';
+    $filePath =  MEC__CP_API_Data_DIR . 'products';
 
-    // Seperate data all -> all, single, variable, variant, variableWvariant?
-    $LocalJsonProcess = new PrepareJsonLocal();
-    if (isset($_POST['separate_products'])) {
-      $this->log->putLog("Button Clicked: 'separate_products'");
-      call_user_func([$LocalJsonProcess, 'separateProducts']);
+    $saveToLocal = new SaveToLocal($target, $filePath);
+    if (isset($_POST['save_to_local'])) {
+      Utils::putLog("Button Clicked: 'save_to_local'");
+      call_user_func([$saveToLocal, 'saveJsonToFile']);
     }
 
     // Save to local button. this generate local file products_all.json 
-    $from_pe_dev_button = new AdminButton('save_to_local');
-    $file_exist = $from_pe_dev->getFilePath();
-    $description = 'Last modified: ' . $file_exist . '<br>' . 'Save the json(https://mec.pe-dev.de/wp-json/mec-api/v1/products/) to local directory';
-    $html .= $from_pe_dev_button->returnTableButtonHtml('get Json', '', $description);
-
-    // Seperates data and save it local products. products overview. variable products mit variant. single products, the rest
-    $LocalJsonProcess_button = new AdminButton('separate_products');
+    $saveToLocal_button = new AdminButton('save_to_local');
+    $file_exist = $saveToLocal->getFilePath();
     ob_start();
-    // if ($LocalJsonProcess->fileExist()):
   ?>
     <div>
+      Save the json( <?php echo $target; ?>) to local directory <br><br><?php echo $filePath; ?>
+      <br>
+      <?php if (file_exists($filePath . '_all.json')): ?>
+        <a href="<?php echo MEC__CP_APIURL . 'all/'; ?>" target="_blank">See all Products by API</a> Last modified: <?php echo $file_exist; ?><br>
+      <?php endif; ?>
+    </div>
+    <?php
+    $description = ob_get_clean();
+    $html .= $saveToLocal_button->returnTableButtonHtml('get Json', '', $description);
+
+    // -----------------------------------------------------------------------------------------------------
+
+    // Seperate data all -> all, single, variable, variant, variableWvariant?
+    $json_prefix = 'products';
+    $json_suffix = ['variable', 'variant', 'single', 'extra'];
+    $LocalJsonProcess = new PrepareJsonLocal($json_prefix, $json_suffix);
+    if (isset($_POST['separate_data'])) {
+      Utils::putLog("Button Clicked: 'separate_data'");
+      call_user_func([$LocalJsonProcess, 'separate_data']);
+    }
+    $LocalJsonProcess_button = new AdminButton('separate_data');
+    ob_start();
+    ?>
+    <div>
       if the all the processes from the upper buttons are succesfully finished, the endpoints automatically set
-      <br>
-      <a href="<?php echo MEC__CP_APIURL . 'all/'; ?>" target="_blank">All Products</a>
-      <br>
-      <a href="<?php echo MEC__CP_APIURL . 'variable/'; ?>" target="_blank">Variable Products</a>
-      <br>
-      <a href="<?php echo MEC__CP_APIURL . 'variant/'; ?>" target="_blank">Variant Products</a>
-      <br>
-      <a href="<?php echo MEC__CP_APIURL . 'single/'; ?>" target="_blank">Single Products</a>
-      <br>
-      <a href="<?php echo MEC__CP_APIURL . 'extra/'; ?>" target="_blank">Entra Products</a>
+      <br><br>
+      <?php foreach ($json_suffix as $type): ?>
+        <?php if (file_exists($filePath . '_' . $type . '.json')): ?>
+          <a href="<?php echo MEC__CP_APIURL . $type . '/'; ?>" target="_blank">See <?php echo $type; ?> Products by API</a><br>
+        <?php endif; ?>
+      <?php endforeach; ?>
     </div>
 <?php
-    // endif;  
-
     $description = ob_get_clean();
-    $html .= $LocalJsonProcess_button->returnTableButtonHtml('prepare data', '', $description);
+    $html .= $LocalJsonProcess_button->returnTableButtonHtml('seperate data', '', $description);
+
+
+    // Seperates data and save it local products. products overview. variable products mit variant. single products, the rest
+    if (isset($_POST['delete_separated_data'])) {
+      Utils::putLog("Button Clicked: 'delete_separated_data'");
+      call_user_func([$LocalJsonProcess, 'delete_separated_data']);
+    }
+    $LocalJsonProcess_delete_button = new AdminButton('delete_separated_data');
+
+    $html .= $LocalJsonProcess_delete_button->returnTableButtonHtml('delete separated data', '', '');
     return $html;
   }
 
-
-
-
-  public function renderAdminPage()
+  public function create_products_actions_html()
   {
-    echo $this->html; // Output the buffered HTML content
+    global $MEC__CP_log;
+    $html = null;
+
+
+    $WC_Handler = new WCHandler();
+
+
+    if (isset($_POST['wc_create_products_single6'])) {
+      // Check if the file exists
+      $filePath = MEC__CP_API_Data_DIR . 'products_single.json';
+      if (file_exists($filePath)) {
+        $products_data = json_decode(file_get_contents($filePath), true);
+        // Define other arguments
+        $num = 6;
+        $start = 0;
+        // Call the create_products method with arguments
+        call_user_func_array([$WC_Handler, 'create_products'], ['wp_admin', $products_data, $num, $start]);
+      } else {
+        // Log an error or handle the missing file case
+        Utils::putLog("Error: 'products_single.json' file not found at $filePath");
+      }
+    }
+
+
+    // Save to local button. this generate local file products_all.json 
+    $wc_create_products_single6_button = new AdminButton('wc_create_products_single6');
+    $html .= $wc_create_products_single6_button->returnTableButtonHtml('create 6 single products', '', '');
+
+
+
+    $sqlHandler = new SQLscript();
+    if (isset($_POST['delete_all_products'])) {
+      call_user_func([$sqlHandler, 'delete_all_products']);
+    }
+
+    // Save to local button. this generate local file products_all.json 
+    $delete_all_products_button = new AdminButton('delete_all_products');
+    $html .= $delete_all_products_button->returnTableButtonHtml('delete all products', '', '');
+
+
+
+
+    return $html;
   }
 }

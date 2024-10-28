@@ -43,6 +43,11 @@ Author: Page-effect
             Utils.php
               // This is helper class to register and generate Buttons in Admin Option page
             AdminButton.php
+            
+              // SQL script for the data processing
+            SQLscript.php
+        /WPquery // Data verarbeitung 
+            
 
     MEC__CreateProducts.php
 
@@ -64,8 +69,9 @@ define('MEC__CP_DIR', dirname(__FILE__)); // ..../public/wp-content/plugins/MEC_
 define('MEC__CP_URL', plugins_url('', __FILE__));
 define('MEC__CP_PLUGIN_SLUG', plugin_basename(__FILE__));
 define('MEC__CP_APIURL', '/wp-json/mec-api/v1/products/');
-define('MEC__CP_API_Data_DIR', dirname(__FILE__) . '/includes/API/');  // ../public/wp-content/plugins/MEC__CreateProducts/API
+define('MEC__CP_API_Data_DIR', dirname(__FILE__) . '/includes/API/');  // ../public/wp-content/plugins/MEC__CreateProducts/API/
 global $MEC__CP_log;
+global $MEC__CP_json_products_all;
 
 // Autoload classes
 spl_autoload_register(function ($class_name) {
@@ -87,8 +93,10 @@ $MEC__CP_log = MEC__CreateProducts\Utils\Utils::getLogger();
 // Initialize plugin components
 function mec_create_products_plugin_init()
 {
-  global $MEC__CP_log;
   new MEC__CreateProducts\Admin\AdminPage();
-  new MEC__CreateProducts\API\LocalJsonToAPI();
+  MEC__CreateProducts\API\LocalJsonToAPI::prepareAPI();
 }
 add_action('plugins_loaded', 'mec_create_products_plugin_init');
+
+// // Runs only once upon plugin activation
+// register_activation_hook(__FILE__, 'mec_create_products_plugin_init');

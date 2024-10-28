@@ -54,7 +54,7 @@ class AdminButton
     }
     ob_start();
   ?>
-    <tr>
+    <tr style="border-top: gray dotted;">
       <th><?php echo $this->action_name; ?></th>
       <td>
         <form method="post" action="">

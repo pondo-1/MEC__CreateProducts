@@ -8,20 +8,19 @@ use WP_Error;
 // Klasse zur Bereitstellung von Produktdaten aus JSON-Dateien, die in Local legt, über eine API
 class LocalJsonToAPI
 {
-  // Logger-Instanz zur Aufzeichnung von Log-Meldungen
-  private $log = null;
-
-  // Konstruktor: Initialisiert die Logger-Instanz und startet den Datei-Überprüfungsprozess
-  public function __construct()
-  {
-    $this->log = Utils::getLogger();
-    $this->prepareTheFile();
-  }
-
+  // Static property to prevent multiple executions
+  private static $is_initialized = false;
 
   // Überprüft, ob 'products_all.json' existiert und teilt die Produkte auf, wenn nötig
-  public function prepareTheFile()
+  public static function prepareAPI()
   {
+    // Check if the function has already been run
+    if (self::$is_initialized) {
+      return; // Exit if already initialized
+    }
+
+    // Mark as initialized
+    self::$is_initialized = true;
     // Prüft, ob die Datei 'products_all.json' existiert
     if (file_exists(MEC__CP_API_Data_DIR . 'products_all.json')) {
       // Definiert die verschiedenen Produkttypen
@@ -33,33 +32,33 @@ class LocalJsonToAPI
           $i++;
           // Falls alle spezifischen Dateien fehlen, erstellt sie die separaten Produktdateien
           if ($i == 5) {
-            $this->log->putLog('files are not ready');
+            Utils::putLog('files are not ready');
           }
           // Fügt Endpunkte für die vorhandenen Produkttypen hinzu
-          $this->log->putLog('product_' . $product_type . '.json is already there and set the endpoint');
-          $this->setAPI__products_($product_type);
+          self::setAPI__products_($product_type);
         }
       }
     }
   }
 
-
+  public static function init_false()
+  {
+    self::$is_initialized = false;
+  }
 
   // Erstellt einen API-Endpunkt für den angegebenen Produkttyp
-  function setAPI__products_($product_type)
+  public static function setAPI__products_($product_type)
   {
-    $this->log->putLog('product type: ' . $product_type);
-
     if (!$product_type) {
       // Loggt eine Warnung, falls kein gültiger Produkttyp angegeben wurde
-      $this->log->putLog('setAPI__products_ could not find proper product type');
+      Utils::putLog('setAPI__products_ could not find proper product type');
       return null;
     } else {
       // Registriert eine REST-API-Route für den Produkttyp
       add_action('rest_api_init', function () use ($product_type) {
         register_rest_route('mec-api/v1', '/products/' . $product_type, array(
           'methods' => 'GET',
-          'callback' => [$this, 'getProductsCallback'],
+          'callback' => [self::class, 'getProductsCallback'],
           'args' => ['product_type' => $product_type], // Übergibt den Produkttyp
           'permission_callback' => '__return_true', // Offener Zugriff auf die API, ggf. anpassen
         ));
@@ -68,18 +67,17 @@ class LocalJsonToAPI
   }
 
   // Callback-Funktion, die Produktdaten für den angeforderten Produkttyp zurückgibt
-  public function getProductsCallback($request)
+  // Statische Callback-Methode, die Produktdaten für den angeforderten Produkttyp zurückgibt
+  public static function getProductsCallback($request)
   {
     // Ruft die Attribute der Anfrage ab
     $attributes = $request->get_attributes();
 
     // Extrahiert den Produkttyp aus den Attributen
     $product_type = $attributes['args']['product_type'];
-    $this->log->putLog(print_r($attributes, true));
 
     // Definiert den Dateipfad basierend auf dem Produkttyp
     $file_path = MEC__CP_API_Data_DIR . 'products_' . $product_type . '.json';
-    $this->log->putLog('getProductsCallback product path: ' . $file_path);
 
     // Prüft, ob die Datei existiert; falls nicht, gibt es einen Fehler zurück
     if (!file_exists($file_path)) {

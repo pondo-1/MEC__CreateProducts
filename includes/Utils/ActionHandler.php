@@ -23,7 +23,6 @@ class ActionHandler
 
     // Register the handler for the button in the admin
     add_action('admin_init', [$this, 'registerButtonHandler']);
-    $this->log->putLog("here");
   }
 
   // Generates the button HTML in the admin page

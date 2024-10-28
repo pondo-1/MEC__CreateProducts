@@ -8,70 +8,76 @@ use MEC__CreateProducts\Utils\Utils;
 
 class PrepareJsonLocal
 {
-  private $mec_api_url = MEC__CP_APIURL;
-  private $filePath_all = MEC__CP_API_Data_DIR . 'products_all.json';
-  private $log = null;
 
-  public function __construct($filePath_all = '')
+  private $json_prefix;
+  private $json_suffix;
+  private $filePath_all;
+  private $log = null;
+  // $json_prefix = 'products';
+  // $json_suffix = ['all', 'variable', 'variant', 'single', 'extra'];
+
+
+  public function __construct($json_prefix, $json_suffix)
   {
-    //set Default
-    if (!$filePath_all == '') {
-      $this->filePath_all = $filePath_all;
-    }
+    $this->json_prefix = $json_prefix;
+    $this->json_suffix =  $json_suffix;
+    $this->filePath_all = MEC__CP_API_Data_DIR . $this->json_prefix . '_all.json';
     $this->log = Utils::getLogger();
   }
 
-  public function prepareTheFile()
-  {
-    if (file_exists($this->filePath_all)) {
-
-      return "products_single.json, products_variable.json generated ";
-    } else {
-      $this->log->putLog('@PrepareJsonLocal =>>  Could not find the file: ' . $this->filePath_all);
-    }
-  }
-
-  function separateProducts()
+  function separate_data()
   {
     // Lädt die 'products_all.json'-Datei
-    $rawdata = json_decode(file_get_contents(MEC__CP_API_Data_DIR . 'products_all.json'), true);
+    $rawdata = json_decode(file_get_contents($this->filePath_all), true);
     $data = $rawdata['products_data'];
 
+    $products = [];
+    foreach ($this->json_suffix as $product_type) {
+      $products[] = [$product_type => []];
+    }
     // Initialisiert Arrays für die verschiedenen Produkttypen
-    $products_variable = [];
-    $products_variant = [];
-    $products_single = [];
-    $products_extra = [];
-    $i = 0;
 
+    $i = 0;
     // Durchläuft die Produktdaten und sortiert sie nach Typ
     foreach ($data as $sku => $product) {
       $i++;
 
       if ($i == 1) {
         // Protokolliert das erste Produkt zur Kontrolle
-        $this->log->putLog(print_r($product, true));
+        Utils::putLog(print_r($product, true));
       }
 
       // Fügt das Produkt basierend auf bestimmten Bedingungen zur entsprechenden Liste hinzu
       if (strpos($sku, '-M') !== false) {
-        $products_variable[$sku] = $product;
+        $products['variable'][$sku] = $product;
       } elseif (strpos($product['freifeld6'], '-M') !== false) {
-        $products_variant[$sku] = $product;
+        $products['variant'][$sku] = $product;
       } elseif ($product['info']['image']) {
-        $products_single[$sku] = $product;
+        $products['single'][$sku] = $product;
       } else {
-        $products_extra[$sku] = $product;
+        $products['extra'][$sku] = $product;
       }
     }
 
     // Speichert die sortierten Daten in separaten JSON-Dateien
-    file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'products_variable.json', json_encode($products_variable, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-    file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'products_variant.json', json_encode($products_variant, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-    file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'products_single.json', json_encode($products_single, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-    file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'products_extra.json', json_encode($products_extra, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    foreach ($this->json_suffix as $product_type) {
+      file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'products_' . $product_type . '.json', json_encode($products[$product_type], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    }
 
     // Protokolliert, dass die Produkte erfolgreich aufgeteilt wurden
-    $this->log->putLog('Produkte wurden erfolgreich in separate Dateien aufgeteilt.');
+    Utils::putLog('Produkte wurden erfolgreich in separate Dateien aufgeteilt.');
+  }
+
+  function delete_separated_data()
+  {
+    // Löscht die JSON-Dateien für jeden Produkttyp, falls sie existieren
+    foreach ($this->json_suffix as $product_type) {
+      $file_path = __DIR__ . DIRECTORY_SEPARATOR . 'products_' . $product_type . '.json';
+
+      // Prüfen, ob die Datei existiert, und dann löschen
+      if (file_exists($file_path)) {
+        unlink($file_path);
+      }
+    }
   }
 }
