@@ -1,0 +1,547 @@
+2024-10-29 15:50:47 ; Button Clicked: 'delete_separated_data'
+2024-10-29 15:50:47 ; Button Clicked: 'delete_separated_data'
+2024-10-29 15:50:49 ; Button Clicked: 'separate_data'
+2024-10-29 15:50:49 ; Array
+2024-10-29 15:50:49 ; Array
+2024-10-29 15:50:49 ; Array
+2024-10-29 15:50:49 ; Array
+2024-10-29 15:50:49 ; 
+2024-10-29 15:50:49 ; 
+2024-10-29 15:50:49 ; 
+2024-10-29 15:50:49 ; 
+2024-10-29 15:50:49 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
+2024-10-29 15:50:49 ; Button Clicked: 'separate_data'
+2024-10-29 15:50:49 ; Array
+2024-10-29 15:50:49 ; Array
+2024-10-29 15:50:49 ; Array
+2024-10-29 15:50:49 ; Array
+2024-10-29 15:50:49 ; 
+2024-10-29 15:50:49 ; 
+2024-10-29 15:50:49 ; 
+2024-10-29 15:50:49 ; 
+2024-10-29 15:50:49 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
+2024-10-29 15:52:29 ; Button Clicked: 'delete_separated_data'
+2024-10-29 15:52:29 ; Button Clicked: 'delete_separated_data'
+2024-10-29 15:52:31 ; Button Clicked: 'separate_data'
+2024-10-29 15:52:31 ; Array
+(
+)
+
+2024-10-29 15:52:31 ; Array
+(
+)
+
+2024-10-29 15:52:31 ; Array
+(
+)
+
+2024-10-29 15:52:31 ; Array
+(
+)
+
+2024-10-29 15:52:31 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
+2024-10-29 15:52:31 ; Button Clicked: 'separate_data'
+2024-10-29 15:52:31 ; Array
+(
+)
+
+2024-10-29 15:52:31 ; Array
+(
+)
+
+2024-10-29 15:52:31 ; Array
+(
+)
+
+2024-10-29 15:52:31 ; Array
+(
+)
+
+2024-10-29 15:52:31 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
+2024-10-29 16:30:52 ; Button Clicked: 'delete_separated_data'
+2024-10-29 16:30:52 ; Button Clicked: 'delete_separated_data'
+2024-10-29 16:30:55 ; Button Clicked: 'save_to_local'
+2024-10-29 16:30:55 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_all.json
+2024-10-29 16:30:55 ; Button Clicked: 'save_to_local'
+2024-10-29 16:30:55 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_all.json
+2024-10-29 16:37:06 ; Button Clicked: 'save_to_local'
+2024-10-29 16:37:06 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 16:37:06 ; Button Clicked: 'save_to_local'
+2024-10-29 16:37:06 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 16:55:14 ; Button Clicked: 'save_to_local'
+2024-10-29 16:55:14 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 16:55:14 ; Button Clicked: 'save_to_local'
+2024-10-29 16:55:14 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 16:55:40 ; Button Clicked: 'save_to_local'
+2024-10-29 16:55:40 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 16:55:40 ; Button Clicked: 'save_to_local'
+2024-10-29 16:55:40 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 16:57:22 ; Button Clicked: 'save_to_local'
+2024-10-29 16:57:22 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 16:57:22 ; Button Clicked: 'save_to_local'
+2024-10-29 16:57:22 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 16:57:57 ; Button Clicked: 'separate_data'
+2024-10-29 16:57:57 ; Array
+(
+    [8034D200] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
+            [relation] => Array
+                (
+                    [0] => 8034D-M
+                )
+
+            [compatible] => Array
+                (
+                    [0] => M|KTM|EGS|250|1977-1982|
+                    [1] => M|KTM|GS|250|1977-1982|
+                )
+
+            [info] => Array
+                (
+                    [description] => 250 EGS/GS (1977-82) Wössner Ø73,0
+                    [image] => 
+                )
+
+        )
+
+    [8034D150] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
+            [relation] => Array
+                (
+                    [0] => 8034D-M
+                )
+
+            [compatible] => Array
+                (
+                    [0] => M|KTM|EGS|250|1977-1982|
+                    [1] => M|KTM|GS|250|1977-1982|
+                )
+
+            [info] => Array
+                (
+                    [description] => 250 EGS/GS (1977-82) Wössner Ø72,5
+                    [image] => 
+                )
+
+        )
+
+)
+
+2024-10-29 16:57:57 ; Array
+(
+    [8034D200] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
+            [relation] => Array
+                (
+                    [0] => 8034D-M
+                )
+
+            [compatible] => Array
+                (
+                    [0] => M|KTM|EGS|250|1977-1982|
+                    [1] => M|KTM|GS|250|1977-1982|
+                )
+
+            [info] => Array
+                (
+                    [description] => 250 EGS/GS (1977-82) Wössner Ø73,0
+                    [image] => 
+                )
+
+        )
+
+    [8034D150] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
+            [relation] => Array
+                (
+                    [0] => 8034D-M
+                )
+
+            [compatible] => Array
+                (
+                    [0] => M|KTM|EGS|250|1977-1982|
+                    [1] => M|KTM|GS|250|1977-1982|
+                )
+
+            [info] => Array
+                (
+                    [description] => 250 EGS/GS (1977-82) Wössner Ø72,5
+                    [image] => 
+                )
+
+        )
+
+)
+
+2024-10-29 16:57:57 ; Array
+(
+    [8034D200] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
+            [relation] => Array
+                (
+                    [0] => 8034D-M
+                )
+
+            [compatible] => Array
+                (
+                    [0] => M|KTM|EGS|250|1977-1982|
+                    [1] => M|KTM|GS|250|1977-1982|
+                )
+
+            [info] => Array
+                (
+                    [description] => 250 EGS/GS (1977-82) Wössner Ø73,0
+                    [image] => 
+                )
+
+        )
+
+    [8034D150] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
+            [relation] => Array
+                (
+                    [0] => 8034D-M
+                )
+
+            [compatible] => Array
+                (
+                    [0] => M|KTM|EGS|250|1977-1982|
+                    [1] => M|KTM|GS|250|1977-1982|
+                )
+
+            [info] => Array
+                (
+                    [description] => 250 EGS/GS (1977-82) Wössner Ø72,5
+                    [image] => 
+                )
+
+        )
+
+)
+
+2024-10-29 16:57:57 ; Array
+(
+    [8034D200] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
+            [relation] => Array
+                (
+                    [0] => 8034D-M
+                )
+
+            [compatible] => Array
+                (
+                    [0] => M|KTM|EGS|250|1977-1982|
+                    [1] => M|KTM|GS|250|1977-1982|
+                )
+
+            [info] => Array
+                (
+                    [description] => 250 EGS/GS (1977-82) Wössner Ø73,0
+                    [image] => 
+                )
+
+        )
+
+    [8034D150] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
+            [relation] => Array
+                (
+                    [0] => 8034D-M
+                )
+
+            [compatible] => Array
+                (
+                    [0] => M|KTM|EGS|250|1977-1982|
+                    [1] => M|KTM|GS|250|1977-1982|
+                )
+
+            [info] => Array
+                (
+                    [description] => 250 EGS/GS (1977-82) Wössner Ø72,5
+                    [image] => 
+                )
+
+        )
+
+)
+
+2024-10-29 16:57:57 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
+2024-10-29 16:57:57 ; Button Clicked: 'separate_data'
+2024-10-29 16:57:57 ; Array
+(
+    [8034D200] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
+            [relation] => Array
+                (
+                    [0] => 8034D-M
+                )
+
+            [compatible] => Array
+                (
+                    [0] => M|KTM|EGS|250|1977-1982|
+                    [1] => M|KTM|GS|250|1977-1982|
+                )
+
+            [info] => Array
+                (
+                    [description] => 250 EGS/GS (1977-82) Wössner Ø73,0
+                    [image] => 
+                )
+
+        )
+
+    [8034D150] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
+            [relation] => Array
+                (
+                    [0] => 8034D-M
+                )
+
+            [compatible] => Array
+                (
+                    [0] => M|KTM|EGS|250|1977-1982|
+                    [1] => M|KTM|GS|250|1977-1982|
+                )
+
+            [info] => Array
+                (
+                    [description] => 250 EGS/GS (1977-82) Wössner Ø72,5
+                    [image] => 
+                )
+
+        )
+
+)
+
+2024-10-29 16:57:57 ; Array
+(
+    [8034D200] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
+            [relation] => Array
+                (
+                    [0] => 8034D-M
+                )
+
+            [compatible] => Array
+                (
+                    [0] => M|KTM|EGS|250|1977-1982|
+                    [1] => M|KTM|GS|250|1977-1982|
+                )
+
+            [info] => Array
+                (
+                    [description] => 250 EGS/GS (1977-82) Wössner Ø73,0
+                    [image] => 
+                )
+
+        )
+
+    [8034D150] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
+            [relation] => Array
+                (
+                    [0] => 8034D-M
+                )
+
+            [compatible] => Array
+                (
+                    [0] => M|KTM|EGS|250|1977-1982|
+                    [1] => M|KTM|GS|250|1977-1982|
+                )
+
+            [info] => Array
+                (
+                    [description] => 250 EGS/GS (1977-82) Wössner Ø72,5
+                    [image] => 
+                )
+
+        )
+
+)
+
+2024-10-29 16:57:57 ; Array
+(
+    [8034D200] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
+            [relation] => Array
+                (
+                    [0] => 8034D-M
+                )
+
+            [compatible] => Array
+                (
+                    [0] => M|KTM|EGS|250|1977-1982|
+                    [1] => M|KTM|GS|250|1977-1982|
+                )
+
+            [info] => Array
+                (
+                    [description] => 250 EGS/GS (1977-82) Wössner Ø73,0
+                    [image] => 
+                )
+
+        )
+
+    [8034D150] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
+            [relation] => Array
+                (
+                    [0] => 8034D-M
+                )
+
+            [compatible] => Array
+                (
+                    [0] => M|KTM|EGS|250|1977-1982|
+                    [1] => M|KTM|GS|250|1977-1982|
+                )
+
+            [info] => Array
+                (
+                    [description] => 250 EGS/GS (1977-82) Wössner Ø72,5
+                    [image] => 
+                )
+
+        )
+
+)
+
+2024-10-29 16:57:57 ; Array
+(
+    [8034D200] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
+            [relation] => Array
+                (
+                    [0] => 8034D-M
+                )
+
+            [compatible] => Array
+                (
+                    [0] => M|KTM|EGS|250|1977-1982|
+                    [1] => M|KTM|GS|250|1977-1982|
+                )
+
+            [info] => Array
+                (
+                    [description] => 250 EGS/GS (1977-82) Wössner Ø73,0
+                    [image] => 
+                )
+
+        )
+
+    [8034D150] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
+            [relation] => Array
+                (
+                    [0] => 8034D-M
+                )
+
+            [compatible] => Array
+                (
+                    [0] => M|KTM|EGS|250|1977-1982|
+                    [1] => M|KTM|GS|250|1977-1982|
+                )
+
+            [info] => Array
+                (
+                    [description] => 250 EGS/GS (1977-82) Wössner Ø72,5
+                    [image] => 
+                )
+
+        )
+
+)
+
+2024-10-29 16:57:57 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
+2024-10-29 16:58:54 ; Button Clicked: 'delete_separated_data'
+2024-10-29 16:58:54 ; Button Clicked: 'delete_separated_data'
+2024-10-29 16:58:56 ; Button Clicked: 'separate_data'
+2024-10-29 16:59:17 ; Button Clicked: 'separate_data'
+2024-10-29 16:59:17 ; Array
+(
+)
+
+2024-10-29 16:59:17 ; Array
+(
+)
+
+2024-10-29 16:59:17 ; Array
+(
+)
+
+2024-10-29 16:59:17 ; Array
+(
+)
+
+2024-10-29 16:59:17 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
+2024-10-29 16:59:17 ; Button Clicked: 'separate_data'
+2024-10-29 16:59:17 ; Array
+(
+)
+
+2024-10-29 16:59:17 ; Array
+(
+)
+
+2024-10-29 16:59:17 ; Array
+(
+)
+
+2024-10-29 16:59:17 ; Array
+(
+)
+
+2024-10-29 16:59:17 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
+2024-10-29 16:59:20 ; Button Clicked: 'delete_separated_data'
+2024-10-29 16:59:20 ; Button Clicked: 'delete_separated_data'
+2024-10-29 16:59:22 ; Button Clicked: 'separate_data'
+2024-10-29 16:59:22 ; Array
+(
+)
+
+2024-10-29 16:59:22 ; Array
+(
+)
+
+2024-10-29 16:59:22 ; Array
+(
+)
+
+2024-10-29 16:59:22 ; Array
+(
+)
+
+2024-10-29 16:59:22 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
+2024-10-29 16:59:22 ; Button Clicked: 'separate_data'
+2024-10-29 16:59:22 ; Array
+(
+)
+
+2024-10-29 16:59:22 ; Array
+(
+)
+
+2024-10-29 16:59:22 ; Array
+(
+)
+
+2024-10-29 16:59:22 ; Array
+(
+)
+
+2024-10-29 16:59:22 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.

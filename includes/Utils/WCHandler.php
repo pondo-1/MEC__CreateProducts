@@ -12,7 +12,6 @@ class WCHandler
 
   function create_products($wp_CLI_exist = 1, $products_data, $num = 0, $start = 0)
   {
-    global $MEC__CP_log;
     if (empty($products_data)) {
       return rest_ensure_response(array('error' => 'No products found.'));
     }
@@ -26,9 +25,9 @@ class WCHandler
       if (!$productID) {
 
         $this->create_wc_simple_product($sku, $product);
-        if ($wp_CLI_exist) {
-          // WP_CLI::log("Processed product number: $counts");
-        }
+        // if ($wp_CLI_exist) {
+        //   WP_CLI::log("Processed product number: $counts");
+        // }
 
         if ($counts + 1 > $num) {
           exit;
@@ -36,22 +35,6 @@ class WCHandler
       } else {
         Utils::putLog("following sku already exist: " . $sku);
       }
-      // variable product
-      // check if sku already used
-      // $productID = wc_get_product_id_by_sku($product['sku']);
-      // if (!$productID) {
-      //   if ($product['products_type'] == 'Variable') {
-      //     $parent_id = $this->create_wc_variable_product($product);
-      //     if ($wp_CLI_exist) {
-      //       WP_CLI::log("Processed product number: $counts");
-      //     }
-      //   }
-      //   if ($counts + 1 > $num) {
-      //     exit;
-      //   }
-      // } else {
-      //   Utils::putLog("following sku already exist: " . $product['sku']);
-      // }
     }
   }
   function create_wc_simple_product($sku, $product_data)

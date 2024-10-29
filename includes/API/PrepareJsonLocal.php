@@ -12,7 +12,6 @@ class PrepareJsonLocal
   private $json_prefix;
   private $json_suffix;
   private $filePath_all;
-  private $log = null;
   // $json_prefix = 'products';
   // $json_suffix = ['all', 'variable', 'variant', 'single', 'extra'];
 
@@ -22,18 +21,15 @@ class PrepareJsonLocal
     $this->json_prefix = $json_prefix;
     $this->json_suffix =  $json_suffix;
     $this->filePath_all = MEC__CP_API_Data_DIR . $this->json_prefix . '_all.json';
-    $this->log = Utils::getLogger();
   }
 
   function separate_data()
   {
     // Lädt die 'products_all.json'-Datei
-    $rawdata = json_decode(file_get_contents($this->filePath_all), true);
-    $data = $rawdata['products_data'];
-
+    $data = json_decode(file_get_contents($this->filePath_all), true);
     $products = [];
     foreach ($this->json_suffix as $product_type) {
-      $products[] = [$product_type => []];
+      $products[$product_type] = [];
     }
     // Initialisiert Arrays für die verschiedenen Produkttypen
 
@@ -41,16 +37,10 @@ class PrepareJsonLocal
     // Durchläuft die Produktdaten und sortiert sie nach Typ
     foreach ($data as $sku => $product) {
       $i++;
-
-      if ($i == 1) {
-        // Protokolliert das erste Produkt zur Kontrolle
-        Utils::putLog(print_r($product, true));
-      }
-
       // Fügt das Produkt basierend auf bestimmten Bedingungen zur entsprechenden Liste hinzu
       if (strpos($sku, '-M') !== false) {
         $products['variable'][$sku] = $product;
-      } elseif (strpos($product['freifeld6'], '-M') !== false) {
+      } elseif (strpos($product['relation'][0], '-M') !== false) {
         $products['variant'][$sku] = $product;
       } elseif ($product['info']['image']) {
         $products['single'][$sku] = $product;
@@ -61,9 +51,10 @@ class PrepareJsonLocal
 
     // Speichert die sortierten Daten in separaten JSON-Dateien
     foreach ($this->json_suffix as $product_type) {
+      // Check if $products[$product_type] is empty before attempting to write
+      Utils::putLog(print_r($products['extra'], true));
       file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'products_' . $product_type . '.json', json_encode($products[$product_type], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     }
-
     // Protokolliert, dass die Produkte erfolgreich aufgeteilt wurden
     Utils::putLog('Produkte wurden erfolgreich in separate Dateien aufgeteilt.');
   }

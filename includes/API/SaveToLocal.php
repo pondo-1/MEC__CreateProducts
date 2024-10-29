@@ -7,17 +7,18 @@ use MEC__CreateProducts\Utils\Utils;
 class SaveToLocal
 {
   private $target_url;
-  private $filePath;
+  private $basefilePath;
   private $log = null;
 
-  public function __construct($url = '', $filePath = '')
+  public function __construct($url = '', $basefilePath = '')
   {
     $this->log = Utils::getLogger();
     if ($url != '') {
       $this->setTarget($url);
     }
-    if ($filePath != '') {
-      $this->filePath = $filePath . '_all.json';
+
+    if ($basefilePath != '') {
+      $this->basefilePath = $basefilePath;
     }
   }
   // Set Target External Json URL
@@ -55,18 +56,39 @@ class SaveToLocal
       return 'Error: Invalid JSON data retrieved.';
     }
     // Save JSON data to a file
-    file_put_contents($this->filePath, $body);
-    Utils::putLog('Success: JSON saved to ' . $this->filePath);
-    return $this->filePath;
+    file_put_contents($this->basefilePath . '_raw.json', $body);
+    $this->create_products_all($body);
+
+    Utils::putLog('Success: JSON saved to ' . $this->basefilePath . '_raw.json');
+    return $this->basefilePath;
+  }
+
+  public function create_products_all($encoded_json)
+  {
+    $rawdata = json_decode($encoded_json, true);
+    $data = $rawdata['products_data'];
+    $products = [];
+    foreach ($data as $sku => $product) {
+      $products[$sku] = [
+        'name'        => $product['name'],
+        'relation'    => explode(';', $product['freifeld6']), // [0] master or parent, [2] attribute 
+        'compatible'  => explode(';', preg_replace("/\r\n|;$/", "",  $product['taxonomyField'])), // mdell, marke, hub. year
+        'info'        => [
+          'description' => $product['name'],
+          'image'       => $product['image']
+        ]
+      ];
+    }
+    file_put_contents($this->basefilePath . '_all.json', json_encode($products, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
   }
 
   public function getFilePath()
   {
     // Check if the file exists
-    if (file_exists($this->filePath)) {
+    if (file_exists($this->basefilePath . '_raw.json')) {
       // Get the file modification time as a Unix timestamp
       date_default_timezone_set('Europe/Berlin');
-      $fileModificationTime = filemtime($this->filePath);
+      $fileModificationTime = filemtime($this->basefilePath . '_raw.json');
 
       // Format the timestamp into a readable date and time format
       $formattedTime = date("Y-m-d H:i:s", $fileModificationTime);

@@ -24,10 +24,10 @@ class AdminPage
   {
 
     add_menu_page(
-      'MEC_dev_test',
-      'MEC_dev_test',
+      'MEC_dev',
+      'MEC_dev',
       'manage_options',
-      'MEC_dev_test',
+      'MEC_dev',
       [$this, 'renderAdminPage'],    // Callback to render the page content
       '',                           // Icon
       65                            // Position
@@ -97,8 +97,8 @@ class AdminPage
     <div>
       Save the json( <?php echo $target; ?>) to local directory <br><br><?php echo $filePath; ?>
       <br>
-      <?php if (file_exists($filePath . '_all.json')): ?>
-        <a href="<?php echo MEC__CP_APIURL . 'all/'; ?>" target="_blank">See all Products by API</a> Last modified: <?php echo $file_exist; ?><br>
+      <?php if (file_exists($filePath . '_raw.json')): ?>
+        <a href="<?php echo MEC__CP_APIURL . 'all/'; ?>" target="_blank">See Products in raw data by API</a> Last modified: <?php echo $file_exist; ?><br>
       <?php endif; ?>
     </div>
     <?php

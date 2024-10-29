@@ -1,0 +1,129 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
+  <diagram name="Page-1" id="XUJHiE1OmvoOKGWHWepb">
+    <mxGraphModel dx="1368" dy="843" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-1" value="Products Data von Amicron&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-2" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="EVMat0AIJDkXBvxvZe_V-1" target="EVMat0AIJDkXBvxvZe_V-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="500" y="280" as="sourcePoint" />
+            <mxPoint x="330" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=none;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="EVMat0AIJDkXBvxvZe_V-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1010" y="450" as="sourcePoint" />
+            <mxPoint x="120" y="70" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1010" y="10" />
+              <mxPoint x="170" y="10" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-6" value="Vorslag" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="EVMat0AIJDkXBvxvZe_V-4">
+          <mxGeometry x="0.0533" y="5" relative="1" as="geometry">
+            <mxPoint x="282" y="95" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.223;entryY=0.01;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="EVMat0AIJDkXBvxvZe_V-3" target="EVMat0AIJDkXBvxvZe_V-28">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="670" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-53" value="CTRL&lt;br&gt;crhistof" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="EVMat0AIJDkXBvxvZe_V-52">
+          <mxGeometry x="0.0166" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-3" value="mec.pe-dev.de" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-7" value="WP DATENBANK" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="110" width="240" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-9" value="WC_products&lt;div&gt;- SKU&lt;br&gt;- Image&lt;br&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="EVMat0AIJDkXBvxvZe_V-7">
+          <mxGeometry x="60" y="30" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-13" value="API&amp;nbsp;&lt;div&gt;wp-json/products/all&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="EVMat0AIJDkXBvxvZe_V-7">
+          <mxGeometry x="60" y="150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-11" value="mec-final.pe-dev.de" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="354" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="EVMat0AIJDkXBvxvZe_V-13" target="EVMat0AIJDkXBvxvZe_V-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-14" value="" style="swimlane;startSize=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="470" width="200" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-15" value="API call for&amp;nbsp; Variable/Variant" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="EVMat0AIJDkXBvxvZe_V-14">
+          <mxGeometry x="40" y="20" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-33" value="API call for&amp;nbsp; Single" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="EVMat0AIJDkXBvxvZe_V-14">
+          <mxGeometry x="40" y="160" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-22" value="API call to save products.json" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="710" y="460" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="EVMat0AIJDkXBvxvZe_V-28" target="EVMat0AIJDkXBvxvZe_V-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-28" value="mec-final,pe-dev.de/plugin/asset/products_all.json&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="890" y="450" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-29" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="EVMat0AIJDkXBvxvZe_V-22" target="EVMat0AIJDkXBvxvZe_V-28">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="670" y="430" as="sourcePoint" />
+            <mxPoint x="720" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="EVMat0AIJDkXBvxvZe_V-13" target="EVMat0AIJDkXBvxvZe_V-33">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="370" as="sourcePoint" />
+            <mxPoint x="230" y="913.5" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="400" y="310" />
+              <mxPoint x="280" y="310" />
+              <mxPoint x="280" y="590" />
+              <mxPoint x="210" y="590" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="EVMat0AIJDkXBvxvZe_V-40" target="EVMat0AIJDkXBvxvZe_V-45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-40" value="List" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="710" y="570" width="140" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-41" value="Product_variable.json" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="EVMat0AIJDkXBvxvZe_V-40">
+          <mxGeometry y="30" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-42" value="prodcuts_single.json" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="EVMat0AIJDkXBvxvZe_V-40">
+          <mxGeometry y="60" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-43" value="products_variant.json" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="EVMat0AIJDkXBvxvZe_V-40">
+          <mxGeometry y="90" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-45" value="WC-query&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="720" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-49" value="SEE my Data as API" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="920" y="680" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="EVMat0AIJDkXBvxvZe_V-43" target="EVMat0AIJDkXBvxvZe_V-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-54" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="EVMat0AIJDkXBvxvZe_V-9" target="EVMat0AIJDkXBvxvZe_V-22">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="780" y="170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

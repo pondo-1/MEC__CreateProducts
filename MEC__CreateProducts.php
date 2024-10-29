@@ -98,5 +98,5 @@ function mec_create_products_plugin_init()
 }
 add_action('plugins_loaded', 'mec_create_products_plugin_init');
 
-// // Runs only once upon plugin activation
-// register_activation_hook(__FILE__, 'mec_create_products_plugin_init');
+// disable woocommerce cashe for dev purpose 
+add_filter('woocommerce_cache_enabled', '__return_false');
