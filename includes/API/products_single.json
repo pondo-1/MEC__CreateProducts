@@ -4,9 +4,23 @@
         "relation": [
             ""
         ],
-        "compatible": [
-            "M|Honda|CR|125|2004|"
-        ],
+        "compatible": {
+            "Typ": [
+                "M"
+            ],
+            "Marke": [
+                "Honda"
+            ],
+            "Modell": [
+                "CR"
+            ],
+            "Hubraum": [
+                "125"
+            ],
+            "Baujahr": [
+                2004
+            ]
+        },
         "info": {
             "description": "125 CR (2004) Honda Motordichsatz",
             "image": "https:\/\/mec.pe-dev.de\/wp-content\/uploads\/2024\/10\/Art105671751A541051549D2A1B0D7FF4C530DD4-scaled.jpg"

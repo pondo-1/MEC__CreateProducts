@@ -1,547 +1,2002 @@
-2024-10-29 15:50:47 ; Button Clicked: 'delete_separated_data'
-2024-10-29 15:50:47 ; Button Clicked: 'delete_separated_data'
-2024-10-29 15:50:49 ; Button Clicked: 'separate_data'
-2024-10-29 15:50:49 ; Array
-2024-10-29 15:50:49 ; Array
-2024-10-29 15:50:49 ; Array
-2024-10-29 15:50:49 ; Array
-2024-10-29 15:50:49 ; 
-2024-10-29 15:50:49 ; 
-2024-10-29 15:50:49 ; 
-2024-10-29 15:50:49 ; 
-2024-10-29 15:50:49 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
-2024-10-29 15:50:49 ; Button Clicked: 'separate_data'
-2024-10-29 15:50:49 ; Array
-2024-10-29 15:50:49 ; Array
-2024-10-29 15:50:49 ; Array
-2024-10-29 15:50:49 ; Array
-2024-10-29 15:50:49 ; 
-2024-10-29 15:50:49 ; 
-2024-10-29 15:50:49 ; 
-2024-10-29 15:50:49 ; 
-2024-10-29 15:50:49 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
-2024-10-29 15:52:29 ; Button Clicked: 'delete_separated_data'
-2024-10-29 15:52:29 ; Button Clicked: 'delete_separated_data'
-2024-10-29 15:52:31 ; Button Clicked: 'separate_data'
-2024-10-29 15:52:31 ; Array
-(
-)
-
-2024-10-29 15:52:31 ; Array
-(
-)
-
-2024-10-29 15:52:31 ; Array
-(
-)
-
-2024-10-29 15:52:31 ; Array
-(
-)
-
-2024-10-29 15:52:31 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
-2024-10-29 15:52:31 ; Button Clicked: 'separate_data'
-2024-10-29 15:52:31 ; Array
-(
-)
-
-2024-10-29 15:52:31 ; Array
-(
-)
-
-2024-10-29 15:52:31 ; Array
-(
-)
-
-2024-10-29 15:52:31 ; Array
-(
-)
-
-2024-10-29 15:52:31 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
-2024-10-29 16:30:52 ; Button Clicked: 'delete_separated_data'
-2024-10-29 16:30:52 ; Button Clicked: 'delete_separated_data'
-2024-10-29 16:30:55 ; Button Clicked: 'save_to_local'
-2024-10-29 16:30:55 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_all.json
-2024-10-29 16:30:55 ; Button Clicked: 'save_to_local'
-2024-10-29 16:30:55 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_all.json
-2024-10-29 16:37:06 ; Button Clicked: 'save_to_local'
-2024-10-29 16:37:06 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
-2024-10-29 16:37:06 ; Button Clicked: 'save_to_local'
-2024-10-29 16:37:06 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
-2024-10-29 16:55:14 ; Button Clicked: 'save_to_local'
-2024-10-29 16:55:14 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
-2024-10-29 16:55:14 ; Button Clicked: 'save_to_local'
-2024-10-29 16:55:14 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
-2024-10-29 16:55:40 ; Button Clicked: 'save_to_local'
-2024-10-29 16:55:40 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
-2024-10-29 16:55:40 ; Button Clicked: 'save_to_local'
-2024-10-29 16:55:40 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
-2024-10-29 16:57:22 ; Button Clicked: 'save_to_local'
-2024-10-29 16:57:22 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
-2024-10-29 16:57:22 ; Button Clicked: 'save_to_local'
-2024-10-29 16:57:22 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
-2024-10-29 16:57:57 ; Button Clicked: 'separate_data'
-2024-10-29 16:57:57 ; Array
+2024-10-29 18:12:37 ; Button Clicked: 'save_to_local'
+2024-10-29 18:12:37 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 18:12:37 ; Array
 (
     [8034D200] => Array
         (
             [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
-            [relation] => Array
-                (
-                    [0] => 8034D-M
-                )
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
 
-            [compatible] => Array
-                (
-                    [0] => M|KTM|EGS|250|1977-1982|
-                    [1] => M|KTM|GS|250|1977-1982|
-                )
-
-            [info] => Array
-                (
-                    [description] => 250 EGS/GS (1977-82) Wössner Ø73,0
-                    [image] => 
-                )
-
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,93 (+2,0 mm)
         )
 
     [8034D150] => Array
         (
             [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
-            [relation] => Array
-                (
-                    [0] => 8034D-M
-                )
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
 
-            [compatible] => Array
-                (
-                    [0] => M|KTM|EGS|250|1977-1982|
-                    [1] => M|KTM|GS|250|1977-1982|
-                )
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,43 (+1,5 mm)
+        )
 
-            [info] => Array
-                (
-                    [description] => 250 EGS/GS (1977-82) Wössner Ø72,5
-                    [image] => 
-                )
+    [10567] => Array
+        (
+            [name] => 125 CR (2004) Honda Motordichsatz
+            [freifeld6] => 
+            [taxonomyField] => M|Honda|CR|125|2004|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art105671751A541051549D2A1B0D7FF4C530DD4-scaled.jpg
+            [description] => # Athena Motordichtsatz Honda CR 125
 
+passend für:
+
+- Honda CR 125 (04)
+
+Athena bietet die komplette Palette an Dichtungen und Dichtsätzen für jede Marke und Modell für Motorräder, Quads, Jet-Skis, Snowmobile und Außenborder. Die Qualität unserer Dichtungen entspricht bzw. übertrifft die der Dichtungen der Original-Hersteller. Unsere langjährige Erfahrung durch die Belieferung renommierter Hersteller von Motorrädern macht unseren stetigen Drang auf der Suche nach der aktuellsten und neusten Fertigungsweise erforderlich. Durch diese Technik werden für die Dichtungen ausschließlich hochwertige Material-Verbindungen verwendet.
+Der Zylinderdichtsatz ist im Motordichtsatz enthalten!
+Simmerringe nicht enthalten! Separat bestellbar!
+        )
+
+    [8034D-M] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner
+            [freifeld6] => master;1;Kolbenmaß (mm)
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art8034D-ME5BC4A9CE3784E73A9402A49696BC3D3-scaled.jpg
+            [description] => # Wössner Kolben KTM EGS 250
+
+BigBore
+
+passend für:
+
+- KTM EGS 250 (77-82)
+- KTM GS 250 (77-82)
+
+Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
         )
 
 )
 
-2024-10-29 16:57:57 ; Array
+2024-10-29 18:12:37 ; Button Clicked: 'save_to_local'
+2024-10-29 18:12:37 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 18:12:37 ; Array
 (
     [8034D200] => Array
         (
             [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
-            [relation] => Array
-                (
-                    [0] => 8034D-M
-                )
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
 
-            [compatible] => Array
-                (
-                    [0] => M|KTM|EGS|250|1977-1982|
-                    [1] => M|KTM|GS|250|1977-1982|
-                )
-
-            [info] => Array
-                (
-                    [description] => 250 EGS/GS (1977-82) Wössner Ø73,0
-                    [image] => 
-                )
-
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,93 (+2,0 mm)
         )
 
     [8034D150] => Array
         (
             [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
-            [relation] => Array
-                (
-                    [0] => 8034D-M
-                )
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
 
-            [compatible] => Array
-                (
-                    [0] => M|KTM|EGS|250|1977-1982|
-                    [1] => M|KTM|GS|250|1977-1982|
-                )
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,43 (+1,5 mm)
+        )
 
-            [info] => Array
-                (
-                    [description] => 250 EGS/GS (1977-82) Wössner Ø72,5
-                    [image] => 
-                )
+    [10567] => Array
+        (
+            [name] => 125 CR (2004) Honda Motordichsatz
+            [freifeld6] => 
+            [taxonomyField] => M|Honda|CR|125|2004|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art105671751A541051549D2A1B0D7FF4C530DD4-scaled.jpg
+            [description] => # Athena Motordichtsatz Honda CR 125
 
+passend für:
+
+- Honda CR 125 (04)
+
+Athena bietet die komplette Palette an Dichtungen und Dichtsätzen für jede Marke und Modell für Motorräder, Quads, Jet-Skis, Snowmobile und Außenborder. Die Qualität unserer Dichtungen entspricht bzw. übertrifft die der Dichtungen der Original-Hersteller. Unsere langjährige Erfahrung durch die Belieferung renommierter Hersteller von Motorrädern macht unseren stetigen Drang auf der Suche nach der aktuellsten und neusten Fertigungsweise erforderlich. Durch diese Technik werden für die Dichtungen ausschließlich hochwertige Material-Verbindungen verwendet.
+Der Zylinderdichtsatz ist im Motordichtsatz enthalten!
+Simmerringe nicht enthalten! Separat bestellbar!
+        )
+
+    [8034D-M] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner
+            [freifeld6] => master;1;Kolbenmaß (mm)
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art8034D-ME5BC4A9CE3784E73A9402A49696BC3D3-scaled.jpg
+            [description] => # Wössner Kolben KTM EGS 250
+
+BigBore
+
+passend für:
+
+- KTM EGS 250 (77-82)
+- KTM GS 250 (77-82)
+
+Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
         )
 
 )
 
-2024-10-29 16:57:57 ; Array
+2024-10-29 18:15:29 ; Button Clicked: 'save_to_local'
+2024-10-29 18:15:29 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 18:15:29 ; Array
 (
     [8034D200] => Array
         (
             [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
-            [relation] => Array
-                (
-                    [0] => 8034D-M
-                )
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
 
-            [compatible] => Array
-                (
-                    [0] => M|KTM|EGS|250|1977-1982|
-                    [1] => M|KTM|GS|250|1977-1982|
-                )
-
-            [info] => Array
-                (
-                    [description] => 250 EGS/GS (1977-82) Wössner Ø73,0
-                    [image] => 
-                )
-
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,93 (+2,0 mm)
         )
 
     [8034D150] => Array
         (
             [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
-            [relation] => Array
-                (
-                    [0] => 8034D-M
-                )
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
 
-            [compatible] => Array
-                (
-                    [0] => M|KTM|EGS|250|1977-1982|
-                    [1] => M|KTM|GS|250|1977-1982|
-                )
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,43 (+1,5 mm)
+        )
 
-            [info] => Array
-                (
-                    [description] => 250 EGS/GS (1977-82) Wössner Ø72,5
-                    [image] => 
-                )
+    [10567] => Array
+        (
+            [name] => 125 CR (2004) Honda Motordichsatz
+            [freifeld6] => 
+            [taxonomyField] => M|Honda|CR|125|2004|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art105671751A541051549D2A1B0D7FF4C530DD4-scaled.jpg
+            [description] => # Athena Motordichtsatz Honda CR 125
 
+passend für:
+
+- Honda CR 125 (04)
+
+Athena bietet die komplette Palette an Dichtungen und Dichtsätzen für jede Marke und Modell für Motorräder, Quads, Jet-Skis, Snowmobile und Außenborder. Die Qualität unserer Dichtungen entspricht bzw. übertrifft die der Dichtungen der Original-Hersteller. Unsere langjährige Erfahrung durch die Belieferung renommierter Hersteller von Motorrädern macht unseren stetigen Drang auf der Suche nach der aktuellsten und neusten Fertigungsweise erforderlich. Durch diese Technik werden für die Dichtungen ausschließlich hochwertige Material-Verbindungen verwendet.
+Der Zylinderdichtsatz ist im Motordichtsatz enthalten!
+Simmerringe nicht enthalten! Separat bestellbar!
+        )
+
+    [8034D-M] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner
+            [freifeld6] => master;1;Kolbenmaß (mm)
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art8034D-ME5BC4A9CE3784E73A9402A49696BC3D3-scaled.jpg
+            [description] => # Wössner Kolben KTM EGS 250
+
+BigBore
+
+passend für:
+
+- KTM EGS 250 (77-82)
+- KTM GS 250 (77-82)
+
+Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
         )
 
 )
 
-2024-10-29 16:57:57 ; Array
+2024-10-29 18:15:29 ; Button Clicked: 'save_to_local'
+2024-10-29 18:15:29 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 18:15:29 ; Array
 (
     [8034D200] => Array
         (
             [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
-            [relation] => Array
-                (
-                    [0] => 8034D-M
-                )
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
 
-            [compatible] => Array
-                (
-                    [0] => M|KTM|EGS|250|1977-1982|
-                    [1] => M|KTM|GS|250|1977-1982|
-                )
-
-            [info] => Array
-                (
-                    [description] => 250 EGS/GS (1977-82) Wössner Ø73,0
-                    [image] => 
-                )
-
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,93 (+2,0 mm)
         )
 
     [8034D150] => Array
         (
             [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
-            [relation] => Array
-                (
-                    [0] => 8034D-M
-                )
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
 
-            [compatible] => Array
-                (
-                    [0] => M|KTM|EGS|250|1977-1982|
-                    [1] => M|KTM|GS|250|1977-1982|
-                )
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,43 (+1,5 mm)
+        )
 
-            [info] => Array
-                (
-                    [description] => 250 EGS/GS (1977-82) Wössner Ø72,5
-                    [image] => 
-                )
+    [10567] => Array
+        (
+            [name] => 125 CR (2004) Honda Motordichsatz
+            [freifeld6] => 
+            [taxonomyField] => M|Honda|CR|125|2004|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art105671751A541051549D2A1B0D7FF4C530DD4-scaled.jpg
+            [description] => # Athena Motordichtsatz Honda CR 125
 
+passend für:
+
+- Honda CR 125 (04)
+
+Athena bietet die komplette Palette an Dichtungen und Dichtsätzen für jede Marke und Modell für Motorräder, Quads, Jet-Skis, Snowmobile und Außenborder. Die Qualität unserer Dichtungen entspricht bzw. übertrifft die der Dichtungen der Original-Hersteller. Unsere langjährige Erfahrung durch die Belieferung renommierter Hersteller von Motorrädern macht unseren stetigen Drang auf der Suche nach der aktuellsten und neusten Fertigungsweise erforderlich. Durch diese Technik werden für die Dichtungen ausschließlich hochwertige Material-Verbindungen verwendet.
+Der Zylinderdichtsatz ist im Motordichtsatz enthalten!
+Simmerringe nicht enthalten! Separat bestellbar!
+        )
+
+    [8034D-M] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner
+            [freifeld6] => master;1;Kolbenmaß (mm)
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art8034D-ME5BC4A9CE3784E73A9402A49696BC3D3-scaled.jpg
+            [description] => # Wössner Kolben KTM EGS 250
+
+BigBore
+
+passend für:
+
+- KTM EGS 250 (77-82)
+- KTM GS 250 (77-82)
+
+Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
         )
 
 )
 
-2024-10-29 16:57:57 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
-2024-10-29 16:57:57 ; Button Clicked: 'separate_data'
-2024-10-29 16:57:57 ; Array
+2024-10-29 18:16:39 ; Button Clicked: 'save_to_local'
+2024-10-29 18:16:39 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 18:16:39 ; Array
 (
     [8034D200] => Array
         (
             [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
-            [relation] => Array
-                (
-                    [0] => 8034D-M
-                )
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
 
-            [compatible] => Array
-                (
-                    [0] => M|KTM|EGS|250|1977-1982|
-                    [1] => M|KTM|GS|250|1977-1982|
-                )
-
-            [info] => Array
-                (
-                    [description] => 250 EGS/GS (1977-82) Wössner Ø73,0
-                    [image] => 
-                )
-
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,93 (+2,0 mm)
         )
 
     [8034D150] => Array
         (
             [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
-            [relation] => Array
-                (
-                    [0] => 8034D-M
-                )
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
 
-            [compatible] => Array
-                (
-                    [0] => M|KTM|EGS|250|1977-1982|
-                    [1] => M|KTM|GS|250|1977-1982|
-                )
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,43 (+1,5 mm)
+        )
 
-            [info] => Array
-                (
-                    [description] => 250 EGS/GS (1977-82) Wössner Ø72,5
-                    [image] => 
-                )
+    [10567] => Array
+        (
+            [name] => 125 CR (2004) Honda Motordichsatz
+            [freifeld6] => 
+            [taxonomyField] => M|Honda|CR|125|2004|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art105671751A541051549D2A1B0D7FF4C530DD4-scaled.jpg
+            [description] => # Athena Motordichtsatz Honda CR 125
 
+passend für:
+
+- Honda CR 125 (04)
+
+Athena bietet die komplette Palette an Dichtungen und Dichtsätzen für jede Marke und Modell für Motorräder, Quads, Jet-Skis, Snowmobile und Außenborder. Die Qualität unserer Dichtungen entspricht bzw. übertrifft die der Dichtungen der Original-Hersteller. Unsere langjährige Erfahrung durch die Belieferung renommierter Hersteller von Motorrädern macht unseren stetigen Drang auf der Suche nach der aktuellsten und neusten Fertigungsweise erforderlich. Durch diese Technik werden für die Dichtungen ausschließlich hochwertige Material-Verbindungen verwendet.
+Der Zylinderdichtsatz ist im Motordichtsatz enthalten!
+Simmerringe nicht enthalten! Separat bestellbar!
+        )
+
+    [8034D-M] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner
+            [freifeld6] => master;1;Kolbenmaß (mm)
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art8034D-ME5BC4A9CE3784E73A9402A49696BC3D3-scaled.jpg
+            [description] => # Wössner Kolben KTM EGS 250
+
+BigBore
+
+passend für:
+
+- KTM EGS 250 (77-82)
+- KTM GS 250 (77-82)
+
+Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
         )
 
 )
 
-2024-10-29 16:57:57 ; Array
+2024-10-29 18:16:39 ; Button Clicked: 'save_to_local'
+2024-10-29 18:16:39 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 18:16:39 ; Array
 (
     [8034D200] => Array
         (
             [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
-            [relation] => Array
-                (
-                    [0] => 8034D-M
-                )
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
 
-            [compatible] => Array
-                (
-                    [0] => M|KTM|EGS|250|1977-1982|
-                    [1] => M|KTM|GS|250|1977-1982|
-                )
-
-            [info] => Array
-                (
-                    [description] => 250 EGS/GS (1977-82) Wössner Ø73,0
-                    [image] => 
-                )
-
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,93 (+2,0 mm)
         )
 
     [8034D150] => Array
         (
             [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
-            [relation] => Array
-                (
-                    [0] => 8034D-M
-                )
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
 
-            [compatible] => Array
-                (
-                    [0] => M|KTM|EGS|250|1977-1982|
-                    [1] => M|KTM|GS|250|1977-1982|
-                )
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,43 (+1,5 mm)
+        )
 
-            [info] => Array
-                (
-                    [description] => 250 EGS/GS (1977-82) Wössner Ø72,5
-                    [image] => 
-                )
+    [10567] => Array
+        (
+            [name] => 125 CR (2004) Honda Motordichsatz
+            [freifeld6] => 
+            [taxonomyField] => M|Honda|CR|125|2004|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art105671751A541051549D2A1B0D7FF4C530DD4-scaled.jpg
+            [description] => # Athena Motordichtsatz Honda CR 125
 
+passend für:
+
+- Honda CR 125 (04)
+
+Athena bietet die komplette Palette an Dichtungen und Dichtsätzen für jede Marke und Modell für Motorräder, Quads, Jet-Skis, Snowmobile und Außenborder. Die Qualität unserer Dichtungen entspricht bzw. übertrifft die der Dichtungen der Original-Hersteller. Unsere langjährige Erfahrung durch die Belieferung renommierter Hersteller von Motorrädern macht unseren stetigen Drang auf der Suche nach der aktuellsten und neusten Fertigungsweise erforderlich. Durch diese Technik werden für die Dichtungen ausschließlich hochwertige Material-Verbindungen verwendet.
+Der Zylinderdichtsatz ist im Motordichtsatz enthalten!
+Simmerringe nicht enthalten! Separat bestellbar!
+        )
+
+    [8034D-M] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner
+            [freifeld6] => master;1;Kolbenmaß (mm)
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art8034D-ME5BC4A9CE3784E73A9402A49696BC3D3-scaled.jpg
+            [description] => # Wössner Kolben KTM EGS 250
+
+BigBore
+
+passend für:
+
+- KTM EGS 250 (77-82)
+- KTM GS 250 (77-82)
+
+Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
         )
 
 )
 
-2024-10-29 16:57:57 ; Array
+2024-10-29 18:18:21 ; Button Clicked: 'save_to_local'
+2024-10-29 18:18:21 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 18:18:21 ; Array
 (
     [8034D200] => Array
         (
             [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
-            [relation] => Array
-                (
-                    [0] => 8034D-M
-                )
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
 
-            [compatible] => Array
-                (
-                    [0] => M|KTM|EGS|250|1977-1982|
-                    [1] => M|KTM|GS|250|1977-1982|
-                )
-
-            [info] => Array
-                (
-                    [description] => 250 EGS/GS (1977-82) Wössner Ø73,0
-                    [image] => 
-                )
-
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,93 (+2,0 mm)
         )
 
     [8034D150] => Array
         (
             [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
-            [relation] => Array
-                (
-                    [0] => 8034D-M
-                )
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
 
-            [compatible] => Array
-                (
-                    [0] => M|KTM|EGS|250|1977-1982|
-                    [1] => M|KTM|GS|250|1977-1982|
-                )
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,43 (+1,5 mm)
+        )
 
-            [info] => Array
-                (
-                    [description] => 250 EGS/GS (1977-82) Wössner Ø72,5
-                    [image] => 
-                )
+    [10567] => Array
+        (
+            [name] => 125 CR (2004) Honda Motordichsatz
+            [freifeld6] => 
+            [taxonomyField] => M|Honda|CR|125|2004|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art105671751A541051549D2A1B0D7FF4C530DD4-scaled.jpg
+            [description] => # Athena Motordichtsatz Honda CR 125
 
+passend für:
+
+- Honda CR 125 (04)
+
+Athena bietet die komplette Palette an Dichtungen und Dichtsätzen für jede Marke und Modell für Motorräder, Quads, Jet-Skis, Snowmobile und Außenborder. Die Qualität unserer Dichtungen entspricht bzw. übertrifft die der Dichtungen der Original-Hersteller. Unsere langjährige Erfahrung durch die Belieferung renommierter Hersteller von Motorrädern macht unseren stetigen Drang auf der Suche nach der aktuellsten und neusten Fertigungsweise erforderlich. Durch diese Technik werden für die Dichtungen ausschließlich hochwertige Material-Verbindungen verwendet.
+Der Zylinderdichtsatz ist im Motordichtsatz enthalten!
+Simmerringe nicht enthalten! Separat bestellbar!
+        )
+
+    [8034D-M] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner
+            [freifeld6] => master;1;Kolbenmaß (mm)
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art8034D-ME5BC4A9CE3784E73A9402A49696BC3D3-scaled.jpg
+            [description] => # Wössner Kolben KTM EGS 250
+
+BigBore
+
+passend für:
+
+- KTM EGS 250 (77-82)
+- KTM GS 250 (77-82)
+
+Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
         )
 
 )
 
-2024-10-29 16:57:57 ; Array
+2024-10-29 18:18:21 ; Button Clicked: 'save_to_local'
+2024-10-29 18:18:21 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 18:18:21 ; Array
 (
     [8034D200] => Array
         (
             [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
-            [relation] => Array
-                (
-                    [0] => 8034D-M
-                )
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
 
-            [compatible] => Array
-                (
-                    [0] => M|KTM|EGS|250|1977-1982|
-                    [1] => M|KTM|GS|250|1977-1982|
-                )
-
-            [info] => Array
-                (
-                    [description] => 250 EGS/GS (1977-82) Wössner Ø73,0
-                    [image] => 
-                )
-
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,93 (+2,0 mm)
         )
 
     [8034D150] => Array
         (
             [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
-            [relation] => Array
-                (
-                    [0] => 8034D-M
-                )
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
 
-            [compatible] => Array
-                (
-                    [0] => M|KTM|EGS|250|1977-1982|
-                    [1] => M|KTM|GS|250|1977-1982|
-                )
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,43 (+1,5 mm)
+        )
 
-            [info] => Array
-                (
-                    [description] => 250 EGS/GS (1977-82) Wössner Ø72,5
-                    [image] => 
-                )
+    [10567] => Array
+        (
+            [name] => 125 CR (2004) Honda Motordichsatz
+            [freifeld6] => 
+            [taxonomyField] => M|Honda|CR|125|2004|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art105671751A541051549D2A1B0D7FF4C530DD4-scaled.jpg
+            [description] => # Athena Motordichtsatz Honda CR 125
 
+passend für:
+
+- Honda CR 125 (04)
+
+Athena bietet die komplette Palette an Dichtungen und Dichtsätzen für jede Marke und Modell für Motorräder, Quads, Jet-Skis, Snowmobile und Außenborder. Die Qualität unserer Dichtungen entspricht bzw. übertrifft die der Dichtungen der Original-Hersteller. Unsere langjährige Erfahrung durch die Belieferung renommierter Hersteller von Motorrädern macht unseren stetigen Drang auf der Suche nach der aktuellsten und neusten Fertigungsweise erforderlich. Durch diese Technik werden für die Dichtungen ausschließlich hochwertige Material-Verbindungen verwendet.
+Der Zylinderdichtsatz ist im Motordichtsatz enthalten!
+Simmerringe nicht enthalten! Separat bestellbar!
+        )
+
+    [8034D-M] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner
+            [freifeld6] => master;1;Kolbenmaß (mm)
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art8034D-ME5BC4A9CE3784E73A9402A49696BC3D3-scaled.jpg
+            [description] => # Wössner Kolben KTM EGS 250
+
+BigBore
+
+passend für:
+
+- KTM EGS 250 (77-82)
+- KTM GS 250 (77-82)
+
+Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
         )
 
 )
 
-2024-10-29 16:57:57 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
-2024-10-29 16:58:54 ; Button Clicked: 'delete_separated_data'
-2024-10-29 16:58:54 ; Button Clicked: 'delete_separated_data'
-2024-10-29 16:58:56 ; Button Clicked: 'separate_data'
-2024-10-29 16:59:17 ; Button Clicked: 'separate_data'
-2024-10-29 16:59:17 ; Array
+2024-10-29 18:22:37 ; Button Clicked: 'save_to_local'
+2024-10-29 18:22:37 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 18:22:37 ; Array
+(
+    [8034D200] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,93 (+2,0 mm)
+        )
+
+    [8034D150] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,43 (+1,5 mm)
+        )
+
+    [10567] => Array
+        (
+            [name] => 125 CR (2004) Honda Motordichsatz
+            [freifeld6] => 
+            [taxonomyField] => M|Honda|CR|125|2004|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art105671751A541051549D2A1B0D7FF4C530DD4-scaled.jpg
+            [description] => # Athena Motordichtsatz Honda CR 125
+
+passend für:
+
+- Honda CR 125 (04)
+
+Athena bietet die komplette Palette an Dichtungen und Dichtsätzen für jede Marke und Modell für Motorräder, Quads, Jet-Skis, Snowmobile und Außenborder. Die Qualität unserer Dichtungen entspricht bzw. übertrifft die der Dichtungen der Original-Hersteller. Unsere langjährige Erfahrung durch die Belieferung renommierter Hersteller von Motorrädern macht unseren stetigen Drang auf der Suche nach der aktuellsten und neusten Fertigungsweise erforderlich. Durch diese Technik werden für die Dichtungen ausschließlich hochwertige Material-Verbindungen verwendet.
+Der Zylinderdichtsatz ist im Motordichtsatz enthalten!
+Simmerringe nicht enthalten! Separat bestellbar!
+        )
+
+    [8034D-M] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner
+            [freifeld6] => master;1;Kolbenmaß (mm)
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art8034D-ME5BC4A9CE3784E73A9402A49696BC3D3-scaled.jpg
+            [description] => # Wössner Kolben KTM EGS 250
+
+BigBore
+
+passend für:
+
+- KTM EGS 250 (77-82)
+- KTM GS 250 (77-82)
+
+Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+        )
+
+)
+
+2024-10-29 18:22:37 ; Button Clicked: 'save_to_local'
+2024-10-29 18:22:37 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 18:22:37 ; Array
+(
+    [8034D200] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,93 (+2,0 mm)
+        )
+
+    [8034D150] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,43 (+1,5 mm)
+        )
+
+    [10567] => Array
+        (
+            [name] => 125 CR (2004) Honda Motordichsatz
+            [freifeld6] => 
+            [taxonomyField] => M|Honda|CR|125|2004|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art105671751A541051549D2A1B0D7FF4C530DD4-scaled.jpg
+            [description] => # Athena Motordichtsatz Honda CR 125
+
+passend für:
+
+- Honda CR 125 (04)
+
+Athena bietet die komplette Palette an Dichtungen und Dichtsätzen für jede Marke und Modell für Motorräder, Quads, Jet-Skis, Snowmobile und Außenborder. Die Qualität unserer Dichtungen entspricht bzw. übertrifft die der Dichtungen der Original-Hersteller. Unsere langjährige Erfahrung durch die Belieferung renommierter Hersteller von Motorrädern macht unseren stetigen Drang auf der Suche nach der aktuellsten und neusten Fertigungsweise erforderlich. Durch diese Technik werden für die Dichtungen ausschließlich hochwertige Material-Verbindungen verwendet.
+Der Zylinderdichtsatz ist im Motordichtsatz enthalten!
+Simmerringe nicht enthalten! Separat bestellbar!
+        )
+
+    [8034D-M] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner
+            [freifeld6] => master;1;Kolbenmaß (mm)
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art8034D-ME5BC4A9CE3784E73A9402A49696BC3D3-scaled.jpg
+            [description] => # Wössner Kolben KTM EGS 250
+
+BigBore
+
+passend für:
+
+- KTM EGS 250 (77-82)
+- KTM GS 250 (77-82)
+
+Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+        )
+
+)
+
+2024-10-29 18:26:55 ; Button Clicked: 'save_to_local'
+2024-10-29 18:26:55 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 18:26:55 ; Array
+(
+    [8034D200] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,93 (+2,0 mm)
+        )
+
+    [8034D150] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,43 (+1,5 mm)
+        )
+
+    [10567] => Array
+        (
+            [name] => 125 CR (2004) Honda Motordichsatz
+            [freifeld6] => 
+            [taxonomyField] => M|Honda|CR|125|2004|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art105671751A541051549D2A1B0D7FF4C530DD4-scaled.jpg
+            [description] => # Athena Motordichtsatz Honda CR 125
+
+passend für:
+
+- Honda CR 125 (04)
+
+Athena bietet die komplette Palette an Dichtungen und Dichtsätzen für jede Marke und Modell für Motorräder, Quads, Jet-Skis, Snowmobile und Außenborder. Die Qualität unserer Dichtungen entspricht bzw. übertrifft die der Dichtungen der Original-Hersteller. Unsere langjährige Erfahrung durch die Belieferung renommierter Hersteller von Motorrädern macht unseren stetigen Drang auf der Suche nach der aktuellsten und neusten Fertigungsweise erforderlich. Durch diese Technik werden für die Dichtungen ausschließlich hochwertige Material-Verbindungen verwendet.
+Der Zylinderdichtsatz ist im Motordichtsatz enthalten!
+Simmerringe nicht enthalten! Separat bestellbar!
+        )
+
+    [8034D-M] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner
+            [freifeld6] => master;1;Kolbenmaß (mm)
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art8034D-ME5BC4A9CE3784E73A9402A49696BC3D3-scaled.jpg
+            [description] => # Wössner Kolben KTM EGS 250
+
+BigBore
+
+passend für:
+
+- KTM EGS 250 (77-82)
+- KTM GS 250 (77-82)
+
+Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+        )
+
+)
+
+2024-10-29 18:26:55 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:26:55 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:26:55 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:26:55 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:26:55 ; Array
+(
+    [0] => 2004
+)
+
+2024-10-29 18:26:55 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:26:55 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:26:55 ; Button Clicked: 'save_to_local'
+2024-10-29 18:26:55 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 18:26:55 ; Array
+(
+    [8034D200] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,93 (+2,0 mm)
+        )
+
+    [8034D150] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,43 (+1,5 mm)
+        )
+
+    [10567] => Array
+        (
+            [name] => 125 CR (2004) Honda Motordichsatz
+            [freifeld6] => 
+            [taxonomyField] => M|Honda|CR|125|2004|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art105671751A541051549D2A1B0D7FF4C530DD4-scaled.jpg
+            [description] => # Athena Motordichtsatz Honda CR 125
+
+passend für:
+
+- Honda CR 125 (04)
+
+Athena bietet die komplette Palette an Dichtungen und Dichtsätzen für jede Marke und Modell für Motorräder, Quads, Jet-Skis, Snowmobile und Außenborder. Die Qualität unserer Dichtungen entspricht bzw. übertrifft die der Dichtungen der Original-Hersteller. Unsere langjährige Erfahrung durch die Belieferung renommierter Hersteller von Motorrädern macht unseren stetigen Drang auf der Suche nach der aktuellsten und neusten Fertigungsweise erforderlich. Durch diese Technik werden für die Dichtungen ausschließlich hochwertige Material-Verbindungen verwendet.
+Der Zylinderdichtsatz ist im Motordichtsatz enthalten!
+Simmerringe nicht enthalten! Separat bestellbar!
+        )
+
+    [8034D-M] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner
+            [freifeld6] => master;1;Kolbenmaß (mm)
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art8034D-ME5BC4A9CE3784E73A9402A49696BC3D3-scaled.jpg
+            [description] => # Wössner Kolben KTM EGS 250
+
+BigBore
+
+passend für:
+
+- KTM EGS 250 (77-82)
+- KTM GS 250 (77-82)
+
+Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+        )
+
+)
+
+2024-10-29 18:26:55 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:26:55 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:26:55 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:26:55 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:26:55 ; Array
+(
+    [0] => 2004
+)
+
+2024-10-29 18:26:55 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:26:55 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:27:42 ; Button Clicked: 'save_to_local'
+2024-10-29 18:27:42 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 18:27:42 ; Array
+(
+    [8034D200] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,93 (+2,0 mm)
+        )
+
+    [8034D150] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,43 (+1,5 mm)
+        )
+
+    [10567] => Array
+        (
+            [name] => 125 CR (2004) Honda Motordichsatz
+            [freifeld6] => 
+            [taxonomyField] => M|Honda|CR|125|2004|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art105671751A541051549D2A1B0D7FF4C530DD4-scaled.jpg
+            [description] => # Athena Motordichtsatz Honda CR 125
+
+passend für:
+
+- Honda CR 125 (04)
+
+Athena bietet die komplette Palette an Dichtungen und Dichtsätzen für jede Marke und Modell für Motorräder, Quads, Jet-Skis, Snowmobile und Außenborder. Die Qualität unserer Dichtungen entspricht bzw. übertrifft die der Dichtungen der Original-Hersteller. Unsere langjährige Erfahrung durch die Belieferung renommierter Hersteller von Motorrädern macht unseren stetigen Drang auf der Suche nach der aktuellsten und neusten Fertigungsweise erforderlich. Durch diese Technik werden für die Dichtungen ausschließlich hochwertige Material-Verbindungen verwendet.
+Der Zylinderdichtsatz ist im Motordichtsatz enthalten!
+Simmerringe nicht enthalten! Separat bestellbar!
+        )
+
+    [8034D-M] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner
+            [freifeld6] => master;1;Kolbenmaß (mm)
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art8034D-ME5BC4A9CE3784E73A9402A49696BC3D3-scaled.jpg
+            [description] => # Wössner Kolben KTM EGS 250
+
+BigBore
+
+passend für:
+
+- KTM EGS 250 (77-82)
+- KTM GS 250 (77-82)
+
+Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+        )
+
+)
+
+2024-10-29 18:27:42 ; 1977-1982
+2024-10-29 18:27:42 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:27:42 ; 1977-1982
+2024-10-29 18:27:42 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:27:42 ; 1977-1982
+2024-10-29 18:27:42 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:27:42 ; 1977-1982
+2024-10-29 18:27:42 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:27:42 ; 2004
+2024-10-29 18:27:42 ; Array
+(
+    [0] => 2004
+)
+
+2024-10-29 18:27:42 ; 1977-1982
+2024-10-29 18:27:42 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:27:42 ; 1977-1982
+2024-10-29 18:27:42 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:27:42 ; Button Clicked: 'save_to_local'
+2024-10-29 18:27:42 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 18:27:42 ; Array
+(
+    [8034D200] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,93 (+2,0 mm)
+        )
+
+    [8034D150] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,43 (+1,5 mm)
+        )
+
+    [10567] => Array
+        (
+            [name] => 125 CR (2004) Honda Motordichsatz
+            [freifeld6] => 
+            [taxonomyField] => M|Honda|CR|125|2004|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art105671751A541051549D2A1B0D7FF4C530DD4-scaled.jpg
+            [description] => # Athena Motordichtsatz Honda CR 125
+
+passend für:
+
+- Honda CR 125 (04)
+
+Athena bietet die komplette Palette an Dichtungen und Dichtsätzen für jede Marke und Modell für Motorräder, Quads, Jet-Skis, Snowmobile und Außenborder. Die Qualität unserer Dichtungen entspricht bzw. übertrifft die der Dichtungen der Original-Hersteller. Unsere langjährige Erfahrung durch die Belieferung renommierter Hersteller von Motorrädern macht unseren stetigen Drang auf der Suche nach der aktuellsten und neusten Fertigungsweise erforderlich. Durch diese Technik werden für die Dichtungen ausschließlich hochwertige Material-Verbindungen verwendet.
+Der Zylinderdichtsatz ist im Motordichtsatz enthalten!
+Simmerringe nicht enthalten! Separat bestellbar!
+        )
+
+    [8034D-M] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner
+            [freifeld6] => master;1;Kolbenmaß (mm)
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art8034D-ME5BC4A9CE3784E73A9402A49696BC3D3-scaled.jpg
+            [description] => # Wössner Kolben KTM EGS 250
+
+BigBore
+
+passend für:
+
+- KTM EGS 250 (77-82)
+- KTM GS 250 (77-82)
+
+Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+        )
+
+)
+
+2024-10-29 18:27:42 ; 1977-1982
+2024-10-29 18:27:42 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:27:42 ; 1977-1982
+2024-10-29 18:27:42 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:27:42 ; 1977-1982
+2024-10-29 18:27:42 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:27:42 ; 1977-1982
+2024-10-29 18:27:42 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:27:42 ; 2004
+2024-10-29 18:27:42 ; Array
+(
+    [0] => 2004
+)
+
+2024-10-29 18:27:42 ; 1977-1982
+2024-10-29 18:27:42 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:27:42 ; 1977-1982
+2024-10-29 18:27:42 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:28:57 ; Button Clicked: 'save_to_local'
+2024-10-29 18:28:57 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 18:28:57 ; Array
+(
+    [8034D200] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,93 (+2,0 mm)
+        )
+
+    [8034D150] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,43 (+1,5 mm)
+        )
+
+    [10567] => Array
+        (
+            [name] => 125 CR (2004) Honda Motordichsatz
+            [freifeld6] => 
+            [taxonomyField] => M|Honda|CR|125|2004|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art105671751A541051549D2A1B0D7FF4C530DD4-scaled.jpg
+            [description] => # Athena Motordichtsatz Honda CR 125
+
+passend für:
+
+- Honda CR 125 (04)
+
+Athena bietet die komplette Palette an Dichtungen und Dichtsätzen für jede Marke und Modell für Motorräder, Quads, Jet-Skis, Snowmobile und Außenborder. Die Qualität unserer Dichtungen entspricht bzw. übertrifft die der Dichtungen der Original-Hersteller. Unsere langjährige Erfahrung durch die Belieferung renommierter Hersteller von Motorrädern macht unseren stetigen Drang auf der Suche nach der aktuellsten und neusten Fertigungsweise erforderlich. Durch diese Technik werden für die Dichtungen ausschließlich hochwertige Material-Verbindungen verwendet.
+Der Zylinderdichtsatz ist im Motordichtsatz enthalten!
+Simmerringe nicht enthalten! Separat bestellbar!
+        )
+
+    [8034D-M] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner
+            [freifeld6] => master;1;Kolbenmaß (mm)
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art8034D-ME5BC4A9CE3784E73A9402A49696BC3D3-scaled.jpg
+            [description] => # Wössner Kolben KTM EGS 250
+
+BigBore
+
+passend für:
+
+- KTM EGS 250 (77-82)
+- KTM GS 250 (77-82)
+
+Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+        )
+
+)
+
+2024-10-29 18:28:57 ; 1977-1982
+2024-10-29 18:28:57 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:29:14 ; Button Clicked: 'save_to_local'
+2024-10-29 18:29:14 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 18:29:14 ; Array
+(
+    [8034D200] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,93 (+2,0 mm)
+        )
+
+    [8034D150] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,43 (+1,5 mm)
+        )
+
+    [10567] => Array
+        (
+            [name] => 125 CR (2004) Honda Motordichsatz
+            [freifeld6] => 
+            [taxonomyField] => M|Honda|CR|125|2004|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art105671751A541051549D2A1B0D7FF4C530DD4-scaled.jpg
+            [description] => # Athena Motordichtsatz Honda CR 125
+
+passend für:
+
+- Honda CR 125 (04)
+
+Athena bietet die komplette Palette an Dichtungen und Dichtsätzen für jede Marke und Modell für Motorräder, Quads, Jet-Skis, Snowmobile und Außenborder. Die Qualität unserer Dichtungen entspricht bzw. übertrifft die der Dichtungen der Original-Hersteller. Unsere langjährige Erfahrung durch die Belieferung renommierter Hersteller von Motorrädern macht unseren stetigen Drang auf der Suche nach der aktuellsten und neusten Fertigungsweise erforderlich. Durch diese Technik werden für die Dichtungen ausschließlich hochwertige Material-Verbindungen verwendet.
+Der Zylinderdichtsatz ist im Motordichtsatz enthalten!
+Simmerringe nicht enthalten! Separat bestellbar!
+        )
+
+    [8034D-M] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner
+            [freifeld6] => master;1;Kolbenmaß (mm)
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art8034D-ME5BC4A9CE3784E73A9402A49696BC3D3-scaled.jpg
+            [description] => # Wössner Kolben KTM EGS 250
+
+BigBore
+
+passend für:
+
+- KTM EGS 250 (77-82)
+- KTM GS 250 (77-82)
+
+Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+        )
+
+)
+
+2024-10-29 18:29:14 ; 1977-1982
+2024-10-29 18:29:14 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:29:24 ; Button Clicked: 'save_to_local'
+2024-10-29 18:29:24 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 18:29:24 ; Array
+(
+    [8034D200] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,93 (+2,0 mm)
+        )
+
+    [8034D150] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,43 (+1,5 mm)
+        )
+
+    [10567] => Array
+        (
+            [name] => 125 CR (2004) Honda Motordichsatz
+            [freifeld6] => 
+            [taxonomyField] => M|Honda|CR|125|2004|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art105671751A541051549D2A1B0D7FF4C530DD4-scaled.jpg
+            [description] => # Athena Motordichtsatz Honda CR 125
+
+passend für:
+
+- Honda CR 125 (04)
+
+Athena bietet die komplette Palette an Dichtungen und Dichtsätzen für jede Marke und Modell für Motorräder, Quads, Jet-Skis, Snowmobile und Außenborder. Die Qualität unserer Dichtungen entspricht bzw. übertrifft die der Dichtungen der Original-Hersteller. Unsere langjährige Erfahrung durch die Belieferung renommierter Hersteller von Motorrädern macht unseren stetigen Drang auf der Suche nach der aktuellsten und neusten Fertigungsweise erforderlich. Durch diese Technik werden für die Dichtungen ausschließlich hochwertige Material-Verbindungen verwendet.
+Der Zylinderdichtsatz ist im Motordichtsatz enthalten!
+Simmerringe nicht enthalten! Separat bestellbar!
+        )
+
+    [8034D-M] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner
+            [freifeld6] => master;1;Kolbenmaß (mm)
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art8034D-ME5BC4A9CE3784E73A9402A49696BC3D3-scaled.jpg
+            [description] => # Wössner Kolben KTM EGS 250
+
+BigBore
+
+passend für:
+
+- KTM EGS 250 (77-82)
+- KTM GS 250 (77-82)
+
+Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+        )
+
+)
+
+2024-10-29 18:29:24 ; 1977-1982
+2024-10-29 18:29:24 ; Array
+(
+    [0] => 1977
+    [1] => 1978
+    [2] => 1979
+    [3] => 1980
+    [4] => 1981
+    [5] => 1982
+)
+
+2024-10-29 18:35:02 ; Button Clicked: 'save_to_local'
+2024-10-29 18:35:02 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 18:35:02 ; Array
+(
+    [8034D200] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,93 (+2,0 mm)
+        )
+
+    [8034D150] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,43 (+1,5 mm)
+        )
+
+    [10567] => Array
+        (
+            [name] => 125 CR (2004) Honda Motordichsatz
+            [freifeld6] => 
+            [taxonomyField] => M|Honda|CR|125|2004|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art105671751A541051549D2A1B0D7FF4C530DD4-scaled.jpg
+            [description] => # Athena Motordichtsatz Honda CR 125
+
+passend für:
+
+- Honda CR 125 (04)
+
+Athena bietet die komplette Palette an Dichtungen und Dichtsätzen für jede Marke und Modell für Motorräder, Quads, Jet-Skis, Snowmobile und Außenborder. Die Qualität unserer Dichtungen entspricht bzw. übertrifft die der Dichtungen der Original-Hersteller. Unsere langjährige Erfahrung durch die Belieferung renommierter Hersteller von Motorrädern macht unseren stetigen Drang auf der Suche nach der aktuellsten und neusten Fertigungsweise erforderlich. Durch diese Technik werden für die Dichtungen ausschließlich hochwertige Material-Verbindungen verwendet.
+Der Zylinderdichtsatz ist im Motordichtsatz enthalten!
+Simmerringe nicht enthalten! Separat bestellbar!
+        )
+
+    [8034D-M] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner
+            [freifeld6] => master;1;Kolbenmaß (mm)
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art8034D-ME5BC4A9CE3784E73A9402A49696BC3D3-scaled.jpg
+            [description] => # Wössner Kolben KTM EGS 250
+
+BigBore
+
+passend für:
+
+- KTM EGS 250 (77-82)
+- KTM GS 250 (77-82)
+
+Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+        )
+
+)
+
+2024-10-29 18:35:02 ; Button Clicked: 'save_to_local'
+2024-10-29 18:35:02 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 18:35:02 ; Array
+(
+    [8034D200] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,93 (+2,0 mm)
+        )
+
+    [8034D150] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,43 (+1,5 mm)
+        )
+
+    [10567] => Array
+        (
+            [name] => 125 CR (2004) Honda Motordichsatz
+            [freifeld6] => 
+            [taxonomyField] => M|Honda|CR|125|2004|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art105671751A541051549D2A1B0D7FF4C530DD4-scaled.jpg
+            [description] => # Athena Motordichtsatz Honda CR 125
+
+passend für:
+
+- Honda CR 125 (04)
+
+Athena bietet die komplette Palette an Dichtungen und Dichtsätzen für jede Marke und Modell für Motorräder, Quads, Jet-Skis, Snowmobile und Außenborder. Die Qualität unserer Dichtungen entspricht bzw. übertrifft die der Dichtungen der Original-Hersteller. Unsere langjährige Erfahrung durch die Belieferung renommierter Hersteller von Motorrädern macht unseren stetigen Drang auf der Suche nach der aktuellsten und neusten Fertigungsweise erforderlich. Durch diese Technik werden für die Dichtungen ausschließlich hochwertige Material-Verbindungen verwendet.
+Der Zylinderdichtsatz ist im Motordichtsatz enthalten!
+Simmerringe nicht enthalten! Separat bestellbar!
+        )
+
+    [8034D-M] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner
+            [freifeld6] => master;1;Kolbenmaß (mm)
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art8034D-ME5BC4A9CE3784E73A9402A49696BC3D3-scaled.jpg
+            [description] => # Wössner Kolben KTM EGS 250
+
+BigBore
+
+passend für:
+
+- KTM EGS 250 (77-82)
+- KTM GS 250 (77-82)
+
+Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+        )
+
+)
+
+2024-10-29 18:35:06 ; Button Clicked: 'save_to_local'
+2024-10-29 18:35:06 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 18:35:06 ; Array
+(
+    [8034D200] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,93 (+2,0 mm)
+        )
+
+    [8034D150] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,43 (+1,5 mm)
+        )
+
+    [10567] => Array
+        (
+            [name] => 125 CR (2004) Honda Motordichsatz
+            [freifeld6] => 
+            [taxonomyField] => M|Honda|CR|125|2004|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art105671751A541051549D2A1B0D7FF4C530DD4-scaled.jpg
+            [description] => # Athena Motordichtsatz Honda CR 125
+
+passend für:
+
+- Honda CR 125 (04)
+
+Athena bietet die komplette Palette an Dichtungen und Dichtsätzen für jede Marke und Modell für Motorräder, Quads, Jet-Skis, Snowmobile und Außenborder. Die Qualität unserer Dichtungen entspricht bzw. übertrifft die der Dichtungen der Original-Hersteller. Unsere langjährige Erfahrung durch die Belieferung renommierter Hersteller von Motorrädern macht unseren stetigen Drang auf der Suche nach der aktuellsten und neusten Fertigungsweise erforderlich. Durch diese Technik werden für die Dichtungen ausschließlich hochwertige Material-Verbindungen verwendet.
+Der Zylinderdichtsatz ist im Motordichtsatz enthalten!
+Simmerringe nicht enthalten! Separat bestellbar!
+        )
+
+    [8034D-M] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner
+            [freifeld6] => master;1;Kolbenmaß (mm)
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art8034D-ME5BC4A9CE3784E73A9402A49696BC3D3-scaled.jpg
+            [description] => # Wössner Kolben KTM EGS 250
+
+BigBore
+
+passend für:
+
+- KTM EGS 250 (77-82)
+- KTM GS 250 (77-82)
+
+Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+        )
+
+)
+
+2024-10-29 18:35:06 ; Button Clicked: 'save_to_local'
+2024-10-29 18:35:06 ; Success: JSON saved to /home/diane/Local Sites/mec-okto/app/public/wp-content/plugins/MEC__CreateProducts/includes/API/products_raw.json
+2024-10-29 18:35:06 ; Array
+(
+    [8034D200] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø73,0
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,93 (+2,0 mm)
+        )
+
+    [8034D150] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner Ø72,5
+            [freifeld6] => 8034D-M
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => 
+            [description] => Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+Ø72,43 (+1,5 mm)
+        )
+
+    [10567] => Array
+        (
+            [name] => 125 CR (2004) Honda Motordichsatz
+            [freifeld6] => 
+            [taxonomyField] => M|Honda|CR|125|2004|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art105671751A541051549D2A1B0D7FF4C530DD4-scaled.jpg
+            [description] => # Athena Motordichtsatz Honda CR 125
+
+passend für:
+
+- Honda CR 125 (04)
+
+Athena bietet die komplette Palette an Dichtungen und Dichtsätzen für jede Marke und Modell für Motorräder, Quads, Jet-Skis, Snowmobile und Außenborder. Die Qualität unserer Dichtungen entspricht bzw. übertrifft die der Dichtungen der Original-Hersteller. Unsere langjährige Erfahrung durch die Belieferung renommierter Hersteller von Motorrädern macht unseren stetigen Drang auf der Suche nach der aktuellsten und neusten Fertigungsweise erforderlich. Durch diese Technik werden für die Dichtungen ausschließlich hochwertige Material-Verbindungen verwendet.
+Der Zylinderdichtsatz ist im Motordichtsatz enthalten!
+Simmerringe nicht enthalten! Separat bestellbar!
+        )
+
+    [8034D-M] => Array
+        (
+            [name] => 250 EGS/GS (1977-82) Wössner
+            [freifeld6] => master;1;Kolbenmaß (mm)
+            [taxonomyField] => M|KTM|EGS|250|1977-1982|;
+M|KTM|GS|250|1977-1982|;
+            [image] => https://mec.pe-dev.de/wp-content/uploads/2024/10/Art8034D-ME5BC4A9CE3784E73A9402A49696BC3D3-scaled.jpg
+            [description] => # Wössner Kolben KTM EGS 250
+
+BigBore
+
+passend für:
+
+- KTM EGS 250 (77-82)
+- KTM GS 250 (77-82)
+
+Geschmiedete Hochleistungskolben von WÖSSNER für Off Road, Street, Quad, Jet Ski und Snowmobil „Made in Germany“.
+
+Hergestellt mit der Verwendung von neuesten computerisierten Technologien, die aus der GP und F1 stammen. Geschmiedete Kolben sind temperaturbeständiger und langlebiger als gegossene Kolben.
+Die Kolben besitzen zusätzlich eine Kolbenhemdbeschichtung um die Reibung zwischen Kolben und Zylinder zu verringern und die Notlaufeigenschaften zu verbessern.
+	
+Alle Kolbenkits werden komplett mit Ringsatz, Bolzen und Sicherungsclipsen geliefert.
+        )
+
+)
+
+2024-10-29 18:36:18 ; Button Clicked: 'separate_data'
+2024-10-29 18:36:18 ; Array
 (
 )
 
-2024-10-29 16:59:17 ; Array
+2024-10-29 18:36:18 ; Array
 (
 )
 
-2024-10-29 16:59:17 ; Array
+2024-10-29 18:36:18 ; Array
 (
 )
 
-2024-10-29 16:59:17 ; Array
+2024-10-29 18:36:18 ; Array
 (
 )
 
-2024-10-29 16:59:17 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
-2024-10-29 16:59:17 ; Button Clicked: 'separate_data'
-2024-10-29 16:59:17 ; Array
+2024-10-29 18:36:18 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
+2024-10-29 18:36:18 ; Button Clicked: 'separate_data'
+2024-10-29 18:36:18 ; Array
 (
 )
 
-2024-10-29 16:59:17 ; Array
+2024-10-29 18:36:18 ; Array
 (
 )
 
-2024-10-29 16:59:17 ; Array
+2024-10-29 18:36:18 ; Array
 (
 )
 
-2024-10-29 16:59:17 ; Array
+2024-10-29 18:36:18 ; Array
 (
 )
 
-2024-10-29 16:59:17 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
-2024-10-29 16:59:20 ; Button Clicked: 'delete_separated_data'
-2024-10-29 16:59:20 ; Button Clicked: 'delete_separated_data'
-2024-10-29 16:59:22 ; Button Clicked: 'separate_data'
-2024-10-29 16:59:22 ; Array
-(
-)
-
-2024-10-29 16:59:22 ; Array
-(
-)
-
-2024-10-29 16:59:22 ; Array
-(
-)
-
-2024-10-29 16:59:22 ; Array
-(
-)
-
-2024-10-29 16:59:22 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
-2024-10-29 16:59:22 ; Button Clicked: 'separate_data'
-2024-10-29 16:59:22 ; Array
-(
-)
-
-2024-10-29 16:59:22 ; Array
-(
-)
-
-2024-10-29 16:59:22 ; Array
-(
-)
-
-2024-10-29 16:59:22 ; Array
-(
-)
-
-2024-10-29 16:59:22 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.
+2024-10-29 18:36:18 ; Produkte wurden erfolgreich in separate Dateien aufgeteilt.

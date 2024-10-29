@@ -4,10 +4,29 @@
         "relation": [
             "8034D-M"
         ],
-        "compatible": [
-            "M|KTM|EGS|250|1977-1982|",
-            "M|KTM|GS|250|1977-1982|"
-        ],
+        "compatible": {
+            "Typ": [
+                "M"
+            ],
+            "Marke": [
+                "KTM"
+            ],
+            "Modell": [
+                "EGS",
+                "GS"
+            ],
+            "Hubraum": [
+                "250"
+            ],
+            "Baujahr": [
+                1977,
+                1978,
+                1979,
+                1980,
+                1981,
+                1982
+            ]
+        },
         "info": {
             "description": "250 EGS\/GS (1977-82) Wössner Ø73,0",
             "image": false
@@ -18,10 +37,29 @@
         "relation": [
             "8034D-M"
         ],
-        "compatible": [
-            "M|KTM|EGS|250|1977-1982|",
-            "M|KTM|GS|250|1977-1982|"
-        ],
+        "compatible": {
+            "Typ": [
+                "M"
+            ],
+            "Marke": [
+                "KTM"
+            ],
+            "Modell": [
+                "EGS",
+                "GS"
+            ],
+            "Hubraum": [
+                "250"
+            ],
+            "Baujahr": [
+                1977,
+                1978,
+                1979,
+                1980,
+                1981,
+                1982
+            ]
+        },
         "info": {
             "description": "250 EGS\/GS (1977-82) Wössner Ø72,5",
             "image": false

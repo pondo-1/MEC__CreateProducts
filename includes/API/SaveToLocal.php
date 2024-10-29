@@ -57,9 +57,10 @@ class SaveToLocal
     }
     // Save JSON data to a file
     file_put_contents($this->basefilePath . '_raw.json', $body);
+    Utils::putLog('Success: JSON saved to ' . $this->basefilePath . '_raw.json');
+    // modify data
     $this->create_products_all($body);
 
-    Utils::putLog('Success: JSON saved to ' . $this->basefilePath . '_raw.json');
     return $this->basefilePath;
   }
 
@@ -67,12 +68,14 @@ class SaveToLocal
   {
     $rawdata = json_decode($encoded_json, true);
     $data = $rawdata['products_data'];
+    Utils::putLog(print_r($data, true));
     $products = [];
     foreach ($data as $sku => $product) {
+      $compatible_tax = $this->create_compatible_tax($product['taxonomyField']);
       $products[$sku] = [
         'name'        => $product['name'],
         'relation'    => explode(';', $product['freifeld6']), // [0] master or parent, [2] attribute 
-        'compatible'  => explode(';', preg_replace("/\r\n|;$/", "",  $product['taxonomyField'])), // mdell, marke, hub. year
+        'compatible'  => $compatible_tax, // mdell, marke, hub. year
         'info'        => [
           'description' => $product['name'],
           'image'       => $product['image']
@@ -80,6 +83,44 @@ class SaveToLocal
       ];
     }
     file_put_contents($this->basefilePath . '_all.json', json_encode($products, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+  }
+
+  public function create_compatible_tax($compatible_string)
+  {
+    $taxonomy_name = ['Typ', 'Marke', 'Modell', 'Hubraum', 'Baujahr'];
+    $compatible = [];
+    $compatible_array = explode(';', preg_replace("/\r\n|;$/", "",  $compatible_string));
+    foreach ($compatible_array as $entry) {
+      $temp = explode('|',  $entry);
+
+      for ($i = 0; $i < 5; $i++) {
+        if ($i == 4) {
+          $temp[$i] = $this->yearsToArray($temp[$i]);
+          foreach ($temp[$i] as $year) {
+            $compatible[$taxonomy_name[$i]][] = $year;
+          }
+        } else {
+          $compatible[$taxonomy_name[$i]][] =  $temp[$i];
+        }
+
+        $compatible[$taxonomy_name[$i]] = array_unique($compatible[$taxonomy_name[$i]]);
+      }
+    }
+
+    return $compatible;
+  }
+
+
+  function yearsToArray($yearString)
+  {
+    // Check if it's a range, e.g., "1977-1982"
+    if (strpos($yearString, '-') !== false) {
+      list($start, $end) = explode('-', $yearString); // Split into start and end years
+      return range((int)$start, (int)$end);           // Generate an array of years
+    } else {
+      // If it's a single year, just return it as an array
+      return [(int)$yearString];
+    }
   }
 
   public function getFilePath()
