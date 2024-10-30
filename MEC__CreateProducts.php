@@ -91,12 +91,15 @@ spl_autoload_register(function ($class_name) {
 $MEC__CP_log = MEC__CreateProducts\Utils\Utils::getLogger();
 
 // Initialize plugin components
-function mec_create_products_plugin_init()
+function mec__CP_plugin_init()
 {
   new MEC__CreateProducts\Admin\AdminPage();
   MEC__CreateProducts\API\LocalJsonToAPI::prepareAPI();
 }
-add_action('plugins_loaded', 'mec_create_products_plugin_init');
+add_action('plugins_loaded', 'mec__CP_plugin_init');
+
+// Instantiate the Taxonomy class
+new MEC__CreateProducts\Init\Taxonomy();
 
 // disable woocommerce cashe for dev purpose 
 add_filter('woocommerce_cache_enabled', '__return_false');

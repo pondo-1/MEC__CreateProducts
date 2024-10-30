@@ -1,0 +1,35 @@
+{"8034D200":{"name":"250 EGS\/GS (1977-82) W\u00f6ssner \u00d873,0","relation":["8034D-M",2,"\u00d873,0"],"compatible":{"Typ":["M"],"Marke":["KTM"],"Modell":["EGS","GS"],"Hubraum":["250"],"Baujahr":[1977,1978,1979,1980,1981,1982]},"info":{"description":"250 EGS\/GS (1977-82) W\u00f6ssner \u00d873,0","image":false}},"8034D150":{"name":"250 EGS\/GS (1977-82) W\u00f6ssner \u00d872,5","relation":["8034D-M",2,"\u00d872,5"],"compatible":{"Typ":["M"],"Marke":["KTM"],"Modell":["EGS","GS"],"Hubraum":["250"],"Baujahr":[1977,1978,1979,1980,1981,1982]},"info":{"description":"250 EGS\/GS (1977-82) W\u00f6ssner \u00d872,5","image":false}}}
+
+// Step 1: Loop through each variant and add it to the existing variable product
+foreach ($variants_data as $variant_data) {
+    // Create a new variation for the existing variable product
+    $variation = new WC_Product_Variation();
+    $variation->set_parent_id($variable_product_id);
+    $variation->set_name($variant_data['name']);
+    $variation->set_sku($variant_data['relation'][0]); // e.g., "8034D200"
+    $variation->set_description($variant_data['info']['description']);
+    
+    // Set the specific attribute option for this variation
+    $variation->set_attributes([
+        'pa_kolbenmass-mm' => $variant_data['relation'][2] // Example: "Kolbenmaß (mm)" => "Ø73,0"
+    ]);
+
+Now i would like to add variant product under the attribute. can you show me?
+
+Variable product data : 
+{"8034D-M":{"name":"250 EGS\/GS (1977-82) W\u00f6ssner","relation":["master","1","Kolbenma\u00df (mm)"],"compatible":{"Typ":["M"],"Marke":["KTM"],"Modell":["EGS","GS"],"Hubraum":["250"],"Baujahr":[1977,1978,1979,1980,1981,1982]},"info":{"description":"250 EGS\/GS (1977-82) W\u00f6ssner","image":"https:\/\/mec.pe-dev.de\/wp-content\/uploads\/2024\/10\/Art8034D-ME5BC4A9CE3784E73A9402A49696BC3D3-scaled.jpg"}}}
+
+ 
+
+variant Product data :
+
+{"8034D200":{"name":"250 EGS\/GS (1977-82) W\u00f6ssner \u00d873,0","relation":["8034D-M",2,"\u00d873,0"],"compatible":{"Typ":["M"],"Marke":["KTM"],"Modell":["EGS","GS"],"Hubraum":["250"],"Baujahr":[1977,1978,1979,1980,1981,1982]},"info":{"description":"250 EGS\/GS (1977-82) W\u00f6ssner \u00d873,0","image":false}},"8034D150":{"name":"250 EGS\/GS (1977-82) W\u00f6ssner \u00d872,5","relation":["8034D-M",2,"\u00d872,5"],"compatible":{"Typ":["M"],"Marke":["KTM"],"Modell":["EGS","GS"],"Hubraum":["250"],"Baujahr":[1977,1978,1979,1980,1981,1982]},"info":{"description":"250 EGS\/GS (1977-82) W\u00f6ssner \u00d872,5","image":false}}}
+
+Attribution option is given by variant product, that ['relation'][2]
+    // Optional: If the variant has an image
+    if ($variant_data['info']['image']) {
+        $this->set_product_image_from_url($variation, $variant_data['info']['image']);
+    }
+
+    $variation->save(); // Save the new variation
+}

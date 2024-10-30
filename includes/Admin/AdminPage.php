@@ -145,34 +145,37 @@ class AdminPage
 
   public function create_products_actions_html()
   {
-    global $MEC__CP_log;
     $html = null;
-
-
     $WC_Handler = new WCHandler();
 
-
-    if (isset($_POST['wc_create_products_single6'])) {
-      // Check if the file exists
-      $filePath = MEC__CP_API_Data_DIR . 'products_single.json';
-      if (file_exists($filePath)) {
-        $products_data = json_decode(file_get_contents($filePath), true);
-        // Define other arguments
-        $num = 6;
-        $start = 0;
-        // Call the create_products method with arguments
-        call_user_func_array([$WC_Handler, 'create_products'], ['wp_admin', $products_data, $num, $start]);
-      } else {
-        // Log an error or handle the missing file case
-        Utils::putLog("Error: 'products_single.json' file not found at $filePath");
-      }
+    if (isset($_POST['create_products_single6'])) {
+      $num = 6;
+      $start = 0;
+      // Call the create_products method with arguments
+      call_user_func_array([$WC_Handler, 'create_products'], ['wp_admin', 'simple',  $num, $start]);
     }
 
+    $create_products_single6_button = new AdminButton('create_products_single6');
+    $html .= $create_products_single6_button->returnTableButtonHtml('create 6 single products', '', '');
+
+
+    if (isset($_POST['create_products_single'])) {
+      call_user_func_array([$WC_Handler, 'create_products'], ['wp_admin', 'simple', null, null]);
+    }
 
     // Save to local button. this generate local file products_all.json 
-    $wc_create_products_single6_button = new AdminButton('wc_create_products_single6');
-    $html .= $wc_create_products_single6_button->returnTableButtonHtml('create 6 single products', '', '');
+    $create_products_single_button = new AdminButton('create_products_single');
+    $html .= $create_products_single_button->returnTableButtonHtml('create all single products', '', '');
 
+    if (isset($_POST['create_products_variable6'])) {
+      $num = 6;
+      $start = 0;
+      // Call the create_products method with arguments
+      call_user_func_array([$WC_Handler, 'create_products'], ['wp_admin', 'variable',  $num, $start]);
+    }
+
+    $create_products_variable6_button = new AdminButton('create_products_variable6');
+    $html .= $create_products_variable6_button->returnTableButtonHtml('create 6 variable products', '', '');
 
 
     $sqlHandler = new SQLscript();

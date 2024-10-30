@@ -10,37 +10,58 @@ class WCHandler
   public function __construct() {}
 
 
-  function create_products($wp_CLI_exist = 1, $products_data, $num = 0, $start = 0)
+  function create_products($wp_CLI_exist = 1, $products_type = 'simple', $num = -1, $start = 0)
   {
-    if (empty($products_data)) {
-      return rest_ensure_response(array('error' => 'No products found.'));
-    }
-    $counts = 0;
-    foreach ($products_data as $sku => $product) {
-      $counts++;
-      if ($start > $counts + 1) {
-        continue;
-      }
-      $productID = wc_get_product_id_by_sku($sku);
-      if (!$productID) {
 
-        $this->create_wc_simple_product($sku, $product);
-        // if ($wp_CLI_exist) {
-        //   WP_CLI::log("Processed product number: $counts");
-        // }
-
-        if ($counts + 1 > $num) {
-          exit;
-        }
-      } else {
-        Utils::putLog("following sku already exist: " . $sku);
-      }
+    if ($products_type == 'simple') {
+      $this->create_simple_product($num, $start);
+    } else if ($products_type == 'simple') {
+      $this->create_variable_product($num, $start);
     }
   }
-  function create_wc_simple_product($sku, $product_data)
+
+  function create_variable_product($num, $start)
   {
-    // that's CRUD object
-    $product = new WC_Product_Simple();
+    $counts = 0;
+    $filePath_variable = MEC__CP_API_Data_DIR . 'products_variable_and_variant.json';
+    if (file_exists($filePath_variable)) {
+    }
+  }
+
+  function create_simple_product($num, $start)
+  {
+    $counts = 0;
+    $filePath = MEC__CP_API_Data_DIR . 'products_single.json';
+    if (file_exists($filePath)) {
+      $products_data = json_decode(file_get_contents($filePath), true);
+      foreach ($products_data as $sku => $product_data) {
+        $counts++;
+        if ($start > $counts + 1) {
+          continue;
+        }
+        $productID = wc_get_product_id_by_sku($sku);
+        if (!$productID) {
+          // that's CRUD object
+          $product = new WC_Product_Simple();
+          $this->set_product_data($sku, $product, $product_data);
+          // if ($wp_CLI_exist) {
+          //   WP_CLI::log("Processed product number: $counts");
+          // }
+          if (($num != -1) && ($counts + 1 > $num)) {
+            exit;
+          }
+        } else {
+          Utils::putLog("sku already exist: " . $sku);
+        }
+      }
+    } else {
+      // Log an error or handle the missing file case
+      Utils::putLog("Error: 'products_single.json' file not found at $filePath");
+    }
+  }
+
+  function set_product_data($sku, $product, $product_data)
+  {
     $product->set_name($product_data['name']);
     $product->set_sku($sku);
     $product->set_description($product_data['info']['description']);
@@ -49,12 +70,20 @@ class WCHandler
     // Set the image using the URL
     $image_url = $product_data['info']['image']; // Assuming you have the URL
     $this->set_product_image_from_url($product, $image_url);
-    Utils::putLog('Product' . $sku . 'generiert');
 
-    // Save the variable product and get its ID
-    $parent_id = $product->save();
+    // Save the product to get its ID
+    $product_id = $product->save();
+
+    // Set custom taxonomy terms
+    wp_set_object_terms($product_id, $product_data['compatible']['Typ'], 'typ');
+    wp_set_object_terms($product_id, $product_data['compatible']['Marke'], 'marke');
+    wp_set_object_terms($product_id, $product_data['compatible']['Modell'], 'modell');
+    wp_set_object_terms($product_id, $product_data['compatible']['Hubraum'], 'hubraum');
+    wp_set_object_terms($product_id, $product_data['compatible']['Baujahr'], 'baujahr');
+
+
+    Utils::putLog('simple Product created: ' . $sku);
   }
-
   // Function to download the image from a URL and attach it to the product
   function set_product_image_from_url($product, $image_url)
   {

@@ -42,13 +42,28 @@ class SQLscript
     ");
 
       if (!empty($attachment_ids)) {
-        $attachment_ids_str = implode(',', array_map('intval', $attachment_ids));
+        foreach ($attachment_ids as $attachment_id) {
+          // Delete the attachment and its files using WordPress function
+          wp_delete_attachment($attachment_id, true);
+        }
+      }
+    }
 
-        // Delete attachment posts
-        $wpdb->query("DELETE FROM {$wpdb->posts} WHERE ID IN ($attachment_ids_str)");
+    // To delete all media files in WordPress that are not attached to any posts 
+    // (i.e., unused or orphaned images), you can query for unattached media files 
+    // and then delete them using wp_delete_attachment. Here’s a code snippet for this specific task:
 
-        // Delete attachment post meta
-        $wpdb->query("DELETE FROM {$wpdb->postmeta} WHERE post_id IN ($attachment_ids_str)");
+    // Get IDs of unattached media files (attachments with no parent post)
+    $unattached_media_ids = $wpdb->get_col("
+      SELECT ID FROM {$wpdb->posts} 
+      WHERE post_type = 'attachment' 
+      AND post_parent = 0
+      ");
+
+    // Loop through and delete each unattached media file
+    if (!empty($unattached_media_ids)) {
+      foreach ($unattached_media_ids as $media_id) {
+        wp_delete_attachment($media_id, true);
       }
     }
   }

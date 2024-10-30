@@ -42,17 +42,31 @@ class PrepareJsonLocal
         $products['variable'][$sku] = $product;
       } elseif (strpos($product['relation'][0], '-M') !== false) {
         $products['variant'][$sku] = $product;
+        $products['variant'][$sku]['relation'][1] = 2;
+        preg_match('/\S+$/', trim($products['variant'][$sku]['info']['description']), $matches);
+        $products['variant'][$sku]['relation'][2] = $matches[0];
       } elseif ($product['info']['image']) {
         $products['single'][$sku] = $product;
       } else {
         $products['extra'][$sku] = $product;
       }
     }
+    // Speichert die sortierten Daten in JSON-Dateien
+    $variable_prepared = $products['variable'];
+    foreach ($products['variant'] as $variant_sku => $variant_product) {
+      unset($variable_prepared[$sku]['relation']);
+      $parent_sku = $variant_product['relation'][0];
+      // $attribute = [
+      //   'option' => ,
+      //   'sku' => , 
+      //   'price' => , 
+      // ];
+      $variable_prepared[$parent_sku]['attribute'][] = [];
+    }
 
     // Speichert die sortierten Daten in separaten JSON-Dateien
     foreach ($this->json_suffix as $product_type) {
       // Check if $products[$product_type] is empty before attempting to write
-      Utils::putLog(print_r($products['extra'], true));
       file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'products_' . $product_type . '.json', json_encode($products[$product_type], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     }
     // Protokolliert, dass die Produkte erfolgreich aufgeteilt wurden
