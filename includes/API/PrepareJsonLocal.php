@@ -43,7 +43,8 @@ class PrepareJsonLocal
       } elseif (strpos($product['relation'][0], '-M') !== false) {
         $products['variant'][$sku] = $product;
         $products['variant'][$sku]['relation'][1] = 2;
-        preg_match('/\S+$/', trim($products['variant'][$sku]['info']['description']), $matches);
+        // Match the last line after any line breaks (\r\n or \n)
+        preg_match('/[^\r\n]+$/', trim($products['variant'][$sku]['info']['description']), $matches);
         $products['variant'][$sku]['relation'][2] = $matches[0];
       } elseif ($product['info']['image']) {
         $products['single'][$sku] = $product;
@@ -51,18 +52,7 @@ class PrepareJsonLocal
         $products['extra'][$sku] = $product;
       }
     }
-    // // Speichert die sortierten Daten in JSON-Dateien
-    // $variable_prepared = $products['variable'];
-    // foreach ($products['variant'] as $variant_sku => $variant_product) {
-    //   unset($variable_prepared[$sku]['relation']);
-    //   $parent_sku = $variant_product['relation'][0];
-    //   // $attribute = [
-    //   //   'option' => ,
-    //   //   'sku' => , 
-    //   //   'price' => , 
-    //   // ];
-    //   $variable_prepared[$parent_sku]['attribute'][] = [];
-    // }
+
 
     // Speichert die sortierten Daten in separaten JSON-Dateien
     foreach ($this->json_suffix as $product_type) {
@@ -71,6 +61,19 @@ class PrepareJsonLocal
     }
     // Protokolliert, dass die Produkte erfolgreich aufgeteilt wurden
     Utils::putLog('Produkte wurden erfolgreich in separate Dateien aufgeteilt.');
+
+    // Prepare Daten in JSON-Dateien for variable products
+    $variable_prepared = $products['variable'];
+    foreach ($products['variant'] as $variant_sku => $variant_product) {
+      $parent_sku = $variant_product['relation'][0];
+      $attribute = [
+        'option' => $variant_product['relation'][2],
+        'sku' => $variant_sku,
+        'price' => $variant_product['price'],
+      ];
+      $variable_prepared[$parent_sku]['relation']['options'][] = $attribute;
+    }
+    file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'products_variable_variant.json', json_encode($variable_prepared, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
   }
 
   function delete_separated_data()

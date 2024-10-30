@@ -125,6 +125,9 @@ class AdminPage
           <a href="<?php echo MEC__CP_APIURL . $type . '/'; ?>" target="_blank">See <?php echo $type; ?> Products by API</a><br>
         <?php endif; ?>
       <?php endforeach; ?>
+      variable products with attribute and options
+      <br>
+      <a href="<?php echo MEC__CP_APIURL . 'variable_variant/'; ?>" target="_blank">See modified Data by API</a><br>
     </div>
 <?php
     $description = ob_get_clean();

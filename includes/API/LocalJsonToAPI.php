@@ -24,7 +24,7 @@ class LocalJsonToAPI
     // Prüft, ob die Datei 'products_all.json' existiert
     if (file_exists(MEC__CP_API_Data_DIR . 'products_all.json')) {
       // Definiert die verschiedenen Produkttypen
-      $types = ['all', 'variable', 'variant', 'single', 'extra'];
+      $types = ['all', 'variable', 'variant', 'single', 'extra', 'variable_variant'];
       foreach ($types as $index => $product_type) {
         $i = 0;
         // Prüft, ob die Datei für den Produkttyp existiert
