@@ -59,6 +59,8 @@ class SaveToLocal
     file_put_contents($this->basefilePath . '_raw.json', $body);
     Utils::putLog('Success: JSON saved to ' . $this->basefilePath . '_raw.json');
 
+
+
     // modify data
     $filePath = MEC__CP_API_Data_DIR . 'products_raw.json';
     $this->create_products_all(file_get_contents($filePath));
@@ -73,14 +75,14 @@ class SaveToLocal
 
     $products = [];
     foreach ($data as $sku => $product) {
-      $compatible_tax = $this->create_compatible_tax($product['taxonomyField']);
+      $compatible_tax = $this->create_compatible_tax($sku, $product['taxonomyField']);
       $products[$sku] = [
         'name'        => $product['name'],
         'price'       => $product['price'],
         'relation'    => explode(';', $product['freifeld6']), // [0] master or parent, [2] attribute 
         'compatible'  => $compatible_tax, // mdell, marke, hub. year
         'info'        => [
-          'description' => $product['name'],
+          'description' => $product['description'],
           'image'       => $product['image']
         ]
       ];
@@ -88,7 +90,7 @@ class SaveToLocal
     file_put_contents($this->basefilePath . '_all.json', json_encode($products, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
   }
 
-  public function create_compatible_tax($compatible_string)
+  public function create_compatible_tax($sku, $compatible_string)
   {
     $compatible = [];
     if ($compatible_string != '') {
@@ -100,29 +102,32 @@ class SaveToLocal
       foreach ($compatible_array as $entry) {
         $temp = explode('|',  $entry);
         for ($i = 0; $i < 5; $i++) {
+          // Baujahr
           if ($i == 4) {
-            if (isset($temp[$i])) {
-              $temp[$i] = $this->yearsToArray($temp[$i]);
-              foreach ($temp[$i] as $year) {
+            $year_array = $this->yearsToArray($temp[$i]);
+            // if all, already all in array exist
+            if (!isset($year_array[0])) {
+              Utils::putLog("sku:$sku // Either start or end is not a 4-digit number.");
+              Utils::putLog($temp[$i]);
+            } elseif ($year_array[0] == 0) {
+              unset($compatible[$taxonomy_name[$i]]);
+              $compatible[$taxonomy_name[$i]][0] = 0;
+            } elseif (isset($compatible[$taxonomy_name[$i]][0]) && $compatible[$taxonomy_name[$i]][0] == 0) {
+              unset($compatible[$taxonomy_name[$i]]);
+              $compatible[$taxonomy_name[$i]][0] = 0;
+            } else {
+              foreach ($year_array as $year) {
                 $compatible[$taxonomy_name[$i]][] = $year;
               }
-            } else {
-              Utils::putLog(print_r($temp[$i]));
             }
           } else {
-            if (!isset($temp[$i])) {
-              Utils::putLog('error?');
-              Utils::putLog(print_r($temp, true));
-            }
-            if (!isset($compatible[$taxonomy_name[$i]])) {
-              Utils::putLog('errorerror?');
-              Utils::putLog(print_r($compatible[$taxonomy_name[$i]], true));
-            }
             $compatible[$taxonomy_name[$i]][] =  $temp[$i];
           }
-
-          $compatible[$taxonomy_name[$i]] = array_unique($compatible[$taxonomy_name[$i]]);
         }
+      }
+
+      foreach ($taxonomy_name as $i => $taxonomy) {
+        $compatible[$taxonomy_name[$i]] = array_values(array_unique($compatible[$taxonomy_name[$i]]));
       }
     }
     return $compatible;
@@ -131,13 +136,15 @@ class SaveToLocal
 
   function yearsToArray($yearString)
   {
-    if ($yearString == 'all') {
-      return [-1];
-    }
-    // Check if it's a range, e.g., "1977-1982"
-    elseif (strpos($yearString, '-') !== false) {
+    if ($yearString == 'alle') {
+      return [0];
+    } elseif (strpos($yearString, '-') !== false) {
       list($start, $end) = explode('-', $yearString); // Split into start and end years
-      return range((int)$start, (int)$end);           // Generate an array of years
+      if (preg_match('/^\d{4}$/', $start) && preg_match('/^\d{4}$/', $end)) {
+        return range((int)$start, (int)$end);           // Generate an array of years
+      } else {
+        return null;
+      }
     } else {
       // If it's a single year, just return it as an array
       return [(int)$yearString];

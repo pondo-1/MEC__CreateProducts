@@ -14,7 +14,6 @@ class AdminPage
 
   public function __construct()
   {
-
     add_action('admin_init', [$this, 'prepare_data_actions_html']);
     add_action('admin_init', [$this, 'create_products_actions_html']);
     add_action('admin_menu', [$this, 'addAdminMenu']);

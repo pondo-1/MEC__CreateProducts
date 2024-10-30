@@ -356,7 +356,10 @@ class admin_custom_button
     // Return the processed product data as a JSON response
     // return rest_ensure_response($products_json);
   }
-
+  $product = new WC_Product_Variable();
+  $attribute = new WC_Product_Attribute();
+  $attribute->set_name($product_data['relation'][2]);
+  $product->set_attributes($attribute);
 
 
   function create_wc_variable_product($product_data)

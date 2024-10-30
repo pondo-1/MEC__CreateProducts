@@ -51,18 +51,18 @@ class PrepareJsonLocal
         $products['extra'][$sku] = $product;
       }
     }
-    // Speichert die sortierten Daten in JSON-Dateien
-    $variable_prepared = $products['variable'];
-    foreach ($products['variant'] as $variant_sku => $variant_product) {
-      unset($variable_prepared[$sku]['relation']);
-      $parent_sku = $variant_product['relation'][0];
-      // $attribute = [
-      //   'option' => ,
-      //   'sku' => , 
-      //   'price' => , 
-      // ];
-      $variable_prepared[$parent_sku]['attribute'][] = [];
-    }
+    // // Speichert die sortierten Daten in JSON-Dateien
+    // $variable_prepared = $products['variable'];
+    // foreach ($products['variant'] as $variant_sku => $variant_product) {
+    //   unset($variable_prepared[$sku]['relation']);
+    //   $parent_sku = $variant_product['relation'][0];
+    //   // $attribute = [
+    //   //   'option' => ,
+    //   //   'sku' => , 
+    //   //   'price' => , 
+    //   // ];
+    //   $variable_prepared[$parent_sku]['attribute'][] = [];
+    // }
 
     // Speichert die sortierten Daten in separaten JSON-Dateien
     foreach ($this->json_suffix as $product_type) {
