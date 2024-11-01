@@ -13,7 +13,7 @@ class PrepareJsonLocal
   private $json_suffix;
   private $filePath_all;
   // $json_prefix = 'products';
-  // $json_suffix = ['all', 'variable', 'variant', 'single', 'extra'];
+  // $json_suffix = ['all', 'variable', 'variant', 'single', 'extra', 'variable_variant'];
 
 
   public function __construct($json_prefix, $json_suffix)

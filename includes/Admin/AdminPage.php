@@ -108,7 +108,7 @@ class AdminPage
 
     // Seperate data all -> all, single, variable, variant, variableWvariant?
     $json_prefix = 'products';
-    $json_suffix = ['variable', 'variant', 'single', 'extra'];
+    $json_suffix = ['variable', 'variant', 'single', 'extra', 'variable_variant'];
     $LocalJsonProcess = new PrepareJsonLocal($json_prefix, $json_suffix);
     if (isset($_POST['separate_data'])) {
       Utils::putLog("Button Clicked: 'separate_data'");
@@ -125,9 +125,6 @@ class AdminPage
           <a href="<?php echo MEC__CP_APIURL . $type . '/'; ?>" target="_blank">See <?php echo $type; ?> Products by API</a><br>
         <?php endif; ?>
       <?php endforeach; ?>
-      variable products with attribute and options
-      <br>
-      <a href="<?php echo MEC__CP_APIURL . 'variable_variant/'; ?>" target="_blank">See modified Data by API</a><br>
     </div>
 <?php
     $description = ob_get_clean();
@@ -174,6 +171,10 @@ class AdminPage
       $start = 0;
       // Call the create_products method with arguments
       call_user_func_array([$WC_Handler, 'create_products'], ['wp_admin', 'variable',  $num, $start]);
+
+      // Redirect to avoid re-processing the form on refresh
+      wp_redirect(admin_url('admin.php?page=your_page_slug')); // Replace with your desired page
+      exit;
     }
 
     $create_products_variable6_button = new AdminButton('create_products_variable6');

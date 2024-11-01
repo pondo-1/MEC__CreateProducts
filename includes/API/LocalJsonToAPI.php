@@ -26,15 +26,8 @@ class LocalJsonToAPI
       // Definiert die verschiedenen Produkttypen
       $types = ['all', 'variable', 'variant', 'single', 'extra', 'variable_variant'];
       foreach ($types as $index => $product_type) {
-        $i = 0;
         // Prüft, ob die Datei für den Produkttyp existiert
         if (file_exists(MEC__CP_API_Data_DIR . 'products_' . $product_type . '.json')) {
-          $i++;
-          // Falls alle spezifischen Dateien fehlen, erstellt sie die separaten Produktdateien
-          if ($i == 5) {
-            Utils::putLog('files are not ready');
-          }
-          // Fügt Endpunkte für die vorhandenen Produkttypen hinzu
           self::setAPI__products_($product_type);
         }
       }
@@ -56,12 +49,19 @@ class LocalJsonToAPI
     } else {
       // Registriert eine REST-API-Route für den Produkttyp
       add_action('rest_api_init', function () use ($product_type) {
-        register_rest_route('mec-api/v1', '/products/' . $product_type, array(
+        register_rest_route('mec-api/v1', '/products/' . $product_type, [
           'methods' => 'GET',
           'callback' => [self::class, 'getProductsCallback'],
-          'args' => ['product_type' => $product_type], // Übergibt den Produkttyp
           'permission_callback' => '__return_true', // Offener Zugriff auf die API, ggf. anpassen
-        ));
+          'args' => [
+            'product_type' => [
+              'default' => $product_type,
+              // 'validate_callback' => function ($param) {
+              //   return is_string($param);
+              // }
+            ]
+          ] // Übergibt den Produkttyp
+        ]);
       });
     }
   }
@@ -70,11 +70,8 @@ class LocalJsonToAPI
   // Statische Callback-Methode, die Produktdaten für den angeforderten Produkttyp zurückgibt
   public static function getProductsCallback($request)
   {
-    // Ruft die Attribute der Anfrage ab
-    $attributes = $request->get_attributes();
-
-    // Extrahiert den Produkttyp aus den Attributen
-    $product_type = $attributes['args']['product_type'];
+    // Access product_type as a string, checking if it's an array
+    $product_type = is_array($request['product_type']) ? implode(',', $request['product_type']) : $request['product_type'];
 
     // Definiert den Dateipfad basierend auf dem Produkttyp
     $file_path = MEC__CP_API_Data_DIR . 'products_' . $product_type . '.json';
