@@ -149,14 +149,29 @@ class WCHandler
     $product_id = $product->save();
 
     // Set custom taxonomy terms
-    wp_set_object_terms($product_id, $product_data['compatible']['Typ'], 'typ');
-    wp_set_object_terms($product_id, $product_data['compatible']['Marke'], 'marke');
-    wp_set_object_terms($product_id, $product_data['compatible']['Modell'], 'modell');
-    wp_set_object_terms($product_id, $product_data['compatible']['Hubraum'], 'hubraum');
-    // Convert Baujahr terms to strings
-    $baujahr_terms = array_map('strval', $product_data['compatible']['Baujahr']);
-    // Set the terms for 'baujahr' taxonomy
-    wp_set_object_terms($product_id, $baujahr_terms, 'baujahr');
+
+    // Define the taxonomies and their keys
+    $taxonomy_keys = [
+      'Typ' => 'typ',
+      'Marke' => 'marke',
+      'Modell' => 'modell',
+      'Hubraum' => 'hubraum',
+      'Baujahr' => 'baujahr'
+    ];
+
+    // Loop through each key and set terms if the key exists
+    foreach ($taxonomy_keys as $key => $taxonomy) {
+      if (isset($product_data['compatible'][$key])) {
+        $terms = $product_data['compatible'][$key];
+
+        // Convert 'Baujahr' terms to strings
+        if ($key === 'Baujahr') {
+          $terms = array_map('strval', $terms);
+        }
+
+        wp_set_object_terms($product_id, $terms, $taxonomy);
+      }
+    }
 
     Utils::putLog('set the product: ' . $sku);
     return $product_id;

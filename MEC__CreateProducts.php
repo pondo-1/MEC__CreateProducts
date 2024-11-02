@@ -2,8 +2,11 @@
 /*
 Plugin Name: MEC__CreateProducts plugin 
 Description: Generates products for MEC Shop, based on the external data(mec.pe-dev.de)
-Version: 1.1
+Version: 2.0
 Author: Page-effect
+
+ssh u131-bxrrihxoclkj@ssh.final-mec.pe-dev.de -p18765
+
 
 /wp-content/plugins/MEC__CreateProducts
     /assets
@@ -102,6 +105,7 @@ new MEC__CreateProducts\Admin\AdminPage();
 new MEC__CreateProducts\Init\Taxonomy();
 
 new MEC__CreateProducts\Init\CLIcommand();
+
 
 // disable woocommerce cashe for dev purpose 
 add_filter('woocommerce_cache_enabled', '__return_false');
