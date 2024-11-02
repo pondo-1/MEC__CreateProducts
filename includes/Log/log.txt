@@ -42,3 +42,13 @@
 2024-11-02 21:37:06 ; set the product: W1-KOPFV5
 2024-11-02 21:37:06 ; set the product: W1-KOPFV4
 2024-11-02 21:37:06 ; set the product: W1-KOPFV2
+2024-11-02 21:37:06 ; set the product: VSK9
+2024-11-02 21:37:06 ; set the product: VSK7
+2024-11-02 21:37:06 ; set the product: VSK4
+2024-11-02 21:37:06 ; set the product: VSK3
+2024-11-02 21:37:06 ; set the product: VC1016-B-2
+2024-11-02 21:37:06 ; set the product: VC1016-4
+2024-11-02 21:37:06 ; set the product: VC1016-2
+2024-11-02 21:37:06 ; set the product: VC1016-0
+2024-11-02 21:37:06 ; set the product: V4482B
+2024-11-02 21:37:06 ; set the product: V4209-1
