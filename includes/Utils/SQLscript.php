@@ -2,18 +2,18 @@
 
 namespace MEC__CreateProducts\Utils;
 
-global $MEC__CP_log;
-
 class SQLscript
 {
   // Delete all products and related lookup datas
-  public function delete_all_products()
+  public static function delete_all_products()
   {
     global $wpdb;
 
+    Utils::cli_log('delete all products by sql script');
+
     // Step 1: Get product IDs and variation IDs
     $product_ids = $wpdb->get_col("SELECT ID FROM {$wpdb->posts} WHERE post_type IN ('product', 'product_variation')");
-
+    Utils::cli_log('found: ' . count($product_ids) . ' products');
     if (!empty($product_ids)) {
       $product_ids_str = implode(',', array_map('intval', $product_ids));
 
@@ -53,6 +53,7 @@ class SQLscript
     // (i.e., unused or orphaned images), you can query for unattached media files 
     // and then delete them using wp_delete_attachment. Here’s a code snippet for this specific task:
 
+    Utils::cli_log("Delete all unattached media files");
     // Get IDs of unattached media files (attachments with no parent post)
     $unattached_media_ids = $wpdb->get_col("
       SELECT ID FROM {$wpdb->posts} 
@@ -60,7 +61,7 @@ class SQLscript
       AND post_parent = 0
       ");
 
-    // Loop through and delete each unattached media file
+    Utils::cli_log("Loop through and delete each unattached media file");
     if (!empty($unattached_media_ids)) {
       foreach ($unattached_media_ids as $media_id) {
         wp_delete_attachment($media_id, true);

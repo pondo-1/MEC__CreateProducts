@@ -147,48 +147,57 @@ class AdminPage
     $html = null;
     $WC_Handler = new WCHandler();
 
+    //  TEST!! Create 6 Simple products 
     if (isset($_POST['create_products_single6'])) {
       $num = 6;
       $start = 0;
       // Call the create_products method with arguments
       call_user_func_array([$WC_Handler, 'create_products'], ['wp_admin', 'simple',  $num, $start]);
     }
-
     $create_products_single6_button = new AdminButton('create_products_single6');
-    $html .= $create_products_single6_button->returnTableButtonHtml('create 6 single products', '', '');
+    $html .= $create_products_single6_button->returnTableButtonHtml('create 6 single products', '', 'or $wp create_products --num=6 --type=simple');
 
 
+    // Create all simple Products 
     if (isset($_POST['create_products_single'])) {
       call_user_func_array([$WC_Handler, 'create_products'], ['wp_admin', 'simple', null, null]);
     }
-
     // Save to local button. this generate local file products_all.json 
     $create_products_single_button = new AdminButton('create_products_single');
-    $html .= $create_products_single_button->returnTableButtonHtml('create all single products', '', '');
+    $html .= $create_products_single_button->returnTableButtonHtml('create all Simple products', '', 'or $wp create_products --num=-1 --type=simple');
 
+
+    //  TEST!! Create 6 Varaible products mit variant
     if (isset($_POST['create_products_variable6'])) {
       $num = 6;
       $start = 0;
       // Call the create_products method with arguments
       call_user_func_array([$WC_Handler, 'create_products'], ['wp_admin', 'variable',  $num, $start]);
-
       // Redirect to avoid re-processing the form on refresh
       wp_redirect(admin_url('admin.php?page=your_page_slug')); // Replace with your desired page
       exit;
     }
 
     $create_products_variable6_button = new AdminButton('create_products_variable6');
-    $html .= $create_products_variable6_button->returnTableButtonHtml('create 6 variable products', '', '');
+    $html .= $create_products_variable6_button->returnTableButtonHtml('create 6 variable products', '', 'or $wp create_products --num=6 --type=variable');
+
+    //  Create all Varaible mit variant
+    if (isset($_POST['create_products_variable'])) {
+      call_user_func_array([$WC_Handler, 'create_products'], ['wp_admin', 'variable', null, null]);
+    }
+    // Save to local button. this generate local file products_all.json 
+    $create_products_variable_button = new AdminButton('create_products_variable');
+    $html .= $create_products_variable_button->returnTableButtonHtml('create all variable products with variants', '', 'or $wp create_products --num=-1 --type=variable');
 
 
+    //  Delete all Button 
     $sqlHandler = new SQLscript();
     if (isset($_POST['delete_all_products'])) {
       call_user_func([$sqlHandler, 'delete_all_products']);
     }
-
     // Save to local button. this generate local file products_all.json 
     $delete_all_products_button = new AdminButton('delete_all_products');
-    $html .= $delete_all_products_button->returnTableButtonHtml('delete all products', '', '');
+    $html .= $delete_all_products_button->returnTableButtonHtml('delete all products', '', 'click button or $wp delete_all_products');
 
 
 

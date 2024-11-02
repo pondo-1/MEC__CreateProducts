@@ -101,5 +101,7 @@ new MEC__CreateProducts\Admin\AdminPage();
 // Instantiate the Taxonomy class
 new MEC__CreateProducts\Init\Taxonomy();
 
+new MEC__CreateProducts\Init\CLIcommand();
+
 // disable woocommerce cashe for dev purpose 
 add_filter('woocommerce_cache_enabled', '__return_false');

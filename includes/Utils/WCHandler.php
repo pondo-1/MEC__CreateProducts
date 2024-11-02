@@ -6,30 +6,30 @@ use WC_Product_Simple;
 use WC_Product_Variable;
 use WC_Product_Attribute;
 use WC_Product_Variation;
+use WP_CLI;
 
 // use WP_CLI;
 
 class WCHandler
 {
-  public function __construct() {}
-
-
-  function create_products($wp_CLI_exist = 1, $products_type = 'simple', $num = -1, $start = 0)
+  public static function create_products($wp_CLI_exist = 1, $products_type = 'simple', $num = -1, $start = 0)
   {
 
     if ($products_type == 'simple') {
-      $this->create_simple_product($num, $start);
+      self::create_simple_product($wp_CLI_exist, $num, $start);
     } else if ($products_type == 'variable') {
-      $this->create_variable_product($num, $start);
+      self::create_variable_product($num, $start);
     }
   }
 
-  function create_variable_product($num, $start)
+  public static function create_variable_product($num, $start)
   {
     $counts = 0;
     $filePath = MEC__CP_API_Data_DIR . 'products_variable_variant.json';
     if (file_exists($filePath)) {
       $products_data = json_decode(file_get_contents($filePath), true);
+
+      Utils::cli_log("$num of variable products will be created:");
       foreach ($products_data as $variable_sku => $product_data) {
         $counts++;
         if ($start > $counts + 1) {
@@ -41,7 +41,7 @@ class WCHandler
 
           // Step 1: Create the variable product
           $product = new WC_Product_Variable();
-          $product_id = $this->set_product_data($variable_sku, $product, $product_data);
+          $product_id = self::set_product_data($variable_sku, $product, $product_data);
 
           // Step 2: Define and set attribute for the variable product
           $attribute = new WC_Product_Attribute();
@@ -84,6 +84,7 @@ class WCHandler
             $variation->save(); // Save each variation
           }
 
+          Utils::cli_log($counts . "th product created, sku:" . $variable_sku);
           // Final Save for the variable product to update WooCommerce with variations
           $product->save();
 
@@ -97,39 +98,43 @@ class WCHandler
     }
   }
 
-  function create_simple_product($num, $start)
+  public static function create_simple_product($wp_CLI_exist, $num, $start)
   {
     $counts = 0;
     $filePath = MEC__CP_API_Data_DIR . 'products_single.json';
     if (file_exists($filePath)) {
       $products_data = json_decode(file_get_contents($filePath), true);
+      Utils::cli_log("$num of simple products will be created:");
       foreach ($products_data as $sku => $product_data) {
         $counts++;
-        if ($start > $counts + 1) {
+
+        // manage start point
+        if ($start > $counts) {
           continue;
         }
+        // check if the sku already exist 
         $productID = wc_get_product_id_by_sku($sku);
         if (!$productID) {
+
           // that's CRUD object
           $product = new WC_Product_Simple();
-          $this->set_product_data($sku, $product, $product_data);
-          // if ($wp_CLI_exist) {
-          //   WP_CLI::log("Processed product number: $counts");
-          // }
+          $product->set_price($product_data['price']);
+          self::set_product_data($sku, $product, $product_data);
+          Utils::cli_log($counts . "th product created, sku:" . $sku);
           if (($num != -1) && ($counts + 1 > $num)) {
             exit;
           }
         } else {
-          Utils::putLog("sku already exist: " . $sku);
+          Utils::cli_log("sku already exist: " . $sku);
         }
       }
     } else {
       // Log an error or handle the missing file case
-      Utils::putLog("Error: 'products_single.json' file not found at $filePath");
+      Utils::cli_log("Error: 'products_single.json' file not found at $filePath");
     }
   }
 
-  function set_product_data($sku, $product, $product_data)
+  public static function set_product_data($sku, $product, $product_data)
   {
     $product->set_name($product_data['name']);
     $product->set_sku($sku);
@@ -138,7 +143,7 @@ class WCHandler
     $product->set_catalog_visibility('visible');
     // Set the image using the URL
     $image_url = $product_data['info']['image']; // Assuming you have the URL
-    $this->set_product_image_from_url($product, $image_url);
+    self::set_product_image_from_url($product, $image_url);
 
     // Save the product to get its ID
     $product_id = $product->save();
@@ -157,7 +162,7 @@ class WCHandler
     return $product_id;
   }
   // Function to download the image from a URL and attach it to the product
-  function set_product_image_from_url($product, $image_url)
+  public static function set_product_image_from_url($product, $image_url)
   {
     // Check if the URL is valid and download the image
     $image_id = media_sideload_image($image_url, 0, null, 'id');
