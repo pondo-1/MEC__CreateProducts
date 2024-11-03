@@ -2,7 +2,7 @@
 /*
 Plugin Name: MEC__CreateProducts plugin 
 Description: Generates products for MEC Shop, based on the external data(mec.pe-dev.de)
-Version: 2.0
+Version: 2.2
 Author: Page-effect
 
 ssh u131-bxrrihxoclkj@ssh.final-mec.pe-dev.de -p18765

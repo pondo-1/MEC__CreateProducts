@@ -46,31 +46,33 @@ class WCHandler
           // Step 1: Create the variable product
           $product = new WC_Product_Variable();
           $product_id = self::set_product_data($variable_sku, $product, $product_data);
-          // Step 2: Define and set attribute for the variable product
-          $attribute = new WC_Product_Attribute();
-          $attribute_name = $product_data['relation'][2]; // Attribute name, e.g., "Kolbenmaß (mm)"
-          $attribute_options = array_column($product_data['relation']['options'], 'option');
 
-          // WooCommerce expects attribute names to be lowercase, no spaces
-          $attribute_slug = sanitize_title($attribute_name);
-          $attribute->set_name($attribute_name);
-          $attribute->set_options($attribute_options);
-          $attribute->set_position(0);
-          $attribute->set_visible(true);
-          $attribute->set_variation(true);
-          $product->set_attributes([$attribute]);
-
-          // Step 3: Set default attribute
-          // $default_attributes = [];
-          // foreach ($product_data['relation']['options'] as $variant_data) {
-          //   if (strpos($variant_data['option'], '(Standard)') !== false) {
-          //     $default_attributes[$product_data['relation'][2]] = $variant_data['option'];
-          //   }
-          // }
-          // $product->set_default_attributes($default_attributes);
-
-          // Step 4: Add variations to the variable product
           if (isset($product_data['relation']['options'])) {
+            // Step 2: Define and set attribute for the variable product
+            $attribute = new WC_Product_Attribute();
+            $attribute_name = $product_data['relation'][2]; // Attribute name, e.g., "Kolbenmaß (mm)"
+            $attribute_options = array_column($product_data['relation']['options'], 'option');
+
+            // WooCommerce expects attribute names to be lowercase, no spaces
+            $attribute_slug = sanitize_title($attribute_name);
+            $attribute->set_name($attribute_name);
+            $attribute->set_options($attribute_options);
+            $attribute->set_position(0);
+            $attribute->set_visible(true);
+            $attribute->set_variation(true);
+            $product->set_attributes([$attribute]);
+
+            // Step 3: Set default attribute
+            // $default_attributes = [];
+            // foreach ($product_data['relation']['options'] as $variant_data) {
+            //   if (strpos($variant_data['option'], '(Standard)') !== false) {
+            //     $default_attributes[$product_data['relation'][2]] = $variant_data['option'];
+            //   }
+            // }
+            // $product->set_default_attributes($default_attributes);
+
+            // Step 4: Add variations to the variable product
+
             foreach ($product_data['relation']['options'] as $variant_data) {
               $variation = new WC_Product_Variation();
               $variation->set_parent_id($product_id);

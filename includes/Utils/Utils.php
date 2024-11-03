@@ -38,9 +38,9 @@ class Utils
     // Check if we're running in CLI
     if (defined('WP_CLI') && WP_CLI) {
       WP_CLI::log($message);
-    } else {
-      // If not CLI, send the message to error log or other logging
-      self::getLogger()->putLog($message); // or use your preferred logging
     }
+    // If not CLI, send the message to error log or other logging
+    self::getLogger()->putLog($message); // or use your preferred logging
+
   }
 }
