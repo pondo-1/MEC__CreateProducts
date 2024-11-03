@@ -26594,101 +26594,6 @@
             "image": "https:\/\/mec.pe-dev.de\/wp-content\/uploads\/2024\/10\/ArtK4002D-M95D68F4BC82A43BE810E8CFFAC3825F4-scaled.jpg"
         }
     },
-    "HC4126-M": {
-        "name": "700 YFM-Grizzly (07-13) Yamaha Hot Cams Nockenwell Mudbuster",
-        "price": "188.24",
-        "relation": [
-            ""
-        ],
-        "compatible": {
-            "Typ": [
-                "A"
-            ],
-            "Marke": [
-                "Yamaha"
-            ],
-            "Modell": [
-                "YFM-Grizzly"
-            ],
-            "Hubraum": [
-                "700"
-            ],
-            "Baujahr": [
-                2007,
-                2008,
-                2009,
-                2010,
-                2011,
-                2012,
-                2013
-            ]
-        },
-        "info": {
-            "description": "# Hot Cams Nockenwelle Yamaha Grizzly 700\r\n\r\nATV\r\n\r\n(mehr Drehmoment im unteren + mittleren Drehzahlbereich!)\r\n\r\npassend für:\r\n\r\n- Yamaha YFM-Grizzly 700 (07-13) [ATV]\r\n\r\nHot Cams ist der führende Hersteller von leistungsstarken Nockenwellen für Motorräder (Cross und Straße) und Quads. Nockenwellen von Hot Cams sind die richtige Wahl um die Leistungssteigerungen zu erzielen, von denen jeder Liebhaber von Motorrädern und Quads träumt. Hergestellt werden sie aus hochwertigem Stahl auf modernsten CNC-Maschinen. Sie finden Einsatz in den unterschiedlichsten Anwendungsgebieten und bieten eine große Auswahl an Lösungen und garantieren somit dieselbe Leistung und Begeisterung wie eine maßgefertigte Nockenwelle, jedoch zu einem Bruchteil des Preises. Ein weiterer großer Vorteil der Hot Cams-Produkte ist der leichte Einbau, denn fast alle Nockenwellen benötigen keinerlei Zusatzbearbeitung und verwenden standardmäßige Ventilfedern.",
-            "image": "https:\/\/mec.pe-dev.de\/wp-content\/uploads\/2024\/10\/ArtHC4126-MF71F1C76958643B0BA3C03288AACA76A.jpg"
-        }
-    },
-    "91001-MKE-A71": {
-        "name": "450 CRF-R (19-23) Honda rechts Ø30xØ72x19",
-        "price": "29.41",
-        "relation": [
-            ""
-        ],
-        "compatible": {
-            "Typ": [
-                "M"
-            ],
-            "Marke": [
-                "Honda"
-            ],
-            "Modell": [
-                "CRF-R"
-            ],
-            "Hubraum": [
-                "450"
-            ],
-            "Baujahr": [
-                2019,
-                2020,
-                2021,
-                2022,
-                2023
-            ]
-        },
-        "info": {
-            "description": "# NTN Kurbelwellenhauptlager Honda CRF-R 450\r\n\r\nRillenkugellager 91001-MKE-A71 \/ rechte Seite\r\n\r\npassend für:\r\n\r\n- Honda CRF-R 450 (19-23)\r\n\r\nDie von uns angebotenen Kurbelwellenhauptlager werden nach höchsten Qualitätsstandards hergestellt und kontrolliert, die den Ansprüchen der OEM-Teile entsprechen.\r\nSie halten auch höchsten Beanspruchungen und Drehzahlen stand.\r\nDiese Kurbelwellenhauptlager können bei neuen Zubehör- oder Originalkurbelwellen wie auch bei der Reparatur dieser ohne Probleme verbaut werden.",
-            "image": "https:\/\/mec.pe-dev.de\/wp-content\/uploads\/2024\/10\/Art91001-MKE-A71A567DC05A943489CB87AE78B7089BD18.jpg"
-        }
-    },
-    "91001-MKE-A01": {
-        "name": "450 CRF-R (17-18) Honda rechts Ø30xØ72x19",
-        "price": "34.03",
-        "relation": [
-            ""
-        ],
-        "compatible": {
-            "Typ": [
-                "M"
-            ],
-            "Marke": [
-                "Honda"
-            ],
-            "Modell": [
-                "CRF-R"
-            ],
-            "Hubraum": [
-                "450"
-            ],
-            "Baujahr": [
-                2017,
-                2018
-            ]
-        },
-        "info": {
-            "description": "# NTN Kurbelwellenhauptlager Honda CRF-R 450\r\n\r\nRillenkugellager 91001-MKE-A01 \/ rechte Seite\r\n\r\npassend für:\r\n\r\n- Honda CRF-R 450 (17-18)\r\n\r\nDie von uns angebotenen Kurbelwellenhauptlager werden nach höchsten Qualitätsstandards hergestellt und kontrolliert, die den Ansprüchen der OEM-Teile entsprechen.\r\nSie halten auch höchsten Beanspruchungen und Drehzahlen stand.\r\nDiese Kurbelwellenhauptlager können bei neuen Zubehör- oder Originalkurbelwellen wie auch bei der Reparatur dieser ohne Probleme verbaut werden.",
-            "image": "https:\/\/mec.pe-dev.de\/wp-content\/uploads\/2024\/10\/Art91001-MKE-A01F2ED2D0E14B444F1824B243F8063299E.jpg"
-        }
-    },
     "899M-M": {
         "name": "125 YZ (2022-23) Wiseco",
         "price": "0",
@@ -55522,18 +55427,6 @@
             "image": "https:\/\/mec.pe-dev.de\/wp-content\/uploads\/2024\/10\/Art3009D-M4F0A9C53BC494F3197BCCA909A551BC8-scaled.jpg"
         }
     },
-    "2389-M": {
-        "name": "Steuergerät frei progr.bar incl. Softw.+",
-        "price": "257.14",
-        "relation": [
-            ""
-        ],
-        "compatible": [],
-        "info": {
-            "description": "",
-            "image": false
-        }
-    },
     "235M-M": {
         "name": "100 LT (alle) Wiseco",
         "price": "0",
@@ -55667,18 +55560,6 @@
             "image": "https:\/\/mec.pe-dev.de\/wp-content\/uploads\/2024\/10\/Art2084M-MFE83984C16F94F9496F8FD13B53BB6E9.jpg"
         }
     },
-    "14721-MEB-670": {
-        "name": "450 CRF-R (02-06) Honda A-Ventil Stahl",
-        "price": "50.42",
-        "relation": [
-            ""
-        ],
-        "compatible": [],
-        "info": {
-            "description": "",
-            "image": false
-        }
-    },
     "137M-M": {
         "name": "250 CR\/WR (74-84) Wiseco",
         "price": "0",
@@ -55718,89 +55599,6 @@
         "info": {
             "description": "# Wiseco Kolben Husqvarna CR\/WR 250\r\n\r\npassend für:\r\n\r\n- Husqvarna CR 250 (74-84)\r\n- Husqvarna WR 250 (74-84)\r\n\r\nWiseco ist Marktführer in den USA durch die Fertigung qualitativ hochwertiger Schmiedekolben für Motorräder (Cross und Straße), Quads, Jet Skis, Schneemobile und Bootsmotoren.\r\nWiseco ist einzigartig, weil alle Kolben direkt vor Ort in den USA geschmiedet werden. Selbst alle benötigten Schmiedewerkzeuge werden in den USA gefertigt. Dies ermöglicht Wiseco alle Aspekte ihrer Fertigung vom Rohling bis zum fertig beschichteten Kolben zu steuern.\r\n\r\nDarüber hinaus bietet der hauseigene Test-Prüfstand die Fähigkeit immer auf dem neusten Stand der Technik in Bezug auf neue Formen, Beschichtungen und Komponenten zu bleiben. Durch die Verbindung von Herstellung, Vertrieb und Tests im eigenen Haus werden die Durchlaufzeiten deutlich reduziert.\r\n\r\nExtreme Rennbedingungen fordern die Festigkeit und Zähigkeit, welche nur Schmiedekolben bieten können. Im Vergleich zu gegossenen Kolben, sind Schmiedeteile härter und haltbarer, und halten dem Missbrauch durch Hochleistungs-Motorsport-Anwendungen eher stand. Die meisten Gussteile sind spröde, haben keine Kornstruktur und neigen dazu, katastrophal zu versagen, wenn das Material die Streckgrenze überschritten hat. Schmiedeteile haben eine höhere Beständigkeit gegen Schläge und ermüden deutlich langsamer. Jedes Schmiedeteil wurde entworfen, um das Kraft-Gewichts-Verhältnis zu optimieren und die Leistung zu maximieren.",
             "image": "https:\/\/mec.pe-dev.de\/wp-content\/uploads\/2024\/10\/Art137M-MDAEC8C3E65B846679AFCCCBD7136BAC8-scaled.jpg"
-        }
-    },
-    "13101-MEN-A80": {
-        "name": "450 CRF-R (13-16) Original-Kolben Ø96,0",
-        "price": "133.61",
-        "relation": [
-            ""
-        ],
-        "compatible": [],
-        "info": {
-            "description": "Original-Kolben von Honda sind präzisionsgefertigt nach dem aktuellsten Stand der Technik in der CNC-Fertigung.\r\nSie bestehen aus einer gering-ausdehnenden und reibungsarmen Kolben-Legierung.\r\nAlle Kolben werden komplett mit Ringsatz, Kolbenbolzen und Sicherungsclipsen geliefert.",
-            "image": false
-        }
-    },
-    "12611M08900-M": {
-        "name": "440 \/ 500 MX (85-95) Wiseco  wassergek.",
-        "price": "0",
-        "relation": [
-            ""
-        ],
-        "compatible": {
-            "Typ": [
-                "M"
-            ],
-            "Marke": [
-                "KTM"
-            ],
-            "Modell": [
-                "MX",
-                "MXC",
-                "SX"
-            ],
-            "Hubraum": [
-                "440",
-                "500"
-            ],
-            "Baujahr": [
-                1985,
-                1986,
-                1987,
-                1988,
-                1989,
-                1990,
-                1991,
-                1992,
-                1993,
-                1994,
-                1995
-            ]
-        },
-        "info": {
-            "description": "# Wiseco Kolben KTM MX 500\r\n\r\n2-Takt \/ wassergekühlt \/ Typ 565\r\n\r\nbenötigtes Laufspiel 0,09mm\r\n\r\npassend für:\r\n\r\n- KTM MX 440 (85-95)\r\n- KTM MXC 440 (85-95)\r\n- KTM SX 440 (85-95)\r\n- KTM MX 500 (85-95)\r\n- KTM MXC 500 (85-95)\r\n- KTM SX 500 (85-95)\r\n\r\nWiseco ist Marktführer in den USA durch die Fertigung qualitativ hochwertiger Schmiedekolben für Motorräder (Cross und Straße), Quads, Jet Skis, Schneemobile und Bootsmotoren.\r\nWiseco ist einzigartig, weil alle Kolben direkt vor Ort in den USA geschmiedet werden. Selbst alle benötigten Schmiedewerkzeuge werden in den USA gefertigt. Dies ermöglicht Wiseco alle Aspekte ihrer Fertigung vom Rohling bis zum fertig beschichteten Kolben zu steuern.\r\n\r\nDarüber hinaus bietet der hauseigene Test-Prüfstand die Fähigkeit immer auf dem neusten Stand der Technik in Bezug auf neue Formen, Beschichtungen und Komponenten zu bleiben. Durch die Verbindung von Herstellung, Vertrieb und Tests im eigenen Haus werden die Durchlaufzeiten deutlich reduziert.\r\n\r\nExtreme Rennbedingungen fordern die Festigkeit und Zähigkeit, welche nur Schmiedekolben bieten können. Im Vergleich zu gegossenen Kolben, sind Schmiedeteile härter und haltbarer, und halten dem Missbrauch durch Hochleistungs-Motorsport-Anwendungen eher stand. Die meisten Gussteile sind spröde, haben keine Kornstruktur und neigen dazu, katastrophal zu versagen, wenn das Material die Streckgrenze überschritten hat. Schmiedeteile haben eine höhere Beständigkeit gegen Schläge und ermüden deutlich langsamer. Jedes Schmiedeteil wurde entworfen, um das Kraft-Gewichts-Verhältnis zu optimieren und die Leistung zu maximieren.",
-            "image": "https:\/\/mec.pe-dev.de\/wp-content\/uploads\/2024\/10\/Art12611M08900-M673C4B3F3E5A451394CAFAB9B79543AE-scaled.jpg"
-        }
-    },
-    "10496-M7512791": {
-        "name": "450 WR-F (04-06) Yamaha Motordichtsatz",
-        "price": "140.76",
-        "relation": [
-            ""
-        ],
-        "compatible": {
-            "Typ": [
-                "M"
-            ],
-            "Marke": [
-                "Yamaha"
-            ],
-            "Modell": [
-                "WR-F"
-            ],
-            "Hubraum": [
-                "450"
-            ],
-            "Baujahr": [
-                2004,
-                2005,
-                2006
-            ]
-        },
-        "info": {
-            "description": "# Athena Motordichtsatz Yamaha WR-F 450\r\n\r\npassend für:\r\n\r\n- Yamaha WR-F 450 (04-06)\r\n\r\nAthena bietet die komplette Palette an Dichtungen und Dichtsätzen für jede Marke und Modell für Motorräder, Quads, Jet-Skis, Snowmobile und Außenborder. Die Qualität unserer Dichtungen entspricht bzw. übertrifft die der Dichtungen der Original-Hersteller. Unsere langjährige Erfahrung durch die Belieferung renommierter Hersteller von Motorrädern macht unseren stetigen Drang auf der Suche nach der aktuellsten und neusten Fertigungsweise erforderlich. Durch diese Technik werden für die Dichtungen ausschließlich hochwertige Material-Verbindungen verwendet.\r\nDer Zylinderdichtsatz ist im Motordichtsatz enthalten!\r\nSimmerringe nicht enthalten! Separat bestellbar!",
-            "image": "https:\/\/mec.pe-dev.de\/wp-content\/uploads\/2024\/10\/Art10496-M7512791287ED44A177541FFB35492C413876DC8-scaled.jpg"
         }
     },
     "8034D-M": {

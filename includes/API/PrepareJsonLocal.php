@@ -28,8 +28,10 @@ class PrepareJsonLocal
     // Lädt die 'products_all.json'-Datei
     $data = json_decode(file_get_contents($this->filePath_all), true);
     $products = [];
+    $report = [];
     foreach ($this->json_suffix as $product_type) {
       $products[$product_type] = [];
+      $report[$product_type] = [];
     }
     // Initialisiert Arrays für die verschiedenen Produkttypen
 
@@ -38,7 +40,7 @@ class PrepareJsonLocal
     foreach ($data as $sku => $product) {
       $i++;
       // Fügt das Produkt basierend auf bestimmten Bedingungen zur entsprechenden Liste hinzu
-      if (strpos($sku, '-M') !== false) {
+      if (str_ends_with($sku, '-M') && isset($product['relation'][0]) && $product['relation'][0] == 'master') {
         $products['variable'][$sku] = $product;
       } elseif (strpos($product['relation'][0], '-M') !== false) {
         $products['variant'][$sku] = $product;
@@ -59,8 +61,8 @@ class PrepareJsonLocal
       // Check if $products[$product_type] is empty before attempting to write
       file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'products_' . $product_type . '.json', json_encode($products[$product_type], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     }
-    // Protokolliert, dass die Produkte erfolgreich aufgeteilt wurden
-    Utils::putLog('Produkte wurden erfolgreich in separate Dateien aufgeteilt.');
+
+
 
     // Prepare Daten in JSON-Dateien for variable products
     $variable_prepared = $products['variable'];
@@ -71,9 +73,23 @@ class PrepareJsonLocal
         'sku' => $variant_sku,
         'price' => $variant_product['price'],
       ];
-      $variable_prepared[$parent_sku]['relation']['options'][] = $attribute;
+      if (isset($variable_prepared[$parent_sku])) {
+        $variable_prepared[$parent_sku]['relation']['options'][] = $attribute;
+      } else {
+        Utils::cli_log("variant Product(sku:$variant_product) has no its variable/parent product(sku:$parent_sku)");
+      }
     }
     file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'products_variable_variant.json', json_encode($variable_prepared, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+
+    foreach ($this->json_suffix as $product_type) {
+      $report[$product_type] = count($products[$product_type]);
+    }
+    $report["all"] = count($data);
+    $report["variable_variant"] = count($variable_prepared);
+
+    file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'products_report.json', json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    // Protokolliert, dass die Produkte erfolgreich aufgeteilt wurden
+    Utils::putLog('Produkte wurden erfolgreich in separate Dateien aufgeteilt.');
   }
 
   function delete_separated_data()

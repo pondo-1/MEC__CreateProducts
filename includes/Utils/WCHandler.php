@@ -24,15 +24,19 @@ class WCHandler
 
   public static function create_variable_product($num, $start)
   {
-    $counts = 0;
+
     $filePath = MEC__CP_API_Data_DIR . 'products_variable_variant.json';
     if (file_exists($filePath)) {
       $products_data = json_decode(file_get_contents($filePath), true);
 
       Utils::cli_log("$num of variable products will be created:");
+      $startpoint = 0;
+      $counts = 0;
       foreach ($products_data as $variable_sku => $product_data) {
-        $counts++;
-        if ($start > $counts + 1) {
+        $startpoint++;
+
+        // start only 
+        if ($start > $startpoint + 1) {
           continue;
         }
         // check if sku already oppcupied
@@ -42,7 +46,6 @@ class WCHandler
           // Step 1: Create the variable product
           $product = new WC_Product_Variable();
           $product_id = self::set_product_data($variable_sku, $product, $product_data);
-
           // Step 2: Define and set attribute for the variable product
           $attribute = new WC_Product_Attribute();
           $attribute_name = $product_data['relation'][2]; // Attribute name, e.g., "Kolbenmaß (mm)"
@@ -67,23 +70,27 @@ class WCHandler
           // $product->set_default_attributes($default_attributes);
 
           // Step 4: Add variations to the variable product
-          foreach ($product_data['relation']['options'] as $variant_data) {
-            $variation = new WC_Product_Variation();
-            $variation->set_parent_id($product_id);
+          if (isset($product_data['relation']['options'])) {
+            foreach ($product_data['relation']['options'] as $variant_data) {
+              $variation = new WC_Product_Variation();
+              $variation->set_parent_id($product_id);
 
-            // Use the attribute slug to link the variation option correctly
-            $variation->set_attributes([
-              $attribute_slug => $variant_data['option']
-            ]);
+              // Use the attribute slug to link the variation option correctly
+              $variation->set_attributes([
+                $attribute_slug => $variant_data['option']
+              ]);
 
-            $variation->set_sku($variant_data['sku']);
-            $variation->set_price($variant_data['price']);
-            $variation->set_regular_price($variant_data['price']);
-            $variation->set_status('publish');
+              $variation->set_sku($variant_data['sku']);
+              $variation->set_price($variant_data['price']);
+              $variation->set_regular_price($variant_data['price']);
+              $variation->set_status('publish');
 
-            $variation->save(); // Save each variation
+              $variation->save(); // Save each variation
+            }
+          } else {
+            Utils::cli_log("this variable product has no variant. sku:$variable_sku");
           }
-
+          $counts++;
           Utils::cli_log($counts . "th product created, sku:" . $variable_sku);
           // Final Save for the variable product to update WooCommerce with variations
           $product->save();
