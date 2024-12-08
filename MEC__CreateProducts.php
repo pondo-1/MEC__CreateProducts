@@ -20,10 +20,10 @@ ssh u131-bxrrihxoclkj@ssh.final-mec.pe-dev.de -p18765
               // Get Products data from mec.pe-dev.de(WC instance 1) and save the file  /includes/API/products_all.json
             SaveToLocal.php
             
-              // seperate products from products_all.json by products type(single, variable, variant and extra) and save it prodcut_type.json
+              // seperate products from products_all.json by products type(simple, variable, variant and extra) and save it prodcut_type.json
               // variable   -> freifeld6 has '-M'
               // variant    -> freifeld6 has variable product's SKU
-              // single     -> freifeld6 has neither '-M' nor 'variable product's SKU'
+              // simple     -> freifeld6 has neither '-M' nor 'variable product's SKU'
               // extra      -> the products that does not satisfy any condition for products types  
             PrepareJsonLocal.php
             
@@ -31,7 +31,7 @@ ssh u131-bxrrihxoclkj@ssh.final-mec.pe-dev.de -p18765
               // /wp-json/mec-api/v1/products/product_all
               // /wp-json/mec-api/v1/products/product_variable
               // /wp-json/mec-api/v1/products/product_variant
-              // /wp-json/mec-api/v1/products/product_single
+              // /wp-json/mec-api/v1/products/product_simple
               // /wp-json/mec-api/v1/products/product_extra
             LocalJsonToAPI.php
 

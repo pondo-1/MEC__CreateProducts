@@ -110,7 +110,7 @@ class WCHandler
   public static function create_simple_product($wp_CLI_exist, $num, $start)
   {
     $counts = 0;
-    $filePath = MEC__CP_API_Data_DIR . 'products_single.json';
+    $filePath = MEC__CP_API_Data_DIR . 'products_simple.json';
     if (file_exists($filePath)) {
       $products_data = json_decode(file_get_contents($filePath), true);
       Utils::cli_log("$num of simple products will be created:");
@@ -139,7 +139,7 @@ class WCHandler
       }
     } else {
       // Log an error or handle the missing file case
-      Utils::cli_log("Error: 'products_single.json' file not found at $filePath");
+      Utils::cli_log("Error: 'products_simple.json' file not found at $filePath");
     }
   }
 

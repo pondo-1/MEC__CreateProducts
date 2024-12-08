@@ -4,7 +4,7 @@ namespace MEC__CreateProducts\API;
 
 use MEC__CreateProducts\Utils\Utils;
 
-//Show products. products overview. variable products mit variant. single products, the rest
+//Show products. products overview. variable products mit variant. simple products, the rest
 
 class PrepareJsonLocal
 {
@@ -13,7 +13,7 @@ class PrepareJsonLocal
   private $json_suffix;
   private $filePath_all;
   // $json_prefix = 'products';
-  // $json_suffix = ['all', 'variable', 'variant', 'single', 'extra', 'variable_variant'];
+  // $json_suffix = ['all', 'variable', 'variant', 'simple', 'extra', 'variable_variant'];
 
 
   public function __construct($json_prefix, $json_suffix)
@@ -49,7 +49,7 @@ class PrepareJsonLocal
         preg_match('/[^\r\n]+$/', trim($products['variant'][$sku]['info']['description']), $matches);
         $products['variant'][$sku]['relation'][2] = $matches[0];
       } elseif ($product['info']['image']) {
-        $products['single'][$sku] = $product;
+        $products['simple'][$sku] = $product;
       } else {
         $products['extra'][$sku] = $product;
       }

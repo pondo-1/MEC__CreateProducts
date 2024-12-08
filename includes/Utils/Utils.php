@@ -10,7 +10,7 @@ use WP_CLI;
 
 class Utils
 {
-  // Static property to hold a single instance of Logger
+  // Static property to hold a simple instance of Logger
   private static $logger = null;
 
   // Static method to get or create the logger instance

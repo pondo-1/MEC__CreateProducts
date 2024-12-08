@@ -146,7 +146,7 @@ class SaveToLocal
         return null;
       }
     } else {
-      // If it's a single year, just return it as an array
+      // If it's a simple year, just return it as an array
       return [(int)$yearString];
     }
   }

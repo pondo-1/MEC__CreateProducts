@@ -106,9 +106,9 @@ class AdminPage
 
     // -----------------------------------------------------------------------------------------------------
 
-    // Seperate data all -> all, single, variable, variant, variableWvariant?
+    // Seperate data all -> all, simple, variable, variant, variableWvariant?
     $json_prefix = 'products';
-    $json_suffix = ['variable', 'variant', 'single', 'extra', 'variable_variant'];
+    $json_suffix = ['variable', 'variant', 'simple', 'extra', 'variable_variant'];
     $LocalJsonProcess = new PrepareJsonLocal($json_prefix, $json_suffix);
     if (isset($_POST['separate_data'])) {
       Utils::putLog("Button Clicked: 'separate_data'");
@@ -131,7 +131,7 @@ class AdminPage
     $html .= $LocalJsonProcess_button->returnTableButtonHtml('seperate data', '', $description);
 
 
-    // Seperates data and save it local products. products overview. variable products mit variant. single products, the rest
+    // Seperates data and save it local products. products overview. variable products mit variant. simple products, the rest
     if (isset($_POST['delete_separated_data'])) {
       Utils::putLog("Button Clicked: 'delete_separated_data'");
       call_user_func([$LocalJsonProcess, 'delete_separated_data']);
@@ -148,23 +148,23 @@ class AdminPage
     $WC_Handler = new WCHandler();
 
     //  TEST!! Create 6 Simple products 
-    if (isset($_POST['create_products_single6'])) {
+    if (isset($_POST['create_products_simple6'])) {
       $num = 6;
       $start = 0;
       // Call the create_products method with arguments
       call_user_func_array([$WC_Handler, 'create_products'], ['wp_admin', 'simple',  $num, $start]);
     }
-    $create_products_single6_button = new AdminButton('create_products_single6');
-    $html .= $create_products_single6_button->returnTableButtonHtml('create 6 single products', '', 'or $wp create_products --num=6 --type=simple');
+    $create_products_simple6_button = new AdminButton('create_products_simple6');
+    $html .= $create_products_simple6_button->returnTableButtonHtml('create 6 simple products', '', 'or $wp create_products --num=6 --type=simple');
 
 
     // Create all simple Products 
-    if (isset($_POST['create_products_single'])) {
+    if (isset($_POST['create_products_simple'])) {
       call_user_func_array([$WC_Handler, 'create_products'], ['wp_admin', 'simple', null, null]);
     }
     // Save to local button. this generate local file products_all.json 
-    $create_products_single_button = new AdminButton('create_products_single');
-    $html .= $create_products_single_button->returnTableButtonHtml('create all Simple products', '', 'or $wp create_products --num=-1 --type=simple');
+    $create_products_simple_button = new AdminButton('create_products_simple');
+    $html .= $create_products_simple_button->returnTableButtonHtml('create all Simple products', '', 'or $wp create_products --num=-1 --type=simple');
 
 
     //  TEST!! Create 6 Varaible products mit variant

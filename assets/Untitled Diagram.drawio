@@ -62,7 +62,7 @@
         <mxCell id="EVMat0AIJDkXBvxvZe_V-15" value="API call for&amp;nbsp; Variable/Variant" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="EVMat0AIJDkXBvxvZe_V-14">
           <mxGeometry x="40" y="20" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="EVMat0AIJDkXBvxvZe_V-33" value="API call for&amp;nbsp; Single" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="EVMat0AIJDkXBvxvZe_V-14">
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-33" value="API call for&amp;nbsp; simple" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="EVMat0AIJDkXBvxvZe_V-14">
           <mxGeometry x="40" y="160" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="EVMat0AIJDkXBvxvZe_V-22" value="API call to save products.json" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
@@ -101,7 +101,7 @@
         <mxCell id="EVMat0AIJDkXBvxvZe_V-41" value="Product_variable.json" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="EVMat0AIJDkXBvxvZe_V-40">
           <mxGeometry y="30" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="EVMat0AIJDkXBvxvZe_V-42" value="prodcuts_single.json" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="EVMat0AIJDkXBvxvZe_V-40">
+        <mxCell id="EVMat0AIJDkXBvxvZe_V-42" value="prodcuts_simple.json" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="EVMat0AIJDkXBvxvZe_V-40">
           <mxGeometry y="60" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="EVMat0AIJDkXBvxvZe_V-43" value="products_variant.json" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="EVMat0AIJDkXBvxvZe_V-40">
