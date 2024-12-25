@@ -42,7 +42,6 @@ class AdminButton
   public function returnTableButtonHtml($button_text = '', $button_type = '', $description_html = '')
   {
     $html = null;
-    $html = null;
     if ($button_text == '') {
       $button_text = $this->action_name;
     }
@@ -54,15 +53,17 @@ class AdminButton
     }
     ob_start();
   ?>
-    <tr style="border-top: gray dotted;">
-      <th><?php echo $this->action_name; ?></th>
-      <td>
+    <div class="admin-button-row" style="display: flex; padding: 8px 0; border-top: gray dotted; align-items: center;">
+      <div class="admin-button-label" style="flex: 0 0 200px; font-weight: bold;">
+        <?php echo $this->action_name; ?>
+      </div>
+      <div class="admin-button-content" style="flex: 1;">
         <form method="post" action="">
           <?php submit_button($button_text, $button_type, $this->action_name); ?>
         </form>
         <?php echo $description_html; ?>
-      </td>
-    </tr>
+      </div>
+    </div>
 <?php
     $html .= ob_get_clean();
     return $html;

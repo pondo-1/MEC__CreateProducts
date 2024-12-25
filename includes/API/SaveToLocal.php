@@ -75,12 +75,13 @@ class SaveToLocal
 
     $products = [];
     foreach ($data as $sku => $product) {
-      $compatible_tax = $this->create_compatible_tax($sku, $product['taxonomyField']);
+      // $compatible_tax = $this->create_compatible_tax($sku, $product['taxonomyField']);
+      $compatible_array = explode(';', preg_replace("/\r\n|;$/", "", $product['taxonomyField']));
       $products[$sku] = [
         'name'        => $product['name'],
         'price'       => $product['price'],
         'relation'    => explode(';', $product['freifeld6']), // [0] master or parent, [2] attribute 
-        'compatible'  => $compatible_tax, // mdell, marke, hub. year
+        'compatible'  => $compatible_array, // mdell, marke, hub. year
         'info'        => [
           'description' => $product['description'],
           'image'       => $product['image']

@@ -28,6 +28,7 @@ class PrepareJsonLocal
     // Lädt die 'products_all.json'-Datei
     $data = json_decode(file_get_contents($this->filePath_all), true);
     $products = [];
+    $vehicle = [];
     $report = [];
     foreach ($this->json_suffix as $product_type) {
       $products[$product_type] = [];
@@ -55,7 +56,6 @@ class PrepareJsonLocal
       }
     }
 
-
     // Speichert die sortierten Daten in separaten JSON-Dateien
     foreach ($this->json_suffix as $product_type) {
       // Check if $products[$product_type] is empty before attempting to write
@@ -76,7 +76,7 @@ class PrepareJsonLocal
       if (isset($variable_prepared[$parent_sku])) {
         $variable_prepared[$parent_sku]['relation']['options'][] = $attribute;
       } else {
-        Utils::cli_log("variant Product(sku:$variant_product) has no its variable/parent product(sku:$parent_sku)");
+        Utils::cli_log("variant Product(sku:{$variant_sku}) has no its variable/parent product(sku:{$parent_sku})");
       }
     }
     file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'products_variable_variant.json', json_encode($variable_prepared, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
@@ -102,6 +102,31 @@ class PrepareJsonLocal
       if (file_exists($file_path)) {
         unlink($file_path);
       }
+    }
+  }
+
+  function prepare_vehicle_data()
+  {
+    // Lädt die 'products_all.json'-Datei
+    $data = json_decode(file_get_contents($this->filePath_all), true);
+    $vehicle = [];
+
+    // Durchläuft die Produktdaten und sortiert sie nach Typ
+    foreach ($data as $sku => $product) {
+      if (isset($product['compatible']) && count($product['compatible']) > 1) {
+        Utils::putLog('compatiblie');
+
+        foreach ($product['compatible'] as $compatible_vehicle) {
+          if (!in_array($compatible_vehicle, $vehicle)) {
+            $vehicle[] = $compatible_vehicle;
+          }
+        }
+      }
+    }
+
+
+    if (count($vehicle)) {
+      file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'vehicle_all.json', json_encode($vehicle, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     }
   }
 }

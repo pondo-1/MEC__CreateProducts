@@ -139,6 +139,20 @@ class AdminPage
     $LocalJsonProcess_delete_button = new AdminButton('delete_separated_data');
 
     $html .= $LocalJsonProcess_delete_button->returnTableButtonHtml('delete separated data', '', '');
+
+// Generate Farzeug based on combilaty from products data
+    if (isset($_POST['prepare_vehicle_data'])) {
+      Utils::putLog("Button Clicked: 'prepare_vehicle_data'");
+      call_user_func([$LocalJsonProcess, 'prepare_vehicle_data']);
+    }
+    $LocalJsonProcess_delete_button = new AdminButton('prepare_vehicle_data');
+
+    $html .= $LocalJsonProcess_delete_button->returnTableButtonHtml('prepare_vehicle_data', '', '');
+
+
+
+
+
     return $html;
   }
 
