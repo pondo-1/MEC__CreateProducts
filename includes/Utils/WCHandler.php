@@ -6,9 +6,7 @@ use WC_Product_Simple;
 use WC_Product_Variable;
 use WC_Product_Attribute;
 use WC_Product_Variation;
-use WP_CLI;
 
-// use WP_CLI;
 
 class WCHandler
 {
