@@ -8,13 +8,15 @@ use MEC__CreateProducts\Utils\Utils;
 use MEC__CreateProducts\Utils\AdminButton;
 use MEC__CreateProducts\Utils\WCHandler;
 use MEC__CreateProducts\Utils\SQLscript;
+use MEC__CreateProducts\Init\CustomDataTabel__Vehicle;
 
 class AdminPage
 {
 
   public function __construct()
   {
-    add_action('admin_init', [$this, 'prepare_data_actions_html']);
+    add_action('admin_init', [$this, 'prepare_products_data_actions_html']);
+    add_action('admin_init', [$this, 'prepare_filter_data_actions_html']);
     add_action('admin_init', [$this, 'create_products_actions_html']);
     add_action('admin_menu', [$this, 'addAdminMenu']);
   }
@@ -42,7 +44,8 @@ class AdminPage
 ?>
     <div class="wrap">
       <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
-      <?php echo $this->optionPageSection('Prepare the Data', $this->prepare_data_actions_html()); ?>
+      <?php echo $this->optionPageSection('Prepare the Data', $this->prepare_products_data_actions_html()); ?>
+      <?php echo $this->optionPageSection('Prepare filter the Data', $this->prepare_filter_data_actions_html()); ?>
       <?php echo $this->optionPageSection('Create Products', $this->create_products_actions_html()); ?>
     </div>
   <?php
@@ -66,20 +69,106 @@ class AdminPage
         </tbody>
       </table>
     </div>
-  <?php
+    <?php
     $return_html .= ob_get_clean();
 
     echo $return_html;
   }
 
+  public function prepare_filter_data_actions_html()
+  {
 
+    $html = null;
+
+    $json_prefix = 'products';
+    $json_suffix = ['variable', 'variant', 'simple', 'extra', 'variable_variant'];
+    $LocalJsonProcess = new PrepareJsonLocal($json_prefix, $json_suffix);
+    // Generate Farzeug based on combilaty from products data
+    if (isset($_POST['prepare_vehicle_data'])) {
+      Utils::putLog("Button Clicked: 'prepare_vehicle_data'");
+      call_user_func([$LocalJsonProcess, 'prepare_vehicle_data']);
+    }
+    $LocalJsonProcess_delete_button = new AdminButton('prepare_vehicle_data');
+
+    $html .= $LocalJsonProcess_delete_button->returnTableButtonHtml('prepare_vehicle_data', '', '');
+
+    $vehicle_table = new CustomDataTabel__Vehicle();
+    if (isset($_POST['importVehiclesFromJson'])) {
+      Utils::putLog("Button Clicked: 'importVehiclesFromJson'");
+      $result = call_user_func([$vehicle_table, 'importVehiclesFromJson']);
+      Utils::putLog(print_r($result['errors'], true));
+      if (isset($result['success'])) {
+        add_action('admin_notices', function () use ($result) {
+    ?>
+          <div class="notice notice-success is-dismissible">
+            <p><?php echo "Successfully imported {$result['inserted']} vehicles"; ?></p>
+            <?php if (!empty($result['errors'])): ?>
+              <p><?php echo "Errors occurred with " . count($result['errors']) . " entries"; ?></p>
+            <?php endif; ?>
+          </div>
+        <?php
+        });
+      } else {
+        add_action('admin_notices', function () use ($result) {
+        ?>
+          <div class="notice notice-error is-dismissible">
+            <p><?php echo "Error: " . $result->get_error_message(); ?></p>
+          </div>
+        <?php
+        });
+      }
+
+      // Redirect to avoid re-processing the form on refresh
+      wp_redirect(admin_url('admin.php?page=MEC_dev')); // Replace with your actual page slug
+      exit;
+    }
+
+    $saveToLocal_button = new AdminButton('importVehiclesFromJson');
+    $html .= $saveToLocal_button->returnTableButtonHtml('import Vehicle table', '', '');
+
+    if (isset($_POST['clearVehiclesTable'])) {
+      Utils::putLog("Button Clicked: 'clearVehiclesTable'");
+      $result = call_user_func([$vehicle_table, 'clearVehiclesTable']);
+
+      if (isset($result['success'])) {
+        add_action('admin_notices', function () use ($result) {
+        ?>
+          <div class="notice notice-success is-dismissible">
+            <p><?php echo "Successfully imported {$result['inserted']} vehicles"; ?></p>
+            <?php if (!empty($result['errors'])): ?>
+              <p><?php echo "Errors occurred with " . count($result['errors']) . " entries"; ?></p>
+            <?php endif; ?>
+          </div>
+        <?php
+        });
+      } else {
+        add_action('admin_notices', function () use ($result) {
+        ?>
+          <div class="notice notice-error is-dismissible">
+            <p><?php echo "Error: " . $result->get_error_message(); ?></p>
+          </div>
+    <?php
+        });
+      }
+
+      // Redirect to avoid re-processing the form on refresh
+      wp_redirect(admin_url('admin.php?page=MEC_dev')); // Replace with your actual page slug
+      exit;
+    }
+
+    $saveToLocal_button = new AdminButton('clearVehiclesTable');
+    $html .= $saveToLocal_button->returnTableButtonHtml('clearVehiclesTable', '', '');
+
+
+    return $html;
+  }
   // Method that registers actions
-  public function prepare_data_actions_html()
+  public function prepare_products_data_actions_html()
   {
     $html = null;
 
     // Save Json to as Local file
-    $target = 'https://mec.pe-dev.de/wp-json/mec-api/v1/products/';
+    $target = '/wp-json/mec-api/v1/products/';
     $filePath =  MEC__CP_API_Data_DIR . 'products';
 
     $saveToLocal = new SaveToLocal($target, $filePath);
@@ -92,7 +181,7 @@ class AdminPage
     $saveToLocal_button = new AdminButton('save_to_local');
     $file_exist = $saveToLocal->getFilePath();
     ob_start();
-  ?>
+    ?>
     <div>
       Save the json( <?php echo $target; ?>) to local directory <br><br><?php echo $filePath; ?>
       <br>
@@ -139,17 +228,6 @@ class AdminPage
     $LocalJsonProcess_delete_button = new AdminButton('delete_separated_data');
 
     $html .= $LocalJsonProcess_delete_button->returnTableButtonHtml('delete separated data', '', '');
-
-// Generate Farzeug based on combilaty from products data
-    if (isset($_POST['prepare_vehicle_data'])) {
-      Utils::putLog("Button Clicked: 'prepare_vehicle_data'");
-      call_user_func([$LocalJsonProcess, 'prepare_vehicle_data']);
-    }
-    $LocalJsonProcess_delete_button = new AdminButton('prepare_vehicle_data');
-
-    $html .= $LocalJsonProcess_delete_button->returnTableButtonHtml('prepare_vehicle_data', '', '');
-
-
 
 
 
