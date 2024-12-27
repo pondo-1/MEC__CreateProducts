@@ -13,9 +13,6 @@ class CustomDataTabel__Vehicle
     $this->charset = $wpdb->get_charset_collate();
     $this->tablename = $wpdb->prefix . "vehicles";
     add_action('activate_MEC__CreateProducts/MEC__CreateProducts.php', array($this, 'onActivate'));
-    //add_action('admin_head', array($this, 'populateFast'));
-    add_action('wp_enqueue_scripts', array($this, 'loadAssets'));
-    add_filter('template_include', array($this, 'loadTemplate'), 99);
   }
 
   function onActivate()
@@ -32,6 +29,7 @@ class CustomDataTabel__Vehicle
         model varchar(60) NOT NULL DEFAULT '',
         engine_displacement int(15) NOT NULL DEFAULT 0,
         prod_year varchar(60) NOT NULL DEFAULT '',
+        compatible_products text not NULL DEFAULT '',
         PRIMARY KEY  (id)
       ) $this->charset;");
     }
@@ -108,5 +106,48 @@ class CustomDataTabel__Vehicle
         ? 'Vehicle table cleared successfully'
         : 'Failed to clear vehicle table: ' . $wpdb->last_error
     ];
+  }
+
+  public function updateCompatibleVehicles()
+  {
+    global $wpdb;
+
+    // Read JSON files
+    $products_simple = json_decode(file_get_contents(MEC__CP_API_Data_DIR . 'products_simple.json'), true);
+    $products_variant = json_decode(file_get_contents(MEC__CP_API_Data_DIR . 'products_variant.json'), true);
+
+    // Prepare vehicle list as an associative array for quick lookup
+    $vehicle_map = [];
+
+    // Iterate through simple products
+    foreach ($products_simple as $product_sku => $product) {
+      if (isset($product['compatible'])) {
+        foreach ($product['compatible'] as $compatible_string) {
+          $product_id = wc_get_product_id_by_sku($product_sku);
+          if ($product_id) {
+            $vehicle_map[$compatible_string][] = $product_id; // Use product_id instead of product_sku
+          }
+        }
+      }
+    }
+    // Iterate through variant products
+    foreach ($products_variant as $product_sku => $product) {
+      if (isset($product['compatible'])) {
+        foreach ($product['compatible'] as $compatible_string) {
+          $product_id = wc_get_product_id_by_sku($product_sku);
+          if ($product_id) {
+            $vehicle_map[$compatible_string][] = $product_id; // Use product_id instead of product_sku
+          }
+        }
+      }
+    }
+
+
+    // Optionally, you can save the updated vehicle_map back to the database or return it
+    // For example, you could update the compatible_products field in the vehicles table
+    $file_path = MEC__CP_API_Data_DIR . 'vehicle_all.json';
+    file_put_contents($file_path, json_encode($vehicle_map, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+
+    // return $vehicle_map; // Return the updated vehicle map for further processing if needed
   }
 }

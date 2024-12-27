@@ -104,29 +104,4 @@ class PrepareJsonLocal
       }
     }
   }
-
-  function prepare_vehicle_data()
-  {
-    // Lädt die 'products_all.json'-Datei
-    $data = json_decode(file_get_contents($this->filePath_all), true);
-    $vehicle = [];
-
-    // Durchläuft die Produktdaten und sortiert sie nach Typ
-    foreach ($data as $sku => $product) {
-      if (isset($product['compatible']) && count($product['compatible']) > 1) {
-        Utils::putLog('compatiblie');
-
-        foreach ($product['compatible'] as $compatible_vehicle) {
-          if (!in_array($compatible_vehicle, $vehicle)) {
-            $vehicle[] = $compatible_vehicle;
-          }
-        }
-      }
-    }
-
-
-    if (count($vehicle)) {
-      file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'vehicle_all.json', json_encode($vehicle, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-    }
-  }
 }

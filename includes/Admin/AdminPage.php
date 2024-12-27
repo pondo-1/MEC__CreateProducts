@@ -79,20 +79,20 @@ class AdminPage
   {
 
     $html = null;
-
-    $json_prefix = 'products';
-    $json_suffix = ['variable', 'variant', 'simple', 'extra', 'variable_variant'];
-    $LocalJsonProcess = new PrepareJsonLocal($json_prefix, $json_suffix);
-    // Generate Farzeug based on combilaty from products data
-    if (isset($_POST['prepare_vehicle_data'])) {
-      Utils::putLog("Button Clicked: 'prepare_vehicle_data'");
-      call_user_func([$LocalJsonProcess, 'prepare_vehicle_data']);
-    }
-    $LocalJsonProcess_delete_button = new AdminButton('prepare_vehicle_data');
-
-    $html .= $LocalJsonProcess_delete_button->returnTableButtonHtml('prepare_vehicle_data', '', '');
-
     $vehicle_table = new CustomDataTabel__Vehicle();
+
+    
+    if (isset($_POST['updateCompatibleVehicles'])) {
+      Utils::putLog("Button Clicked: 'updateCompatibleVehicles'");
+      $result = call_user_func([$vehicle_table, 'updateCompatibleVehicles']);
+      // Redirect to avoid re-processing the form on refresh
+      wp_redirect(admin_url('admin.php?page=MEC_dev')); // Replace with your actual page slug
+      exit;
+    }
+    $button = new AdminButton('updateCompatibleVehicles');
+    $html .=  $button->returnTableButtonHtml('updateCompatibleVehicles', '', '');
+
+
     if (isset($_POST['importVehiclesFromJson'])) {
       Utils::putLog("Button Clicked: 'importVehiclesFromJson'");
       $result = call_user_func([$vehicle_table, 'importVehiclesFromJson']);
@@ -158,6 +158,10 @@ class AdminPage
 
     $saveToLocal_button = new AdminButton('clearVehiclesTable');
     $html .= $saveToLocal_button->returnTableButtonHtml('clearVehiclesTable', '', '');
+
+
+
+
 
 
     return $html;
