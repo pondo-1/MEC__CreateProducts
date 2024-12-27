@@ -5,64 +5,7 @@ Description: Generates products for MEC Shop, based on the external data(mec.pe-
 Version: 2.2
 Author: Page-effect
 
-ssh u131-bxrrihxoclkj@ssh.final-mec.pe-dev.de -p18765
 
-
-/wp-content/plugins/MEC__CreateProducts
-    /assets
-        /js
-            process-display.js
-    /includes
-        /Admin
-              // This is for Admin option page
-            AdminPage.php
-        /API
-              // Get Products data from mec.pe-dev.de(WC instance 1) and save the file  /includes/API/products_all.json
-            SaveToLocal.php
-            
-              // seperate products from products_all.json by products type(simple, variable, variant and extra) and save it prodcut_type.json
-              // variable   -> freifeld6 has '-M'
-              // variant    -> freifeld6 has variable product's SKU
-              // simple     -> freifeld6 has neither '-M' nor 'variable product's SKU'
-              // extra      -> the products that does not satisfy any condition for products types  
-            PrepareJsonLocal.php
-            
-              //Register Endpoints
-              // /wp-json/mec-api/v1/products/product_all
-              // /wp-json/mec-api/v1/products/product_variable
-              // /wp-json/mec-api/v1/products/product_variant
-              // /wp-json/mec-api/v1/products/product_simple
-              // /wp-json/mec-api/v1/products/product_extra
-            LocalJsonToAPI.php
-
-        /Log
-              // Logger Class, that used in Utils/Utils.php
-            Logger.php
-
-        /Utils
-              //The purpose of the Utils class in this code is to provide a convenient, 
-              //centralized way to access a shared Logger instance 
-              //across different parts of the codebase without needing to create multiple Logger instances.
-            Utils.php
-              // This is helper class to register and generate Buttons in Admin Option page
-            AdminButton.php
-            
-              // SQL script for the data processing
-            SQLscript.php
-        /WPquery // Data verarbeitung 
-            
-
-    MEC__CreateProducts.php
-
-
-    Eingabe
-    Vorarbeitung
-    Ausgabe
-
-    user-interface (view), 
-    data (model),
-    application logic (controller)
-    
     */
 
 
