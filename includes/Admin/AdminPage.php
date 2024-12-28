@@ -81,7 +81,7 @@ class AdminPage
     $html = null;
     $vehicle_table = new CustomDataTabel__Vehicle();
 
-    
+
     if (isset($_POST['updateCompatibleVehicles'])) {
       Utils::putLog("Button Clicked: 'updateCompatibleVehicles'");
       $result = call_user_func([$vehicle_table, 'updateCompatibleVehicles']);
@@ -96,7 +96,6 @@ class AdminPage
     if (isset($_POST['importVehiclesFromJson'])) {
       Utils::putLog("Button Clicked: 'importVehiclesFromJson'");
       $result = call_user_func([$vehicle_table, 'importVehiclesFromJson']);
-      Utils::putLog(print_r($result['errors'], true));
       if (isset($result['success'])) {
         add_action('admin_notices', function () use ($result) {
     ?>
@@ -290,6 +289,10 @@ class AdminPage
     $sqlHandler = new SQLscript();
     if (isset($_POST['delete_all_products'])) {
       call_user_func([$sqlHandler, 'delete_all_products']);
+
+      // Redirect to avoid re-processing the form on refresh
+      wp_redirect(admin_url('admin.php?page=MEC_dev')); // Replace with your actual page slug
+      exit;
     }
     // Save to local button. this generate local file products_all.json 
     $delete_all_products_button = new AdminButton('delete_all_products');

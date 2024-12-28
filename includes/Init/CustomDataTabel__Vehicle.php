@@ -113,34 +113,26 @@ class CustomDataTabel__Vehicle
     global $wpdb;
 
     // Read JSON files
-    $products_simple = json_decode(file_get_contents(MEC__CP_API_Data_DIR . 'products_simple.json'), true);
-    $products_variant = json_decode(file_get_contents(MEC__CP_API_Data_DIR . 'products_variant.json'), true);
+    $products_all = json_decode(file_get_contents(MEC__CP_API_Data_DIR . 'products_all.json'), true);
 
     // Prepare vehicle list as an associative array for quick lookup
     $vehicle_map = [];
 
-    // Iterate through simple products
-    foreach ($products_simple as $product_sku => $product) {
+    // Iterate through all products
+    foreach ($products_all as $product_sku => $product) {
       if (isset($product['compatible'])) {
+        $product_id = wc_get_product_id_by_sku($product_sku);
         foreach ($product['compatible'] as $compatible_string) {
-          $product_id = wc_get_product_id_by_sku($product_sku);
+          if (!isset($vehicle_map[$compatible_string]) && $compatible_string != "") {
+            $vehicle_map[$compatible_string] = [];
+          }
           if ($product_id) {
             $vehicle_map[$compatible_string][] = $product_id; // Use product_id instead of product_sku
           }
         }
       }
     }
-    // Iterate through variant products
-    foreach ($products_variant as $product_sku => $product) {
-      if (isset($product['compatible'])) {
-        foreach ($product['compatible'] as $compatible_string) {
-          $product_id = wc_get_product_id_by_sku($product_sku);
-          if ($product_id) {
-            $vehicle_map[$compatible_string][] = $product_id; // Use product_id instead of product_sku
-          }
-        }
-      }
-    }
+
 
 
     // Optionally, you can save the updated vehicle_map back to the database or return it

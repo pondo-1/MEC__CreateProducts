@@ -1,4 +1,8 @@
-Last edited:<today>
+have problem with import price
+test it with small number of prodCuct. It may possible the problem with language(number by contry setting)??
+
+Install WC again, And check the post_ID
+Last edited:28.Dez.2024
 
 ## Overview
 
@@ -44,6 +48,18 @@ The [**MEC\_\_CreateProducts**](https://github.com/pondo-1/MEC__CreateProducts) 
   vs
   [0] => Failed to insert: A|Yamaha|RMAX 2&amp
   [1] => Failed to insert: 4|1000|2021-2023|
+  "29.VSA948-2":M|Yamaha|WR-F|450|2003-2018|,M|Yamaha|YZ-F|450|2003-2018|
+  "M|Gas Gas|EC-F|350|2021-2023|Einlass+Auslass": ...
+  M|KTM|Supermoto|690|2007-2009|Einlass + Auslass..
+  "M|Honda|CRF-R|250|2004-2007|hochverdichtet": [],
+  "M|Honda|CRF-R|250|2008-2009|Standard verdichtet": [],...
+  "A|Yamaha|YFZ|450|2004-2005|+1,4mm mehr Hub": [],
+  "M|Suzuki|T|500|1972-1977|links": [],
+  "M|Suzuki|GT|750|1972-1977|links\/mitte": [],....
+  "M|Yamaha|RD|500|alle|2x für vordere Zylinder zu verwenden": [],
+  "M|Yamaha|RD|500|alle|2x Art.Nr. 8003D-1 für hintere Zylinder zu verwenden": [],
+
+  Soll es eine Liste?
   ```
 
 - The plugin implements a filter function for compatibility, allowing users to filter products based on specific criteria.
