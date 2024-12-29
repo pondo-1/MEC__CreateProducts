@@ -177,9 +177,9 @@ class WCHandler
       $startpoint = 0;
       $counts = 0;
       foreach ($products_data as $sku => $product_data) {
-        $startpoint++;
         // start only 
-        if ($start > $startpoint + 1) {
+        if ($start > $startpoint) {
+          $startpoint++;
           continue;
         }
         // create or update product
