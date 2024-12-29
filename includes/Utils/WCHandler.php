@@ -10,6 +10,68 @@ use WC_Product_Variation;
 
 class WCHandler
 {
+  function wc_create_or_update_product($product_data)
+  {
+    // Check if SKU is provided
+    if (empty($product_data['sku'])) {
+      return new WP_Error('missing_sku', 'SKU is required to create or update a product.');
+    }
+
+    // Check if the product with this SKU exists
+    $product_id = wc_get_product_id_by_sku($product_data['sku']);
+
+    if ($product_id) {
+      // If product exists, update it
+      $product = new WC_Product_Simple($product_id);
+    } else {
+      // If product does not exist, create a new one
+      $product = new WC_Product_Simple();
+    }
+
+    // Set product data
+    if (!empty($product_data['name'])) {
+      $product->set_name($product_data['name']);
+    }
+
+    if (!empty($product_data['regular_price'])) {
+      $product->set_regular_price($product_data['regular_price']);
+    }
+
+    if (!empty($product_data['description'])) {
+      $product->set_description($product_data['description']);
+    }
+
+    if (!empty($product_data['short_description'])) {
+      $product->set_short_description($product_data['short_description']);
+    }
+
+    if (!empty($product_data['stock_quantity'])) {
+      $product->set_stock_quantity($product_data['stock_quantity']);
+    }
+
+    if (isset($product_data['manage_stock'])) {
+      $product->set_manage_stock($product_data['manage_stock']);
+    }
+
+    if (!empty($product_data['sku'])) {
+      $product->set_sku($product_data['sku']);
+    }
+
+    if (!empty($product_data['categories'])) {
+      $product->set_category_ids($product_data['categories']);
+    }
+
+    if (!empty($product_data['images'])) {
+      $product->set_image_id($product_data['images'][0]); // Set the main image
+      $product->set_gallery_image_ids(array_slice($product_data['images'], 1)); // Set gallery images
+    }
+
+    // Save the product
+    $product_id = $product->save();
+
+    return $product_id;
+  }
+
   public static function create_products($wp_CLI_exist = 1, $products_type = 'simple', $num = -1, $start = 0)
   {
 
@@ -26,7 +88,6 @@ class WCHandler
     $filePath = MEC__CP_API_Data_DIR . 'products_variable_variant.json';
     if (file_exists($filePath)) {
       $products_data = json_decode(file_get_contents($filePath), true);
-
       Utils::cli_log("$num of variable products will be created:");
       $startpoint = 0;
       $counts = 0;
@@ -60,17 +121,6 @@ class WCHandler
             $attribute->set_variation(true);
             $product->set_attributes([$attribute]);
 
-            // Step 3: Set default attribute
-            // $default_attributes = [];
-            // foreach ($product_data['relation']['options'] as $variant_data) {
-            //   if (strpos($variant_data['option'], '(Standard)') !== false) {
-            //     $default_attributes[$product_data['relation'][2]] = $variant_data['option'];
-            //   }
-            // }
-            // $product->set_default_attributes($default_attributes);
-
-            // Step 4: Add variations to the variable product
-
             foreach ($product_data['relation']['options'] as $variant_data) {
               $variation = new WC_Product_Variation();
               $variation->set_parent_id($product_id);
@@ -81,8 +131,8 @@ class WCHandler
               ]);
 
               $variation->set_sku($variant_data['sku']);
-              $variation->set_price($variant_data['price']);
               $variation->set_regular_price($variant_data['price']);
+              $variation->set_price($variant_data['price']);
               $variation->set_status('publish');
 
               $variation->save(); // Save each variation
@@ -105,7 +155,7 @@ class WCHandler
     }
   }
 
-  public static function create_simple_product($wp_CLI_exist, $num, $start)
+  public static function create_simple_product($num, $start)
   {
     $counts = 0;
     $filePath = MEC__CP_API_Data_DIR . 'products_simple.json';
@@ -122,10 +172,7 @@ class WCHandler
         // check if the sku already exist 
         $productID = wc_get_product_id_by_sku($sku);
         if (!$productID) {
-
-          // that's CRUD object
           $product = new WC_Product_Simple();
-          $product->set_price($product_data['price']);
           self::set_product_data($sku, $product, $product_data);
           Utils::cli_log($counts . "th product created, sku:" . $sku);
           if (($num != -1) && ($counts + 1 > $num)) {
@@ -133,6 +180,7 @@ class WCHandler
           }
         } else {
           Utils::cli_log("sku already exist: " . $sku);
+          self::update_product_data($productID, $product_data);
         }
       }
     } else {
@@ -141,10 +189,34 @@ class WCHandler
     }
   }
 
+  public static function update_product_data($productID, $product_data)
+  {
+    $product = wc_get_product($productID);
+    if (!$product) {
+      Utils::cli_log("Product not found for ID: $productID");
+      return;
+    }
+
+    // // Update product fields
+    // $product->set_name($product_data['name']);
+    // $product->set_description($product_data['info']['description']);
+    $product->set_regular_price($product_data['price']);
+    $product->set_price($product_data['price']);
+    // // Update the image if a new one is provided
+    // if (isset($product_data['info']['image'])) {
+    //   self::set_product_image_from_url($product, $product_data['info']['image']);
+    // }
+
+    // Save the updated product
+    $product->save();
+  }
+
   public static function set_product_data($sku, $product, $product_data)
   {
     $product->set_name($product_data['name']);
     $product->set_sku($sku);
+    $product->set_regular_price($product_data['price']);
+    $product->set_price($product_data['price']);
     $product->set_description($product_data['info']['description']);
     $product->set_status('publish');
     $product->set_catalog_visibility('visible');
@@ -155,32 +227,6 @@ class WCHandler
     // Save the product to get its ID
     $product_id = $product->save();
 
-    // Set custom taxonomy terms
-
-    // Define the taxonomies and their keys
-    $taxonomy_keys = [
-      'Typ' => 'typ',
-      'Marke' => 'marke',
-      'Modell' => 'modell',
-      'Hubraum' => 'hubraum',
-      'Baujahr' => 'baujahr'
-    ];
-
-    // Loop through each key and set terms if the key exists
-    foreach ($taxonomy_keys as $key => $taxonomy) {
-      if (isset($product_data['compatible'][$key])) {
-        $terms = $product_data['compatible'][$key];
-
-        // Convert 'Baujahr' terms to strings
-        if ($key === 'Baujahr') {
-          $terms = array_map('strval', $terms);
-        }
-
-        wp_set_object_terms($product_id, $terms, $taxonomy);
-      }
-    }
-
-    Utils::putLog('set the product: ' . $sku);
     return $product_id;
   }
   // Function to download the image from a URL and attach it to the product
