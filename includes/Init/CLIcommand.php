@@ -42,6 +42,6 @@ class CLIcommand
     } else {
       $start = 0;
     }
-    WCHandler::create_products(1, $type, $number_to_generate, $start);
+    WCHandler::create_products_from_json(1, $type, $number_to_generate, $start);
   }
 }

@@ -52,6 +52,7 @@ class WCHandler
 
       default:
         new WP_Error('undefined_product_type', 'Product type undefined');
+        break;
     }
 
     // Set Product basic data: which is apply all types of products
@@ -153,35 +154,38 @@ class WCHandler
     }
   }
 
-  public static function create_products($wp_CLI_exist = 1, $products_type = 'simple', $num = -1, $start = 0)
+  public static function create_products_from_json($wp_CLI_exist = 1, $products_type = 'simple', $num = -1, $start = 0)
   {
+    $counts = 0;
+    switch ($products_type) {
+      case 'simple':
+        $filePath = MEC__CP_API_Data_DIR . 'products_simple.json';
+        break;
 
-    if ($products_type == 'simple') {
-      self::create_simple_product($wp_CLI_exist, $num, $start);
-    } else if ($products_type == 'variable') {
-      self::create_variable_product($num, $start);
+      case 'variable':
+        $filePath = MEC__CP_API_Data_DIR . 'products_variable_variant.json';
+        break;
+
+      default:
+        new WP_Error('undefined_product_type', 'Product type undefined');
+        break;
     }
-  }
 
-  public static function create_variable_product($num, $start)
-  {
-
-    $filePath = MEC__CP_API_Data_DIR . 'products_variable_variant.json';
     if (file_exists($filePath)) {
       $products_data = json_decode(file_get_contents($filePath), true);
-      Utils::cli_log("$num of variable products will be created:");
+      Utils::cli_log("$num of $products_type products will be created:");
       $startpoint = 0;
       $counts = 0;
-      foreach ($products_data as $variable_sku => $product_data) {
+      foreach ($products_data as $sku => $product_data) {
         $startpoint++;
         // start only 
         if ($start > $startpoint + 1) {
           continue;
         }
         // create or update product
-        $productID = self::wc_create_or_update_product('variable', $variable_sku, $product_data);
+        $productID = self::wc_create_or_update_product($products_type, $sku, $product_data);
         $counts++;
-        Utils::cli_log($counts . "th product created/updated, sku:" . $variable_sku);
+        Utils::cli_log($counts . "th product created/updated, sku:" . $sku);
         // Final Save for the variable product to update WooCommerce with variations
 
         if (($num != -1) && ($counts + 1 > $num)) {
@@ -191,61 +195,6 @@ class WCHandler
     }
   }
 
-  public static function create_simple_product($num, $start)
-  {
-    $counts = 0;
-    $filePath = MEC__CP_API_Data_DIR . 'products_simple.json';
-    if (file_exists($filePath)) {
-      $products_data = json_decode(file_get_contents($filePath), true);
-      Utils::cli_log("$num of simple products will be created:");
-      foreach ($products_data as $sku => $product_data) {
-        $counts++;
-
-        // manage start point
-        if ($start > $counts) {
-          continue;
-        }
-        // check if the sku already exist 
-        $productID = wc_get_product_id_by_sku($sku);
-        if (!$productID) {
-          $product = new WC_Product_Simple();
-          self::set_product_data($sku, $product, $product_data);
-          Utils::cli_log($counts . "th product created, sku:" . $sku);
-          if (($num != -1) && ($counts + 1 > $num)) {
-            exit;
-          }
-        } else {
-          Utils::cli_log("sku already exist: " . $sku);
-          self::update_product_data($productID, $product_data);
-        }
-      }
-    } else {
-      // Log an error or handle the missing file case
-      Utils::cli_log("Error: 'products_simple.json' file not found at $filePath");
-    }
-  }
-
-  public static function update_product_data($productID, $product_data)
-  {
-    $product = wc_get_product($productID);
-    if (!$product) {
-      Utils::cli_log("Product not found for ID: $productID");
-      return;
-    }
-
-    // // Update product fields
-    // $product->set_name($product_data['name']);
-    // $product->set_description($product_data['info']['description']);
-    $product->set_regular_price($product_data['price']);
-    $product->set_price($product_data['price']);
-    // // Update the image if a new one is provided
-    // if (isset($product_data['info']['image'])) {
-    //   self::set_product_image_from_url($product, $product_data['info']['image']);
-    // }
-
-    // Save the updated product
-    $product->save();
-  }
 
   public static function set_product_data($sku, $product, $product_data)
   {
