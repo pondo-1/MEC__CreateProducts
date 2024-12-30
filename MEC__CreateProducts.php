@@ -33,8 +33,10 @@ spl_autoload_register(function ($class_name) {
   }
 });
 
-
-$MEC__CP_log = MEC__CreateProducts\Utils\Utils::getLogger();
+new MEC__CreateProducts\Init\AdminOptionPage();
+new MEC__CreateProducts\Init\CLIcommand();
+new MEC__CreateProducts\Init\CustomDataTabel__Vehicle();
+new MEC__CreateProducts\Init\Metadata__Compatible();
 
 // Initialize plugin components
 function mec__CP_plugin_init()
@@ -43,11 +45,7 @@ function mec__CP_plugin_init()
 }
 add_action('plugins_loaded', 'mec__CP_plugin_init');
 
-new MEC__CreateProducts\Admin\AdminPage();
-// Instantiate the Taxonomy class
-new MEC__CreateProducts\Init\Metadata();
-new MEC__CreateProducts\Init\CLIcommand();
-new MEC__CreateProducts\Init\CustomDataTabel__Vehicle();
+
 
 // Shortcode
 new MEC__CreateProducts\Utils\Compatible();

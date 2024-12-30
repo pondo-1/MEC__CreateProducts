@@ -115,8 +115,12 @@ The directory structure of the MEC\_\_CreateProducts plugin is as follows:
 
 - **/includes**: Contains the core functionality of the plugin.
 
-  - **/Admin**: Contains files related to the admin interface.
+  - **/Init**: Contains files hooked at early called actions such as Init, Admin_Init
   - `AdminPage.php`: Handles the admin options page.
+  - `CLIcommand.php`
+  - `CustomDataTabel__Vehicle.php`
+  - `Metadata__Compatible.php`
+  - `Shortcode__CompatibleTable.php` : Registers Shortcode and prepares for Compatible Table
   - **/API**: Contains files for API interactions and data processing.
   - `SaveToLocal.php`: Saves product data to local JSON files.
   - `PrepareJsonLocal.php`: Prepares the JSON data for use.

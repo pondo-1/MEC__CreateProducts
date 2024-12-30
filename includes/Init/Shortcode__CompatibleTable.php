@@ -1,8 +1,8 @@
 <?php
 
-namespace MEC__CreateProducts\Utils;
+namespace MEC__CreateProducts\Init;
 
-class Compatible
+class Shortcode__CompatibleTable
 {
   // Constructor to initialize the shortcode
   public function __construct()
@@ -15,9 +15,33 @@ class Compatible
   {
     ob_start(); // Start output buffering
     global $wpdb;
-    $Getvehicles = new GetVehicles($atts);
-?>
 
+    // Pass shortcode attributes to GetVehicles
+    $vehicles = new GetVehicles($atts);
+    $vehicleTypes = ['Car', 'Truck', 'Motorcycle']; // Example vehicle types
+
+    // Checkbox form
+    echo '<form id="filterForm">';
+    foreach ($vehicleTypes as $type) {
+      echo '<label><input type="checkbox" name="vehicle_type[]" value="' . esc_attr($type) . '">' . esc_html($type) . '</label><br>';
+    }
+    echo '<button type="button" id="filterButton">Filter</button>';
+    echo '</form>';
+
+    echo $this->generate_checkbox($vehicles->filter_options);
+    // Table rendering
+    echo '<div id="vehicleTable">';
+    echo $this->generate_table($vehicles->vehicles);
+    echo '</div>';
+
+    return ob_get_clean(); // Return the buffered content
+  }
+
+  // Method to generate the HTML table
+  private function generate_table($vehicles)
+  {
+    ob_start();
+?>
     <table class="table">
       <tr>
         <th>Id</th>
@@ -28,22 +52,20 @@ class Compatible
         <th>Baujahr</th>
         <th>Product Ids</th>
       </tr>
-      <?php
-      foreach ($Getvehicles->vehicles as $vehicle) { ?>
+      <?php foreach ($vehicles as $vehicle) { ?>
         <tr>
-          <td><?php echo $vehicle->id; ?></td>
-          <td><?php echo $vehicle->vehicle_type; ?></td>
-          <td><?php echo $vehicle->brand; ?></td>
-          <td><?php echo $vehicle->model; ?></td>
-          <td><?php echo $vehicle->engine_displacement; ?></td>
-          <td><?php echo $vehicle->prod_year; ?></td>
-          <td><?php echo $vehicle->compatible_products; ?></td>
+          <td><?php echo esc_html($vehicle->id); ?></td>
+          <td><?php echo esc_html($vehicle->vehicle_type); ?></td>
+          <td><?php echo esc_html($vehicle->brand); ?></td>
+          <td><?php echo esc_html($vehicle->model); ?></td>
+          <td><?php echo esc_html($vehicle->engine_displacement); ?></td>
+          <td><?php echo esc_html($vehicle->prod_year); ?></td>
+          <td><?php echo esc_html($vehicle->compatible_products); ?></td>
         </tr>
-      <?php }
-      ?>
+      <?php } ?>
     </table>
-<?php
-    return ob_get_clean(); // Return the buffered content
+  <?php
+    return ob_get_clean();
   }
 }
 
@@ -55,15 +77,16 @@ class GetVehicles
   private $placeholders;
   private $count;
   public $vehicles;
+  public $filter_options;
 
   function __construct($atts = [])
   {
     global $wpdb;
     $tablename = $wpdb->prefix . 'vehicles';
-    var_dump($atts);
+
     $this->args = $this->getShortcodeArgs($atts);
     $this->placeholders = $this->createPlaceholders();
-
+    $this->filter_options = $this->create_filter_options();
     $query = "SELECT * FROM $tablename ";
     $countQuery = "SELECT COUNT(*) FROM $tablename ";
     $query .= $this->createWhereText();
@@ -156,4 +179,55 @@ class GetVehicles
         return $index . " = %s";
     }
   }
+}
+
+add_action('wp_ajax_filter_vehicles', 'filter_vehicles');
+add_action('wp_ajax_nopriv_filter_vehicles', 'filter_vehicles');
+
+function filter_vehicles()
+{
+  global $wpdb;
+  $vehicle_types = isset($_POST['vehicle_types']) ? $_POST['vehicle_types'] : [];
+
+  // Prepare the query based on selected vehicle types
+  $tablename = $wpdb->prefix . 'vehicles';
+  $placeholders = implode(',', array_fill(0, count($vehicle_types), '%s'));
+  $query = "SELECT * FROM $tablename WHERE vehicle_type IN ($placeholders)";
+  $vehicles = $wpdb->get_results($wpdb->prepare($query, $vehicle_types));
+
+  // Generate the table
+  $table = generate_vehicle_table($vehicles);
+
+  // Return the table as JSON
+  wp_send_json_success(['table' => $table]);
+}
+
+function generate_vehicle_table($vehicles)
+{
+  ob_start();
+  ?>
+  <table class="table">
+    <tr>
+      <th>Id</th>
+      <th>Typ</th>
+      <th>Marke</th>
+      <th>Modell</th>
+      <th>Hubraum</th>
+      <th>Baujahr</th>
+      <th>Product Ids</th>
+    </tr>
+    <?php foreach ($vehicles as $vehicle) { ?>
+      <tr>
+        <td><?php echo esc_html($vehicle->id); ?></td>
+        <td><?php echo esc_html($vehicle->vehicle_type); ?></td>
+        <td><?php echo esc_html($vehicle->brand); ?></td>
+        <td><?php echo esc_html($vehicle->model); ?></td>
+        <td><?php echo esc_html($vehicle->engine_displacement); ?></td>
+        <td><?php echo esc_html($vehicle->prod_year); ?></td>
+        <td><?php echo esc_html($vehicle->compatible_products); ?></td>
+      </tr>
+    <?php } ?>
+  </table>
+<?php
+  return ob_get_clean();
 }

@@ -5,7 +5,7 @@ namespace MEC__CreateProducts\Init;
 // disable the defulat taxonomie 
 // add metadata "compatible"
 
-class Metadata
+class Metadata__Compatible
 {
 
   // Constructor to set up actions
@@ -61,5 +61,5 @@ class Metadata
     } else {
       echo esc_html($compatible); // Handle case where it's not an array
     }
-  } 
+  }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace MEC__CreateProducts\Admin;
+namespace MEC__CreateProducts\Init;
 
 use MEC__CreateProducts\API\SaveToLocal;
 use MEC__CreateProducts\API\PrepareJsonLocal;
@@ -10,7 +10,7 @@ use MEC__CreateProducts\Utils\WCHandler;
 use MEC__CreateProducts\Utils\SQLscript;
 use MEC__CreateProducts\Init\CustomDataTabel__Vehicle;
 
-class AdminPage
+class AdminOptionPage
 {
 
   public function __construct()
@@ -29,14 +29,14 @@ class AdminPage
       'MEC_dev',
       'manage_options',
       'MEC_dev',
-      [$this, 'renderAdminPage'],    // Callback to render the page content
+      [$this, 'renderAdminOptionPage'],    // Callback to render the page content
       '',                           // Icon
       65                            // Position
     );
   }
 
 
-  public function renderAdminPage()
+  public function renderAdminOptionPage()
   {
     $return_html = null;
     // Start output buffering
