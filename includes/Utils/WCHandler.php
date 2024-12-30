@@ -86,6 +86,12 @@ class WCHandler
       self::set_product_image_from_url($product, $product_data['info']['image']);
     }
 
+    // After setting product data
+    if (in_array($product_type, ['simple', 'variable']) && !empty($product_data['compatible'])) {
+      // Save compatible data as a custom metafield
+      $product->update_meta_data('compatible', $product_data['compatible']);
+    }
+
     // Save the product
     $product_id = $product->save();
 

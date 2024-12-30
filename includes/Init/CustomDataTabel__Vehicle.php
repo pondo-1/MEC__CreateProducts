@@ -50,7 +50,7 @@ class CustomDataTabel__Vehicle
     $inserted = 0;
     $errors = [];
 
-    foreach ($vehicles_array as $vehicle_string) {
+    foreach ($vehicles_array as $vehicle_string => $product_ids) {
       // Split the string by '|' delimiter
       $vehicle_data = explode('|', $vehicle_string);
 
@@ -61,7 +61,8 @@ class CustomDataTabel__Vehicle
           'brand' => $vehicle_data[1],
           'model' => $vehicle_data[2],
           'engine_displacement' => intval($vehicle_data[3]),
-          'prod_year' => $vehicle_data[4]
+          'prod_year' => $vehicle_data[4],
+          'compatible_products' => json_encode($product_ids) // Save as JSON
         ];
 
         // Insert into database

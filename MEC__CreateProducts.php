@@ -45,10 +45,12 @@ add_action('plugins_loaded', 'mec__CP_plugin_init');
 
 new MEC__CreateProducts\Admin\AdminPage();
 // Instantiate the Taxonomy class
-new MEC__CreateProducts\Init\Taxonomy();
+new MEC__CreateProducts\Init\Metadata();
 new MEC__CreateProducts\Init\CLIcommand();
 new MEC__CreateProducts\Init\CustomDataTabel__Vehicle();
 
+// Shortcode
+new MEC__CreateProducts\Utils\Compatible();
 
 // disable woocommerce cashe for dev purpose 
 add_filter('woocommerce_cache_enabled', '__return_false');
