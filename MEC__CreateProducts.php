@@ -37,6 +37,8 @@ new MEC__CreateProducts\Init\AdminOptionPage();
 new MEC__CreateProducts\Init\CLIcommand();
 new MEC__CreateProducts\Init\CustomDataTabel__Vehicle();
 new MEC__CreateProducts\Init\Metadata__Compatible();
+new MEC__CreateProducts\Init\Shortcode__CompatibleTable();
+
 
 // Initialize plugin components
 function mec__CP_plugin_init()
@@ -45,10 +47,7 @@ function mec__CP_plugin_init()
 }
 add_action('plugins_loaded', 'mec__CP_plugin_init');
 
-
-
-// Shortcode
-new MEC__CreateProducts\Utils\Compatible();
-
 // disable woocommerce cashe for dev purpose 
 add_filter('woocommerce_cache_enabled', '__return_false');
+
+// wp_enqueue_script('compatible-table', MEC__CP_URL . '/includes/Init/compatible-filter.js', [], null, true);
